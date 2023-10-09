@@ -1,4 +1,5 @@
 import { icons } from "./icons.js";
+import { lang} from "./language.js";
 
 class UserInterface {
     constructor() {

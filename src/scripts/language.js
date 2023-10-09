@@ -1,4 +1,4 @@
-var lang = {
+export var lang = {
 
     //Preklad do slovenčiny
 
