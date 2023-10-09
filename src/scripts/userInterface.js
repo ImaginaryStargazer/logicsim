@@ -170,7 +170,7 @@ class UserInterface {
 
     createLink(linkName, innerIcon) {
 
-        return `<li class="mainLink"><a class="link" href="https://github.com/jakubito11/LogicalCircuitSimulator">${innerIcon} ${linkName}</a></li>`;
+        return `<li class="mainLink"><a class="link" href="https://github.com/jakubito11/logicsim">${innerIcon} ${linkName}</a></li>`;
 
     }
 
