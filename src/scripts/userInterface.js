@@ -715,7 +715,13 @@ class UserInterface {
         document.body.classList.add(currentTheme);
     
         // Nastav logo vzhľadom k vybranej téme
-        logoHolder.src = icons[currentTheme];
+
+        if(localStorage.getItem("color-theme")) {
+            logoHolder.src = icons[localStorage.getItem("color-theme")];
+        } else {
+            logoHolder.src = icons[darkTheme];
+        }
+
 
         if (currentTheme === darkTheme) {
             dark.setAttribute("selected", true);
