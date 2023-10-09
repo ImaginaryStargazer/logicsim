@@ -12,7 +12,7 @@ export const icons = {
     docs: `<i class="fa-solid fa-book"></i>`,
     github: `<i class="fa-brands fa-github fa-xl"></i>`,
     close: `<i class="fa-solid fa-xmark close"></i>`,
-    newFile: `<i class="fa-solid fa-file openModal"></i>`,
+    newFile: `<i data-change="modalOpenFile" class="fa-solid fa-file openModal"></i>`,
     openFolder: `<i class="fa-solid fa-folder-open"></i>`,
     download: `<i data-change="modalDownload" class="fa-solid fa-download"></i>`,
     undo: `<i class="fa-solid fa-rotate-left"></i>`,
