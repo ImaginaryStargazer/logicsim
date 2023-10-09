@@ -52,7 +52,7 @@ var lang = {
 
         // Označenia tlačidiel, menu, nastavení
 
-        Welcome: "Vitajte v Ecsim!",
+        Welcome: "Vitajte v LogicSim!",
         About: "O programe",
         News: "Novinky",
         Circuits: "Obvody",
@@ -135,7 +135,7 @@ var lang = {
         Save_project: "Uložiť projekt?",
 
         WelcomeTitle: "Simulátor Logických Obvodov",
-        WelcomeText: "Vitajte na stránke Ecsim! Vaše jediné miesto pre všetky vaše potreby v oblasti simulácie obvodov. Či už ste skúsený nadšenec elektrotechniky alebo zvedavý začiatočník. S intuitívnym rozhraním a rozsiahlou knižnicou komponentov na dosah ruky, môžete oživiť svoje nápady a pozorovať magický svet elektronických obvodov v akcii. Pripojte sa k našej komunite vášnivých inžinierov a nadšencov dnes a nechajte Ecsim byť vaším dôveryhodným spoločníkom na vašej elektrizujúcej ceste do sveta obvodov. Veselé simulovanie!",
+        WelcomeText: "Vitajte na stránke LogicSim! Vaše jediné miesto pre všetky vaše potreby v oblasti simulácie obvodov. Či už ste skúsený nadšenec elektrotechniky alebo zvedavý začiatočník. S intuitívnym rozhraním a rozsiahlou knižnicou komponentov na dosah ruky, môžete oživiť svoje nápady a pozorovať magický svet elektronických obvodov v akcii. Pripojte sa k našej komunite vášnivých inžinierov a nadšencov dnes a nechajte LogicSim byť vaším dôveryhodným spoločníkom na vašej elektrizujúcej ceste do sveta obvodov. Veselé simulovanie!",
 
         Tutorial1: "",
         Tutorial2: "",
@@ -196,7 +196,7 @@ var lang = {
 
         // Označenia tlačidiel, menu, nastavení
 
-        Welcome: "Welcome to Ecsim!",
+        Welcome: "Welcome to LogicSim!",
         About: "About",
         News: "News",
         Circuits: "Circuits",
@@ -279,7 +279,7 @@ var lang = {
         Save_project: "Save current project?",
 
         WelcomeTitle: "Logical Circuit Simulator",
-        WelcomeText: "Welcome to Ecsim! Your one stop shop for all your circuit simulation needs. Whether you are an experienced electrical engineering enthusiast or a curious beginner. With an intuitive interface and an extensive library of components at your fingertips, you can bring your ideas to life and watch the magical world of electronic circuits in action. Join our community of passionate engineers and enthusiasts today and let Ecsim be your trusted companion on your electrifying journey into the world of circuits. Happy simulating!",
+        WelcomeText: "Welcome to LogicSim! Your one stop shop for all your circuit simulation needs. Whether you are an experienced electrical engineering enthusiast or a curious beginner. With an intuitive interface and an extensive library of components at your fingertips, you can bring your ideas to life and watch the magical world of electronic circuits in action. Join our community of passionate engineers and enthusiasts today and let LogicSim be your trusted companion on your electrifying journey into the world of circuits. Happy simulating!",
 
         Tutorial1: "",
         Tutorial2: "",
