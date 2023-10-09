@@ -1,0 +1,32 @@
+.light-theme {
+    --header_color: #cfcfcf;
+    --content_color: #cfcfcf;
+    --border_color: #B0B0B0;
+    --text_color: #2C2C2C;
+    --icon_color: #2C2C2C;
+    --component_type_color: #ece6e6;
+    --component_option_color: #cfcfcf;
+    --scrollbar_track-color: #cfcfcf;
+    --scrollbar_thumb-color: #ece6e6;
+    --main_board_color: #dad9d9;
+    --grid_minor_line_color: #ece6e6;
+    --component_hover_color: #c5c3c3;
+    --button_hover_color: #dfdfdf;
+}
+
+.dark-theme {
+    --header_color: #010409;
+    --content_color: #010409 ;
+    --border_color: #c9d1d9;
+    --text_color: #c9d1d9;
+    --icon_color: #c9d1d9;
+    --component_type_color: #606368;
+    --component_option_color: #010409;
+    --scrollbar_track-color: #3c4042;
+    --scrollbar_thumb-color: #606368;
+    --main_board_color: #0d1117;
+    --grid_minor_line_color: #c9d1d9;
+    --component_hover_color:#3c4042;
+    --button_hover_color: #c9d1d9;
+}
+

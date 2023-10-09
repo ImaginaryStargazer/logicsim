@@ -1,0 +1,15 @@
+@import url("color_themes.css");
+
+#mainBoardContainer {
+    position: absolute;
+    display: inline-flex;
+    width: 85%;
+    height: calc(100vh - 115px);
+    
+}
+
+
+#mainBoard {
+    width: 100%;
+    background-color: var(--main_board_color);
+}
