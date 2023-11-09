@@ -1,5 +1,6 @@
 import { icons } from "./icons.js";
-import { lang} from "./language.js";
+import { lang } from "./language.js";
+
 
 class UserInterface {
     constructor() {
@@ -8,7 +9,8 @@ class UserInterface {
         this.circuitsCounter = 0;
         this.tutorialCounter = 0;
         this.showGrid = true;
-        this.partsIEC = true;
+        this.partsIEC = false;
+        this.showAlerts = true;
 
         if (localStorage.getItem("language")) {
             this.language = localStorage.getItem("language");
@@ -32,11 +34,9 @@ class UserInterface {
 
     handleChanges() {
 
-        const grid = document.getElementById("grid");
-        const IEC = document.getElementById("IEC");
 
-        IEC.setAttribute("checked", this.partsIEC);
-        grid.setAttribute("checked", this.showGrid);
+        document.getElementById("grid").setAttribute("checked", this.showGrid);
+        document.getElementById("alerts").setAttribute("checked", this.showAlerts)
 
 
         if (localStorage.getItem("show-again") == "false") {
@@ -46,13 +46,33 @@ class UserInterface {
 
     attachEventListeners() {
 
-        document.getElementById("saveProjectTitle").addEventListener("click", () => {this.changeProjectTitle()});
+        document.getElementById("saveProjectTitle").addEventListener("click", () => {
+            this.changeProjectTitle()
+        });
 
-        document.getElementById("showAgain").addEventListener("click", (e) => {this.showTutorial(e)});
 
-        document.querySelectorAll(".componentsTitle").forEach((category) => {category.addEventListener("click", (e) => {this.toggleComponentCategories(e)})});
+        document.getElementById("showAgain").addEventListener("click", (e) => {
+            this.showTutorial(e)
+        });
 
-        document.getElementById("partsPosition").onchange = (e) => {this.toggleComponentsMenuSide(e)};
+
+        document.getElementById("alerts").onchange = (e) => {
+            this.showAlert(e)
+        };
+
+
+        document.querySelectorAll(".componentsTitle").forEach((category) => {
+
+            category.addEventListener("click", (e) => {
+
+                this.toggleComponentCategories(e)
+            })
+        });
+
+
+        document.getElementById("partsPosition").onchange = (e) => {
+            this.toggleComponentsMenuSide(e)
+        };
     }
 
 
@@ -171,7 +191,7 @@ class UserInterface {
 
     createLink(linkName, innerIcon) {
 
-        return `<li class="mainLink"><a class="link" href="https://github.com/jakubito11/logicsim">${innerIcon} ${linkName}</a></li>`;
+        return `<li class="mainLink"><a class="link" href="https://jakubito11.github.io/logicsim/">${innerIcon} ${linkName}</a></li>`;
 
     }
 
@@ -236,16 +256,72 @@ class UserInterface {
 
     }
 
-    changeVoltageColorOption() {
+    changeVoltageColorOption(id) {
 
         return `
             <div class="options">
                 <p>${lang[this.language].VoltageColor}</p>
-                <input class="selectOption" placeholder="#FFFF00">
+                <input id="${id}" class="selectOption" placeholder="#FFFF00">
             </div>
         `;
 
     }
+
+    //////////////////////////////////////////////////////////////////////////
+    //
+    // Vytváranie vyskakovacích okien akcii
+    //
+    //////////////////////////////////////////////////////////////////////////
+
+    // id="closeModal"
+
+    createAlert() {
+
+        const alertError = `
+
+            <div type="error" class="alert">
+                <span class="closebtn">&times;</span>  
+                <p><strong>${lang[this.language].Error}!</strong><span id="alertText"></span></p>
+            </div>
+        `;
+    
+        this.render(alertError);
+
+
+        const alertInfo = `
+        
+            <div type="info" class="alert info">
+                <span class="closebtn">&times;</span>  
+                <p><strong>${lang[this.language].Info}!</strong><span id="alertText"></span></p>
+            </div>
+        `;
+
+        this.render(alertInfo)
+
+
+        const alertWarning = `
+
+            <div type="warning" class="alert warning">
+                <span class="closebtn">&times;</span>  
+                <p><strong>${lang[this.language].Warning}!</strong><span id="alertText"></span></p>
+            </div>
+        `;
+
+        this.render(alertWarning);
+
+        
+        const alertSuccess = `
+
+            <div type="success" class="alert success">
+                <span class="closebtn">&times;</span>  
+                <p><strong>${lang[this.language].Success}!</strong><span id="alertText"></span></p>
+            </div>
+        `;
+
+        this.render(alertSuccess);
+    }
+
+
 
     //////////////////////////////////////////////////////////////////////////
     //
@@ -380,7 +456,8 @@ class UserInterface {
                         ${this.createToggleOption(lang[this.language].valuesText, "values")}
                         ${this.createToggleOption(lang[this.language].partsPosition, "partsPosition")}
                         ${this.createToggleOption(lang[this.language].grid, "grid")}
-                        ${this.changeVoltageColorOption()}
+                        ${this.createToggleOption(lang[this.language].showAlerts, "alerts")}
+                        ${this.changeVoltageColorOption("changeVoltageColor")}
                     </div>
                 </div>
             </div>
@@ -466,7 +543,7 @@ class UserInterface {
 
     //////////////////////////////////////////////////////////////////////////
     //
-    // Vytváranie menu komponentov
+    // Vytváranie menu komponentov a nástrojov
     //
     //////////////////////////////////////////////////////////////////////////
 
@@ -478,36 +555,63 @@ class UserInterface {
 
     }
 
+    createTool(componentName, icon, tool, style) {
+
+        //selected-tool="${tool}"
+        //${this.createTool("Drag Selection", icons.multipleSelect)}
+
+        return `<li selected-tool="${tool}" class="component editorTool editorTools ${style}">${componentName} ${icon}</li>`;
+    }
+
     createComponentToolbar() {
 
         const componentsToolbar = `
             <div id="componentsToolbar" class="componentsContainer">
+
+                <div>
+                    <p class="componentsTitle">${lang[this.language].Tools}</p>
+                    <ul class="components">
+                        ${this.createTool(lang[this.language].Edit, icons.edit, "Edit", "Edit")}
+                        ${this.createTool(lang[this.language].MoveEditor, icons.moveEditor, "Move-Editor", "Move-Editor")}
+                        ${this.createTool(lang[this.language].RemoveWire, icons.removeWire, "Remove-Wire", "Remove-Wire")}
+                        
+                    </ul>
+                </div>
+
                 <div>
                     <p class="componentsTitle">${lang[this.language].Logical}</p>
                     <ul class="components">
-                        ${this.createComponent(lang[this.language].Not, icons.IEC.Not, "NOT")}
-                        ${this.createComponent(lang[this.language].And, icons.IEC.And, "AND")}
-                        ${this.createComponent(lang[this.language].Or, icons.IEC.Or, "OR")}
-                        ${this.createComponent(lang[this.language].Nor, icons.IEC.Nor, "NOR")}
-                        ${this.createComponent(lang[this.language].Nand, icons.IEC.Nand, "NAND")}
-                        ${this.createComponent(lang[this.language].Xor, icons.IEC.Xor, "XOR")}
-                        ${this.createComponent(lang[this.language].Xnor, icons.IEC.Xnor, "XNOR")}
+                        ${this.createComponent(lang[this.language].Not, icons.ANSI.Not, "NOT")}
+                        ${this.createComponent(lang[this.language].And, icons.ANSI.And, "AND")}
+                        ${this.createComponent(lang[this.language].Or, icons.ANSI.Or, "OR")}
+                        ${this.createComponent(lang[this.language].Nor, icons.ANSI.Nor, "NOR")}
+                        ${this.createComponent(lang[this.language].Nand, icons.ANSI.Nand, "NAND")}
+                        ${this.createComponent(lang[this.language].Xor, icons.ANSI.Xor, "XOR")}
+                        ${this.createComponent(lang[this.language].Xnor, icons.ANSI.Xnor, "XNOR")}
                     </ul>
                 </div>
                 <div>
                     <p class="componentsTitle">${lang[this.language].Inputs}</p>
                     <ul class="components">
-                        ${this.createComponent(lang[this.language].LowInput, icons.IEC.LowInput, "LI")}
-                        ${this.createComponent(lang[this.language].HighInput, icons.IEC.HighInput, "HI")}
-                        ${this.createComponent(lang[this.language].ClockGen, icons.IEC.ClockGen, "CLK")}
-                        ${this.createComponent(lang[this.language].ToggleSwitch, icons.IEC.ToggleSwitch, "LSW")}
+                        ${this.createComponent(lang[this.language].LowInput, icons.ANSI.LowInput, "LI")}
+                        ${this.createComponent(lang[this.language].HighInput, icons.ANSI.HighInput, "HI")}
+                        ${this.createComponent(lang[this.language].ClockGen, icons.ANSI.ClockGen, "CLK")}
+                        ${this.createComponent(lang[this.language].ToggleSwitch, icons.ANSI.ToggleSwitch, "LSW")}
                     </ul>
                 </div>
                 <div>
                     <p class="componentsTitle">${lang[this.language].Outputs}</p>
                     <ul class="components">
-                        ${this.createComponent(lang[this.language].LogicalOutput, icons.IEC.LogicalOutput, "LO")}
-                        ${this.createComponent(lang[this.language].Bulb, icons.IEC.LightBulb, "BLB")}
+                        ${this.createComponent(lang[this.language].LogicalOutput, icons.ANSI.LogicalOutput, "LO")}
+                        ${this.createComponent(lang[this.language].Bulb, icons.ANSI.LightBulb, "BLB")}
+                    </ul>
+                </div>
+                <div>
+                    <p class="componentsTitle">${lang[this.language].DigitalChips}</p>
+                    <ul class="components">
+                        ${this.createComponent(lang[this.language].SevenSegDecoder, icons.ANSI.SevenSegDecoder, "7SD")}
+                        ${this.createComponent(lang[this.language].SevenSegDisplay, icons.ANSI.SevenSegDisplay, "7SL")}
+                        ${this.createComponent(lang[this.language].D_FlipFlop, icons.ANSI.D_FlipFlop, "DFF")}
                     </ul>
                 </div>
             </div>
@@ -546,6 +650,9 @@ class UserInterface {
         this.setLanguage();
         this.attachEventListeners();
         this.handleModals();
+        
+        this.createAlert();
+        this.closeAlert();
 
       }
 
@@ -703,45 +810,39 @@ class UserInterface {
         }
     }
 
-
     setColorTheme() {
+
         const darkTheme = "dark-theme";
         const lightTheme = "light-theme";
         const defaultTheme = darkTheme;
-    
-        const toggleTheme = document.getElementById("theme");
+
+        //const toggleTheme = document.getElementById("theme");
         let currentTheme = localStorage.getItem("color-theme") || defaultTheme;
-    
-        // Nastav defaultný vzhľad
+
+        // nastaviť defaultny vzhlad
         document.body.classList.add(currentTheme);
-    
-        // Nastav logo vzhľadom k vybranej téme
+        logoHolder.src = icons[currentTheme];
 
-        if(localStorage.getItem("color-theme")) {
-            logoHolder.src = icons[localStorage.getItem("color-theme")];
-        } else {
-            logoHolder.src = icons[darkTheme];
-        }
-
-
+        // vyber farebného motívu v dropdown menu
         if (currentTheme === darkTheme) {
             dark.setAttribute("selected", true);
         } else if (currentTheme === lightTheme) {
             light.setAttribute("selected", true);
         }
-    
+
+        /*
         toggleTheme.addEventListener("change", () => {
             const option = toggleTheme.value;
-    
+
             if ([darkTheme, lightTheme].includes(option)) {
                 document.body.classList.replace(currentTheme, option);
                 currentTheme = option;
                 localStorage.setItem("color-theme", option);
-                logoHolder.src = icons[currentTheme];
+                logoHolder.src = icons[localStorage.getItem("color-theme")];
             }
         });
+        */
     }
-    
 
     setLanguage() {
 
@@ -771,15 +872,18 @@ class UserInterface {
     }
 
     changeProjectTitle() {
+
         let title = projectTitleInput.value;
 
         if (title.trim() == "" || title.trim().length > 30 || title.trim().length < 4) {
+            this.openAlert("info", "IncorrectTitle")
             projectTitleInput.value = "";
-            return;
+            
         } else {
+            this.openAlert("success", "CorrectTitle");
             projectTitleInput.value = "";
             modalTitle.style.display = "none";
-            return (projectTitle.innerText = title);
+            projectTitle.innerText = title;
         }
     }
 
@@ -849,6 +953,7 @@ class UserInterface {
                 document.removeEventListener("mousemove", drag);
             });
         });
+
     }
 
     toggleComponentCategories(e) {
@@ -890,6 +995,69 @@ class UserInterface {
         }
     }
 
+    showAlert(e) {
+
+        if (e.target.checked === true) {
+
+            this.showAlerts = true;
+
+        } else {
+
+            this.showAlerts = false;
+        }
+    }
+
+    
+    closeAlert() {
+        const closeButtons = document.querySelectorAll(".closebtn");
+    
+        for (let i = 0; i < closeButtons.length; i++) {
+            closeButtons[i].addEventListener("click", function () {
+                let div = closeButtons[i].parentElement
+                div.classList.add("alertClose");
+                setTimeout(() => {
+                    div.classList.remove("alertClose");
+                    div.style.display = "none";
+                }, 2000);
+            });
+        }
+    }
+    
+    openAlert(typeOfAlert, alertInfo) {
+
+        if(!this.showAlerts) return;
+
+        const alerts = document.getElementsByClassName("alert")
+
+    
+        for(let i = 0; i < alerts.length; i++) {
+
+            if(alerts[i].getAttribute("type") == typeOfAlert) {
+
+
+                alerts[i].children.item(1).children.namedItem("alertText").innerText = lang[this.language][alertInfo];
+
+                alerts[i].style.display = "block"
+                alerts[i].classList.add("alertOpen")
+
+        
+    
+                setTimeout(() => {
+                    alerts[i].classList.remove("alertOpen");
+                    alerts[i].classList.add("alertClose");
+                        
+                
+                    setTimeout(() => {
+                        alerts[i].style.display = "none"
+                        alerts[i].classList.remove("alertClose");
+                    }, 2500);
+    
+                }, 2000);
+            }
+        }
+        
+    }
+
 }
 
 
@@ -897,3 +1065,8 @@ class UserInterface {
 const UI = new UserInterface();
 
 UI.initialise();
+
+export function openAlert(typeOfAlert, alertInfo) {
+
+    UI.openAlert(typeOfAlert, alertInfo);
+} 

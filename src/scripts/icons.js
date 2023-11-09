@@ -13,8 +13,8 @@ export const icons = {
     github: `<i class="fa-brands fa-github fa-xl"></i>`,
     close: `<i class="fa-solid fa-xmark close"></i>`,
     newFile: `<i data-change="modalOpenFile" class="fa-solid fa-file openModal"></i>`,
-    openFolder: `<i class="fa-solid fa-folder-open"></i>`,
-    download: `<i data-change="modalDownload" class="fa-solid fa-download"></i>`,
+    openFolder: `<i data-change="modalOpenFolder" class="fa-solid fa-folder-open openModal"></i>`,
+    download: `<i data-change="modalDownload" class="fa-solid fa-download openModal"></i>`,
     undo: `<i class="fa-solid fa-rotate-left"></i>`,
     redo: `<i class="fa-solid fa-rotate-right"></i>`,
     startSimulation: `<i class="fa-solid fa-play"></i>`,
@@ -35,6 +35,10 @@ export const icons = {
     oscilloscope: `<i class="fa-solid fa-wave-square"></i>`,
     resetClock: `<i class="fa-solid fa-clock-rotate-left"></i>`,
     handDrag: `<i class="fa-regular fa-hand"></i>`,
+    edit: `<i class="fa-solid fa-arrow-pointer"></i>`,
+    moveEditor: `<i class="fa-solid fa-arrows-up-down-left-right"></i>`,
+    multipleSelect: `<i class="fa-regular fa-square"></i>`,
+    removeWire: `<i class="fa-solid fa-wrench"></i>`,
 
 
     // Obrázky
@@ -83,6 +87,9 @@ export const icons = {
         ToggleSwitch: "images/components/ToggleSwitch.png",
         LightBulb: "images/components/LightBulb.png",
         LogicalOutput: "images/components/LogicalOutput.png",
+        SevenSegDecoder: "images/components/7SegDeoder.png",
+        SevenSegDisplay: "images/components/7SegDisplay.png",
+        D_FlipFlop: "images/components/D_FlipFlop.png",
     },
 
     // Americké ikony komponentov
@@ -121,6 +128,9 @@ export const icons = {
         ToggleSwitch: "images/components/ToggleSwitchANSI.png",
         LightBulb: "images/components/LightBulbANSI.png",
         LogicalOutput: "images/components/LogicalOutputANSI.png",
+        SevenSegDecoder: "images/components/7SegDecoderANSI.png",
+        SevenSegDisplay: "images/components/7SegDisplayANSI.png",
+        D_FlipFlop: "images/components/D_FlipFlopANSI.png",
     }
     
 

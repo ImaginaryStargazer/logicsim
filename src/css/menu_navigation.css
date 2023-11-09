@@ -12,8 +12,12 @@ hover color - #caf0f8
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kreon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-
+@font-face {
+    font-family: 'Digital Numbers Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/css/font/DigitalNumbers-Regular.woff'), format('woff');
+}
 @import url("color_themes.css");
 
 
@@ -311,7 +315,26 @@ body {
 }
 
 
+.editorTool {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    list-style: none;
+    padding: 17px;
+    border-bottom: 1px solid var(--border_color);
+    color: var(--text_color);
+    background-color: var(--component_option_color);
+    user-select: none;
+}
+
+.editorTool:hover {
+    background-color: var(--component_hover_color);
+}
+
+
 .component:hover {
+    transition: 150ms;
     background-color: var(--component_hover_color);
 }
 
@@ -339,9 +362,27 @@ body {
     transition: 0.2s;
 }
 
-.selectedComponent{
-    background-color: var(--component_hover_color);
+@keyframes componentAnimation {
+    0% {
+        background-color: transparent;
+        transform: scale(1);
+    }
+    50% {
+        background-color: var(--component_hover_color);
+        transform: scale(1.1);
+    }
+    100% {
+        background-color: var(--component_hover_color);
+        transform: scale(1);
+    }
 }
+
+.selectedComponent {
+    animation: componentAnimation 500ms ease-in-out forwards;
+}
+
+
+
 
 
 /*================================================

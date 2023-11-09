@@ -8,8 +8,8 @@
     --component_option_color: #cfcfcf;
     --scrollbar_track-color: #cfcfcf;
     --scrollbar_thumb-color: #ece6e6;
-    --main_board_color: #dad9d9;
-    --grid_minor_line_color: #ece6e6;
+    --main_board_color: #cfcfcf;
+    --grid_minor_line_color: #D3D3D3;
     --component_hover_color: #c5c3c3;
     --button_hover_color: #dfdfdf;
 }

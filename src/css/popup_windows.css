@@ -476,3 +476,85 @@
     align-items: center;
     height: 100%;
 }
+
+
+/*================================================
+
+Štýly pre - alert
+
+=================================================== */
+
+
+.alert {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background-color: #f44336;
+    color: var(--text_color);
+    margin-top: 10px;
+    left: 30%;
+    font-family: 'Electrolize', sans-serif;
+    width: 600px;
+    font-size: 15px;
+    border: 1px solid var(--border_color);
+    user-select: none;
+}
+
+#alertText {
+    margin-left: 10px;
+}
+
+  
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #db8b12;}
+  
+.closebtn {
+    margin-left: 15px;
+    color: var(--icon_color);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+}
+
+.alertOpen {
+    animation: alertOpenAnimation 2.6s;
+}
+
+.alertClose {
+    animation: alertCloseAnimation 2.6s;
+}
+
+@keyframes alertOpenAnimation {
+
+    
+    from {
+        display: none;
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes alertCloseAnimation {
+    from {
+        display: block;
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+

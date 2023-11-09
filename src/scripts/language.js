@@ -48,6 +48,11 @@ export var lang = {
         Box: "Skupina",
         Line: "Čiara",
         Label: "Štítok",
+        Tools: "Nástroje",
+        DigitalChips: "Digitálne Čipy",
+        SevenSegDecoder: "7 Segmentový Dekodér",
+        SevenSegDisplay: "7 Segmentový Displej",
+        D_FlipFlop: "D Preklápací Obvod",
 
 
         // Označenia tlačidiel, menu, nastavení
@@ -70,6 +75,7 @@ export var lang = {
         languageText: "Zmeň jazyk",
         displayText: "Európske súčiastky",
         valuesText: "Ukáž hodnoty komponentov",
+        showAlerts: "Ukáž upozornenia",
         partsPosition: "Zmeň stranu menu komponentov",
         grid: "Ukáž štvorcovú mriežku",
         Dark_theme: "Tmavá",
@@ -91,6 +97,9 @@ export var lang = {
         Delete: "Zmazať",
         Clone: "Kopírovať",
         Center: "Centrovať",
+        MoveEditor: "Posúvať Editor",
+        Edit: "Upraviť",
+        RemoveWire: "Zmazať Prepojenie",
 
         // Obvody
 
@@ -115,6 +124,12 @@ export var lang = {
         SampleCir18: "Obvod18",
         
         // Oznamy a texty používateľom
+
+        Error: "Chyba",
+        Warning: "Pozor",
+        Info: "Info",
+        Success: "Úspech",
+
 
         mainFunctions: "Hlavné Funkcie",
 
@@ -143,6 +158,9 @@ export var lang = {
         Tutorial4: "",
         Tutorial5: "",
 
+        WireLoop: "Bol zistený skrat v obvode!",
+        IncorrectTitle: "Názov musí mať aspoň 4 znaky a menej ako 30!",
+        CorrectTitle: "Názov sa zmenil!"
     },
     
     //Preklad do angličtiny
@@ -193,6 +211,12 @@ export var lang = {
         Box: "Box",
         Line: "Line",
         Label: "Label",
+        Tools: "Tools",
+        DigitalChips: "Digital Chips",
+        SevenSegDecoder: "7 Segment Decoder",
+        SevenSegDisplay: "7 Segment Display",
+        D_FlipFlop: "D Flip Flop",
+
 
         // Označenia tlačidiel, menu, nastavení
 
@@ -215,6 +239,7 @@ export var lang = {
         displayText: "European parts",
         valuesText: "Show component values",
         partsPosition: "Change components menu position",
+        showAlerts: "Show alerts",
         grid: "Show grid",
         Dark_theme: "Dark",
         Light_theme: "Light",
@@ -235,6 +260,9 @@ export var lang = {
         Delete: "Delete",
         Clone: "Copy",
         Center: "Center",
+        MoveEditor: "Drag Editor",
+        Edit: "Edit",
+        RemoveWire: "Remove Wire",
         
         // Obvody
 
@@ -259,6 +287,12 @@ export var lang = {
         SampleCir18: "Circuit18",
         
         // Oznamy a texty používateľom
+
+        Error: "Error",
+        Warning: "Warning",
+        Info: "Info",
+        Success: "Success",
+
 
         mainFunctions: "Main Functions",
 
@@ -286,5 +320,9 @@ export var lang = {
         Tutorial3: "",
         Tutorial4: "",
         Tutorial5: "",
+
+        WireLoop: "Wire loop detected!",
+        IncorrectTitle: "The title must be at least 4 characters long and less than 30!",
+        CorrectTitle: "Title changed!"
     },
 }
