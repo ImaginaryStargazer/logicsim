@@ -10,7 +10,7 @@ Dostupné aj na **(https://jakubito11.github.io/logicsim)**
 
 ## Limitácie
 
-Skoro žiadna podpore pre menšie obrazovky a mobily.
+Skoro žiadna podpora pre menšie obrazovky a mobily.
 
 ## :wrench: TODO
 
