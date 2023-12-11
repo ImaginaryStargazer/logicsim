@@ -6,6 +6,8 @@ Simulátor logických obvodov vytvorený v jazyku JavaScript a s pomocou Konva.j
 
 ## Ukážka
 
+![demo gif animation](demo.gif)
+
 Dostupné aj na **(https://jakubito11.github.io/logicsim)**
 
 ## Limitácie
