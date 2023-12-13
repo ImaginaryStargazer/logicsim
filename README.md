@@ -18,6 +18,7 @@ Skoro žiadna podpora pre menšie obrazovky a mobily.
 
 Dokumentácia súčiastok.\
 Obvody na vyskúšanie v hlavnom menu.
+Editovanie súčiastok (počet bitov)
 
 ## Autor
 
