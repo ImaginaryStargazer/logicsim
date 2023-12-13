@@ -16,7 +16,7 @@ hover color - #caf0f8
     font-family: 'Digital Numbers Regular';
     font-style: normal;
     font-weight: normal;
-    src: url('/css/font/DigitalNumbers-Regular.woff'), format('woff');
+    src: url('src/css/font/DigitalNumbers-Regular.woff'), format('woff');
 }
 @import url("color_themes.css");
 
