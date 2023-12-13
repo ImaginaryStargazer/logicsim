@@ -1,5 +1,5 @@
-import { Node } from "./node";
-import { Component } from "./component";
+import { Node } from "./node.js";
+import { Component } from "./component.js";
 
 
 export class RingCounter extends Component {
