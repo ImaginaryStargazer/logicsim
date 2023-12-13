@@ -19,11 +19,11 @@ import { LogicalOutput } from "./logicalComponents/logicalOutput.js";
 import { LightBulb } from "./logicalComponents/lightBulb.js";
 import { SevenSegmentDecoder } from "./logicalComponents/7segmentDecoder.js";
 import { SevenSegmentDisplay } from "./logicalComponents/7segmentDisplay.js";
-import { Counter } from "./logicalComponents/counter.js";
+import { Counter } from "./logicalComponents/Counter.js";
 import { D_FlipFlop } from "./logicalComponents/D_FlipFlop.js";
 import { T_FlipFlop } from "./logicalComponents/T_FlipFlop.js";
 import { JK_FlipFlop } from "./logicalComponents/JK_FlipFlop.js";
-import { Latch } from "./logicalComponents/latch.js";
+import { Latch } from "./logicalComponents/Latch.js";
 import { Multiplexor } from "./logicalComponents/Multiplexor.js";
 import { Demultiplexor } from "./logicalComponents/Demultiplexor.js";
 import { RingCounter } from "./logicalComponents/ringCounter.js";
@@ -235,16 +235,16 @@ document.getElementById("oscilloscope").addEventListener("click", (e) => {
 })
 
 
-
 /* Zmena farby napätia na kábloch a svorkách */
 
+/*
 document.getElementById("changeVoltageColor").addEventListener("change", (e) => {
 
     
 
 })
 
-
+*/
 
 /* Zmena komponentov v editore a v menu komponentov na ANSI a IEC */
 
