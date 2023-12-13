@@ -39,6 +39,7 @@ export var lang = {
         LowInput: "Logická Nula",
         HighInput: "Logická Jednotka",
         ClockGen: "Generátor Impulzov",
+        SequenceGen: "Generátor Sekvencie",
         ToggleSwitch: "Vypínač",
         Outputs: "Logické Výstupy",
         Bulb: "Žiarovka",
@@ -53,6 +54,22 @@ export var lang = {
         SevenSegDecoder: "7 Segmentový Dekodér",
         SevenSegDisplay: "7 Segmentový Displej",
         D_FlipFlop: "D Preklápací Obvod",
+        T_FlipFlop: "T Preklápací Obvod",
+        JK_FlipFlop: "JK Preklápací Obvod",
+        Latch: "Latch",
+        Multiplexor: "Multiplexor",
+        Demultiplexor: "Demultiplexor",
+        Counter: "Počítadlo",
+        RingCounter: "Kruhové Počítadlo",
+        DecimalDisplay: "Desiatkový Displej",
+        HalfAdder: "Polovičná Sčítačka",
+        FullAdder: "Úplná Sčítačka",
+        SIPOregister: "SIPO Register",
+        ClockCounter: "Počítadlo Impulzov",
+        BinarySwitch: "Binárny Prepínač",
+        LEDarray: "LED Pole",
+        RGBLED: "RGB LED",
+        Oscilloscope: "Osciloskop",
 
 
         // Označenia tlačidiel, menu, nastavení
@@ -85,7 +102,7 @@ export var lang = {
         Circuit_netlist: "Textový zoznam obvodu",
         VoltageColor: "Zmeniť farbu napätia",
         UntitledCircuit: "Bez názvu",
-        StartTutorial: "Začať tutoriál" ,
+        StartTutorial: "Začať tutoriál",
         SkipTutorial: "Preskočiť",
         Show: "Znova nezobrazovať",
         Next: "Ďalej",
@@ -100,6 +117,19 @@ export var lang = {
         MoveEditor: "Posúvať Editor",
         Edit: "Upraviť",
         RemoveWire: "Zmazať Prepojenie",
+        Apply: "Použiť",
+        EditNode: "Upraviť Svorku",
+        EditComponent: "Upraviť Súčiastku",
+        AddTo: "Pridať Do:",
+        SignalColor: "Farba Signálu:",
+        Ok: "Ok",
+        EditOscilloscope: "Upraviť Osciloskop",
+        ChooseScope: "Vyberte Kanál:",
+        Amplitude: "Amplitúda:",
+        Color: "Farba:",
+        Reverse: "Invertovať:",
+        Toggle: "Prepnúť",
+        RemoveFromChannel: "Odstrániť signál z kanála:",
 
         // Obvody
 
@@ -139,7 +169,7 @@ export var lang = {
         simulation: "Simulácia v Reálnom Čase",
         simulationText: "Obvody sú simulované v reálnom čase, s možnosťou pozorovania hodnôt na jednotlivých výstupoch a vstupoch.",
 
-        tutorial: "Tutoriál and Inštrukcie",
+        tutorial: "Tutoriál a Inštrukcie",
         tutorialText: "Aplikácia obsahuje tutoriál a krok-za-krokom inštrukcie pre nových užívateľov.",
 
         projectName: "Názov projektu",
@@ -150,17 +180,45 @@ export var lang = {
         Save_project: "Uložiť projekt?",
 
         WelcomeTitle: "Simulátor Logických Obvodov",
-        WelcomeText: "Vitajte na stránke LogicSim! Vaše jediné miesto pre všetky vaše potreby v oblasti simulácie obvodov. Či už ste skúsený nadšenec elektrotechniky alebo zvedavý začiatočník. S intuitívnym rozhraním a rozsiahlou knižnicou komponentov na dosah ruky, môžete oživiť svoje nápady a pozorovať magický svet elektronických obvodov v akcii. Pripojte sa k našej komunite vášnivých inžinierov a nadšencov dnes a nechajte LogicSim byť vaším dôveryhodným spoločníkom na vašej elektrizujúcej ceste do sveta obvodov. Veselé simulovanie!",
+        WelcomeText: "Vitajte na stránke LogicSim! Miesto pre všetky vaše potreby v oblasti simulácie logických obvodov. Či už ste skúsený nadšenec elektrotechniky alebo zvedavý začiatočník. S intuitívnym rozhraním a rozsiahlou knižnicou komponentov na dosah ruky, môžete oživiť svoje nápady a pozorovať magický svet logických obvodov v akcii. Nechajte LogicSim, aby bol vaším dôveryhodným spoločníkom na vašej ceste do sveta logických obvodov. Veselé simulovanie!",
 
-        Tutorial1: "",
-        Tutorial2: "",
-        Tutorial3: "",
-        Tutorial4: "",
-        Tutorial5: "",
+        ChangeSettings: "Zmena nastavení",
+        Tutorial1: "Jednoduchá zmena nastavení celej stránky. Je možné meniť farebný motív, jazyk a mnoho ďaľších nastavení pre prácu v editore.",
+
+        CircuitEditor: "Práca v editore",
+        Tutorial2: "Používatelia môžu približovať a odďalovať pohľad. Rovnako je môžné sa nekonečne pohybovať vo všetkých smeroch.",
+
+        AddComponents: "Prídavanie súčiastok",
+        Tutorial3: "Rýchle pridávanie súčiastok z knižnice. Na výber je až 32 jedninečných súčiastok.",
+
+        EditComponents: "Úprava súčiastok",
+        Tutorial4: "Používatelia môžu voľne editovať všetky súčiastky meniť ich pozíciu, rotáciu a odstrániť nepotrebné súčiastky.",
+
+        AddWires: "Prepájanie súčiastok",
+        Tutorial5: "Pri kliknutí na akékoľvek dve svorky sa vytvorí spojenie medzi dvomi súčiastkami.",
+
+        Simulate: "Simulácia obvodov",
+        Tutorial6: "Animovaná simulácia akéhokoľvek logického obvodu. Simulácia sa spustí a zastaví len jediným kliknutím.",
+
+        OscilloscopeSettings: "Osciloskop a priebeh signálu",
+        Tutorial7: "Pridávanie akejkoľvek svorky pravým kliknutím do osciloskopu. Signál je možné upraviť pravým kliknutím na osciloskop.",
+
+        SaveAndLoad: "Uloženie a načítanie obvodu",
+        Tutorial8: "Zapojený obvod sa jednoducho uloží v JSON formáte, ktorý si používatel môže sám ďalej upraviť v textovej forme alebo načítať a upravovať v editore.",
+
+
+        GithubPage: "Open source zdrojový kód",
+        Tutorial9: "Celý zdrojový kód aplikácie je dostupný na mojej GitHub stránke.",
+
+
+
+
+
 
         WireLoop: "Bol zistený skrat v obvode!",
         IncorrectTitle: "Názov musí mať aspoň 4 znaky a menej ako 30!",
-        CorrectTitle: "Názov sa zmenil!"
+        CorrectTitle: "Názov sa zmenil!",
+        DownloadCompleted: "Sťahovanie obvodu sa podarilo!",
     },
     
     //Preklad do angličtiny
@@ -202,6 +260,7 @@ export var lang = {
         LowInput: "Low Input",
         HighInput: "High Input",
         ClockGen: "Clock Generator",
+        SequenceGen: "Sequence Generator",
         ToggleSwitch: "Toggle Switch",
         Outputs: "Logical Outputs",
         Bulb: "Light Bulb",
@@ -216,7 +275,22 @@ export var lang = {
         SevenSegDecoder: "7 Segment Decoder",
         SevenSegDisplay: "7 Segment Display",
         D_FlipFlop: "D Flip Flop",
-
+        T_FlipFlop: "T Flip Flop",
+        JK_FlipFlop: "JK Flip Flop",
+        Latch: "Latch",
+        Multiplexor: "Multiplexor",
+        Demultiplexor: "Demultiplexor",
+        Counter: "Counter",
+        DecimalDisplay: "Decimal Display",
+        RingCounter: "Ring Counter",
+        HalfAdder: "Half Adder",
+        FullAdder: "Full Adder",
+        SIPOregister: "SIPO Register",
+        ClockCounter: "Clock Counter",
+        BinarySwitch: "Binary Switch",
+        LEDarray: "LED Array",
+        RGBLED: "RGB LED",
+        Oscilloscope: "Oscilloscope",
 
         // Označenia tlačidiel, menu, nastavení
 
@@ -263,7 +337,20 @@ export var lang = {
         MoveEditor: "Drag Editor",
         Edit: "Edit",
         RemoveWire: "Remove Wire",
-        
+        Apply: "Apply",
+        EditNode: "Edit Node",
+        EditComponent: "Edit Component",
+        AddTo: "Add To Scope:",
+        SignalColor: "Signal Color:",
+        Ok: "Ok",
+        EditOscilloscope: "Edit Oscilloscope",
+        ChooseScope: "Choose Channel To Edit:",
+        Amplitude: "Amplitude:",
+        Color: "Color:",
+        Reverse: "Reverse:",
+        Toggle: "Toggle",
+        RemoveFromChannel: "Remove Signal From Channel:",
+
         // Obvody
 
         Circuits: "Circuits",
@@ -293,7 +380,6 @@ export var lang = {
         Info: "Info",
         Success: "Success",
 
-
         mainFunctions: "Main Functions",
 
         circuitDesign: "Circuit Design",
@@ -313,16 +399,39 @@ export var lang = {
         Save_project: "Save current project?",
 
         WelcomeTitle: "Logical Circuit Simulator",
-        WelcomeText: "Welcome to LogicSim! Your one stop shop for all your circuit simulation needs. Whether you are an experienced electrical engineering enthusiast or a curious beginner. With an intuitive interface and an extensive library of components at your fingertips, you can bring your ideas to life and watch the magical world of electronic circuits in action. Join our community of passionate engineers and enthusiasts today and let LogicSim be your trusted companion on your electrifying journey into the world of circuits. Happy simulating!",
+        WelcomeText: "Welcome to LogicSim! Your one stop shop for all your circuit simulation needs. Whether you are an experienced electrical engineering enthusiast or a curious beginner. With an intuitive interface and an extensive library of components at your fingertips, you can bring your ideas to life and watch the magical world of logical circuits in action. Let LogicSim be your trusted companion on your electrifying journey into the world of circuits. Happy simulating!",
 
-        Tutorial1: "",
-        Tutorial2: "",
-        Tutorial3: "",
-        Tutorial4: "",
-        Tutorial5: "",
+        ChangeSettings: "Change Settings",
+        Tutorial1: "Simple change of the entire page settings. You can modify the color scheme, language, and many other settings for working in the editor.",
+        
+        CircuitEditor: "Working in the Editor",
+        Tutorial2: "Users can zoom in and out of the view. It is also possible to move infinitely in all directions.",
+        
+        AddComponents: "Adding Components",
+        Tutorial3: "Quick addition of components from the library. There are up to 32 unique components to choose from.",
+        
+        EditComponents: "Editing Components",
+        Tutorial4: "Users can freely edit all components, change their position, rotation, and remove unnecessary components.",
+        
+        AddWires: "Connecting Components",
+        Tutorial5: "Clicking on any two terminals creates a connection between the two components.",
+        
+        Simulate: "Circuit Simulation",
+        Tutorial6: "Animated simulation of any logical circuit. The simulation starts and stops with just one click.",
+        
+        OscilloscopeSettings: "Oscilloscope and Signal Waveform",
+        Tutorial7: "You can add any node to the oscilloscope by simply right-clicking on it. The signal can be adjusted by right-clicking on the oscilloscope.",
+        
+        SaveAndLoad: "Saving and Loading Circuits",
+        Tutorial8: "The connected circuit can be easily saved in JSON format, which users can further modify in text form or load and edit in the editor.",
+        
+        GithubPage: "Open Source",
+        Tutorial9: "The entire source code of the application is available on my GitHub page.",
+        
 
         WireLoop: "Wire loop detected!",
         IncorrectTitle: "The title must be at least 4 characters long and less than 30!",
-        CorrectTitle: "Title changed!"
+        CorrectTitle: "Title changed!",
+        DownloadCompleted: "Circuit was downloaded correctly!",
     },
 }

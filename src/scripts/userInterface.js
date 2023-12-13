@@ -5,7 +5,7 @@ import { lang } from "./language.js";
 class UserInterface {
     constructor() {
         this.theme = "dark";
-        this.language = "english";
+        this.language = "slovak";
         this.circuitsCounter = 0;
         this.tutorialCounter = 0;
         this.showGrid = true;
@@ -119,10 +119,10 @@ class UserInterface {
                 <div class="appToolbar">
                     <ul class="appToolbarItems">
                         ${this.createToolkWithIcon(icons.newFile)}
-                        ${this.createToolkWithIcon(icons.openFolder)}
-                        ${this.createToolkWithIcon(icons.download)}
+                        ${this.createToolkWithIcon(icons.openFolder, "loadCircuit")}
+                        ${this.createToolkWithIcon(icons.download, "downloadCircuit")}
                         ${this.createToolkWithIcon(icons.netlist)}
-                        ${this.createToolkWithIcon(icons.oscilloscope)}
+                        ${this.createToolkWithIcon(icons.oscilloscope, "oscilloscope")}
                         ${this.createToolkWithIcon(icons.resetClock, "resetClock")}
                         ${this.createToolkWithIcon(icons.startSimulation, "startSimulation")}
                     </ul>
@@ -142,6 +142,8 @@ class UserInterface {
 
     }
 
+    //${this.createSidebarTool(icons.clone, "clone", lang[this.language].Clone)}
+    //${this.createSidebarTool(icons.centerCircuit, "center", lang[this.language].Center)}
 
     createEditorToolsMenu() {
 
@@ -152,8 +154,6 @@ class UserInterface {
                     ${this.createSidebarTool(icons.zoomOut, "zoomOut", lang[this.language].ZoomOut)}
                     ${this.createSidebarTool(icons.rotate, "rotate", lang[this.language].Rotate)}
                     ${this.createSidebarTool(icons.remove, "delete", lang[this.language].Delete)}
-                    ${this.createSidebarTool(icons.clone, "clone", lang[this.language].Clone)}
-                    ${this.createSidebarTool(icons.centerCircuit, "center", lang[this.language].Center)}
                 </ul>
 
                 <ul class="actionWrapper">
@@ -243,8 +243,8 @@ class UserInterface {
                 <p>${lang[this.language].languageText}</p>
 
                 <select id="lang" class="selectOption">
-                    <option id="en_US" value="english">English (EN)</option>
                     <option id="sk" value="slovak">Slovenčina (SK)</option>
+                    <option id="en_US" value="english">English (EN)</option>
                 </select>
             </div>
         `;
@@ -328,6 +328,105 @@ class UserInterface {
     // Vytváranie vyskakovacích okien
     //
     //////////////////////////////////////////////////////////////////////////
+
+
+    createNodeEditBox() {
+
+        const nodeEditBox = `
+        <div id="nodeEditBox" class="modal" style="color: white;">
+            <div style="width: 200px; height: 150px;" class="modalContent">
+                ${this.createModalHeader(lang[this.language].EditNode)}
+                
+                <div class="channelOption">
+                    <label>${lang[this.language].AddTo}</label>
+
+                    <select id="channels">
+                        <option value="0">CH1</option>
+                        <option value="1">CH2</option>
+                        <option value="2">CH3</option>
+                    </select>
+                </div>
+
+                <div class="circuitsNav">
+                    ${this.createButton(["applyButton"], lang[this.language].Apply,  "apply" , "block")}
+                    ${this.createButton(["okButton"], lang[this.language].Ok,  "ok" , "block")}
+                </div>
+            </div>
+        </div>
+        `;
+
+
+        this.render(nodeEditBox);
+    }
+
+    createComponentEditBox() {
+
+        const componentEditBox = `
+        <div id="componentEditBox" class="modal" style="color: white;">
+            <div style="width: 200px; height: 300px;" class="modalContent">
+                ${this.createModalHeader(lang[this.language].EditComponent)}
+                
+                <p>Sample text</p>
+                <p>Sample text</p>
+
+                <div class="circuitsNav">
+                    ${this.createButton(["applyButton"], lang[this.language].Apply,  "apply" , "block")}
+                </div>
+            </div>
+        </div>
+        `;
+
+
+        this.render(componentEditBox);
+    }
+
+    
+    createOscilloscopeEditBox() {
+
+        const oscilloscopeEditBox = `
+        <div id="oscilloscopeEditBox" class="modal" style="color: white;">
+            <div style="width: 300px; height: 280px;" class="modalContent">
+                ${this.createModalHeader(lang[this.language].EditOscilloscope)}
+                
+                <div class="channelOption">
+
+                    <label>${lang[this.language].ChooseScope}</label>
+
+                    <select id="chooseChannel">
+                        <option value="0">CH1</option>
+                        <option value="1">CH2</option>
+                        <option value="2">CH3</option>
+                    </select>
+
+                    </br></br>
+
+                    <label>${lang[this.language].Amplitude}</label>
+                    <input id="inputAmp" type="number" min="1" max="10" placeholder="0">
+
+                    </br></br>
+
+                    <label>${lang[this.language].Color}</label>
+                    <input id="signalColor" type="color">
+
+                    </br></br>
+
+                    <label>${lang[this.language].RemoveFromChannel}</label>
+                    <input id="removeSignal" type="checkbox">
+
+                </div>
+
+                <div class="circuitsNav">
+                    ${this.createButton(["applyButton"], lang[this.language].Apply, "applyScope" , "block")}
+                    ${this.createButton(["okButton"], lang[this.language].Ok, "okScope", "block")}
+                </div>
+            </div>
+        </div>
+        `;
+
+
+        this.render(oscilloscopeEditBox);
+    }
+
 
     createModalHeader(title) {
 
@@ -441,6 +540,8 @@ class UserInterface {
     }
 
 
+    // ${this.createToggleOption(lang[this.language].valuesText, "values")}
+    // ${this.changeVoltageColorOption("changeVoltageColor")}
 
     createModalOptions() {
 
@@ -453,11 +554,10 @@ class UserInterface {
                         ${this.createThemeOption()}
                         ${this.createLanguageOption()}
                         ${this.createToggleOption(lang[this.language].displayText, "IEC")}
-                        ${this.createToggleOption(lang[this.language].valuesText, "values")}
                         ${this.createToggleOption(lang[this.language].partsPosition, "partsPosition")}
                         ${this.createToggleOption(lang[this.language].grid, "grid")}
                         ${this.createToggleOption(lang[this.language].showAlerts, "alerts")}
-                        ${this.changeVoltageColorOption("changeVoltageColor")}
+                        
                     </div>
                 </div>
             </div>
@@ -504,8 +604,8 @@ class UserInterface {
                     ${this.createModalHeader(lang[this.language].Save_project)}
                     <div>
                         <p class="saveText">${lang[this.language].saveText}</p>
-                        ${this.createButton(["saveButton"], lang[this.language].Save)}
-                        ${this.createButton(["cancelSaveButton", "closeModalButton"], lang[this.language].Dont_save)}
+                        ${this.createButton(["saveButton", "closeModalButton"], lang[this.language].Save, "saveAndLoadBlank", "block")}
+                        ${this.createButton(["cancelSaveButton", "closeModalButton"], lang[this.language].Dont_save, "blankCircuit", "block")}
                     </div>
                 <div>
             </div>
@@ -518,14 +618,15 @@ class UserInterface {
 
         const modalWelcome = `
             <div style="display: block; background-color: #272727b2;" id="modalWelcome" class="modal">
-                <div style="width: 600px; height: 400px;" class="modalContent">
+                <div style="width: 600px; height: 500px;" class="modalContent">
                     ${this.createModalHeader(lang[this.language].Welcome)}
                     
                     <div>
                         <span style="display: none;" id="counter"><h4 id="count">${this.tutorialCounter}</h4><h4>/9</h4></span>
-                        <div class="tutorialContent"><h3 id="tutorialTitle">${lang[this.language].WelcomeTitle}</h3><p id="tutorialText">${
-            lang[this.language].WelcomeText
-        }</p></div>
+                        <div class="tutorialContent">
+                            <h3 id="tutorialTitle">${lang[this.language].WelcomeTitle}</h3><p id="tutorialText">${lang[this.language].WelcomeText}</p>
+                            <img style="display:none" id="gif" width="500" height="300" class="tutorialGif" autoplay loop muted>
+                        </div>
                         <label class="showLabel">${lang[this.language].Show}</label>
                         ${this.createToggleSwitch("showAgain", "dontShow")}
                         ${this.createButton(["previousButton"], lang[this.language].Previous, "previousButton", "none")}
@@ -604,6 +705,8 @@ class UserInterface {
                     <ul class="components">
                         ${this.createComponent(lang[this.language].LogicalOutput, icons.ANSI.LogicalOutput, "LO")}
                         ${this.createComponent(lang[this.language].Bulb, icons.ANSI.LightBulb, "BLB")}
+                        ${this.createComponent(lang[this.language].LEDarray, icons.ANSI.LEDarray, "LDA")}
+                        ${this.createComponent(lang[this.language].RGBLED, icons.ANSI.RGBLED, "RGB")}
                     </ul>
                 </div>
                 <div>
@@ -612,8 +715,23 @@ class UserInterface {
                         ${this.createComponent(lang[this.language].SevenSegDecoder, icons.ANSI.SevenSegDecoder, "7SD")}
                         ${this.createComponent(lang[this.language].SevenSegDisplay, icons.ANSI.SevenSegDisplay, "7SL")}
                         ${this.createComponent(lang[this.language].D_FlipFlop, icons.ANSI.D_FlipFlop, "DFF")}
+                        ${this.createComponent(lang[this.language].T_FlipFlop, icons.ANSI.T_FlipFlop, "TFF")}
+                        ${this.createComponent(lang[this.language].JK_FlipFlop, icons.ANSI.JK_FlipFlop, "JKFF")}
+                        ${this.createComponent(lang[this.language].Latch, icons.ANSI.Latch, "LTC")}
+                        ${this.createComponent(lang[this.language].Multiplexor, icons.ANSI.Multiplexor, "MUX")}
+                        ${this.createComponent(lang[this.language].Demultiplexor, icons.ANSI.Demultiplexor, "DEMUX")}
+                        ${this.createComponent(lang[this.language].Counter, icons.ANSI.Counter, "CTR")}
+                        ${this.createComponent(lang[this.language].RingCounter, icons.ANSI.RingCounter, "RCTR")}
+                        ${this.createComponent(lang[this.language].DecimalDisplay, icons.ANSI.DecimalDisplay, "DLD")}
+                        ${this.createComponent(lang[this.language].HalfAdder, icons.ANSI.HalfAdder, "HAD")}
+                        ${this.createComponent(lang[this.language].FullAdder, icons.ANSI.FullAdder, "FAD")}
+                        ${this.createComponent(lang[this.language].SIPOregister, icons.ANSI.SIPOregister, "SIPO")}
+                        ${this.createComponent(lang[this.language].SequenceGen, icons.ANSI.SequenceGen, "SQG")}
+                        ${this.createComponent(lang[this.language].ClockCounter, icons.ANSI.ClockCounter, "CLC")}
+                        ${this.createComponent(lang[this.language].BinarySwitch, icons.ANSI.BinarySwitch, "BSW")}
                     </ul>
                 </div>
+                
             </div>
         `;
 
@@ -634,6 +752,12 @@ class UserInterface {
         this.createCircuitsModal();
         this.createDocsModal();
         this.createAboutModal();
+
+        // edit boxes
+
+        this.createNodeEditBox();
+        this.createComponentEditBox();
+        this.createOscilloscopeEditBox();
       
         // UI elementy
         this.createMainNavigation();
@@ -653,6 +777,7 @@ class UserInterface {
         
         this.createAlert();
         this.closeAlert();
+
 
       }
 
@@ -737,6 +862,7 @@ class UserInterface {
         const finishButton = document.getElementById("finishButton");
         const tutorialTitle = document.getElementById("tutorialTitle");
         const tutorialText = document.getElementById("tutorialText");
+        const tutorialGif = document.getElementById("gif");
 
         // obvody
 
@@ -774,35 +900,46 @@ class UserInterface {
 
             // zmen inštrukcie tutoriálu
             if (this.tutorialCounter == 1) {
-                tutorialTitle.innerText = "1";
-                tutorialText.innerText = "1";
+                tutorialTitle.innerText = lang[this.language].ChangeSettings;
+                tutorialText.innerText = lang[this.language].Tutorial1;
+                tutorialGif.style.display = "block";
+                tutorialGif.src = icons.Settings;
             } else if (this.tutorialCounter == 2) {
-                tutorialTitle.innerText = "2";
-                tutorialText.innerText = "2";
+                tutorialTitle.innerText = lang[this.language].CircuitEditor;
+                tutorialText.innerText = lang[this.language].Tutorial2;
+                tutorialGif.src = icons.MovingEditor;
             } else if (this.tutorialCounter == 3) {
-                tutorialTitle.innerText = "3";
-                tutorialText.innerText = "3";
+                tutorialTitle.innerText = lang[this.language].AddComponents;
+                tutorialText.innerText = lang[this.language].Tutorial3;
+                tutorialGif.src = icons.AddComponents;
             } else if (this.tutorialCounter == 4) {
-                tutorialTitle.innerText = "4";
-                tutorialText.innerText = "4";
+                tutorialTitle.innerText = lang[this.language].EditComponents;
+                tutorialText.innerText = lang[this.language].Tutorial4;
+                tutorialGif.src = icons.EditComponents;
             } else if (this.tutorialCounter == 5) {
-                tutorialTitle.innerText = "5";
-                tutorialText.innerText = "5";
+                tutorialTitle.innerText = lang[this.language].AddWires;
+                tutorialText.innerText = lang[this.language].Tutorial5;
+                tutorialGif.src = icons.AddWires;
             } else if (this.tutorialCounter == 6) {
-                tutorialTitle.innerText = "6";
-                tutorialText.innerText = "6";
+                tutorialTitle.innerText = lang[this.language].Simulate;
+                tutorialText.innerText = lang[this.language].Tutorial6;
+                tutorialGif.src = icons.Simulate;
             } else if (this.tutorialCounter == 7) {
-                tutorialTitle.innerText = "7";
-                tutorialText.innerText = "7";
+                tutorialTitle.innerText = lang[this.language].OscilloscopeSettings;
+                tutorialText.innerText = lang[this.language].Tutorial7;
+                tutorialGif.src = icons.OscilloscopeSettings;
             } else if (this.tutorialCounter == 8) {
-                tutorialTitle.innerText = "8";
-                tutorialText.innerText = "8";
+                tutorialTitle.innerText = lang[this.language].SaveAndLoad;
+                tutorialText.innerText = lang[this.language].Tutorial8;
+                tutorialGif.src = icons.SaveAndLoad;
 
                 nextButton.style.display = "block";
                 finishButton.style.display = "none";
+                tutorialGif.style.display = "block";
             } else if (this.tutorialCounter == 9) {
-                tutorialTitle.innerText = "9";
-                tutorialText.innerText = "9";
+                tutorialTitle.innerText = lang[this.language].GithubPage;
+                tutorialText.innerText = lang[this.language].Tutorial9;
+                tutorialGif.style.display = "none";
 
                 nextButton.style.display = "none";
                 finishButton.style.display = "block";
@@ -919,7 +1056,10 @@ class UserInterface {
                     if (e.key == "Escape") {
                         modal.closest(".modal").style.display = "none";
                     } else if (e.key == "Enter") {
-                        this.changeProjectTitle();
+                        if(modalTitle.style.display == "block") {
+                            this.changeProjectTitle();
+                        }
+
                     }
                 }
             });

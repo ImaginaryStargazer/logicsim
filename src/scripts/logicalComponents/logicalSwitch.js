@@ -1,24 +1,23 @@
-import { mainEditor } from "../circuitEditor.js";
 import { Component } from "./component.js";
 import { Node } from "./node.js";
 
 export class LogicalSwitch extends Component {
-    constructor(x, y, color, highlightColor) {
-        super(x, y, color, highlightColor);
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.highlightColor = highlightColor;
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation);
 
-        this.component.setAttrs({
-            id: "LSW"
-        })
+
+        this.id = "LSW";
 
         this.component.on("dblclick", () => {this.doubleClick()});
 
-        this.output = new Node(100, 20, true, false, this.color);
+    }
 
-        this.layer = mainEditor.findOne("#componentLayer");
+    setupNodes() {
+
+        this.nodes[0] = new Node(100, 20, true, false, this.color);
+        this.component.add(this.nodes[0].draw());
+
+        this.startNodeId = this.nodes[0].id;
     }
 
     render() {
@@ -51,7 +50,8 @@ export class LogicalSwitch extends Component {
         })
 
 
-        this.component.add(body, button, output, this.output.draw());
+        this.component.add(body, button, output);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
@@ -62,11 +62,10 @@ export class LogicalSwitch extends Component {
 
 
     doubleClick() {
-        
         this.toggle();
-        this.output.setValue(this.value);
+        this.nodes[0].setValue(this.value);
 
-        if(this.output.getValue()) {
+        if(this.nodes[0].getValue()) {
 
             this.component.findOne("#button").setAttrs({
                 fill: "green"
@@ -77,4 +76,5 @@ export class LogicalSwitch extends Component {
             });
         }
     }
+
 }

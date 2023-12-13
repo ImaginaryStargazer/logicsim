@@ -1,23 +1,22 @@
-import { mainEditor } from "../circuitEditor.js";
 import { Node } from "./node.js";
 import { Component } from "./component.js";
 
 export class LogicalOutput extends Component {
 
-    constructor(x, y, color, highlightColor) {
-        super(x, y, color, highlightColor);
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.highlightColor = highlightColor;
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation);
 
-        this.component.setAttrs({
-            id: "output"
-        })
 
-        this.input = new Node(-60, 20, false, false, this.color)
+        this.id = "OUT";
 
-        this.layer = mainEditor.findOne("#componentLayer");
+    }
+
+    setupNodes() {
+
+        this.nodes[0] = new Node(-60, 20, false, false, this.color);
+        this.component.add(this.nodes[0].draw());
+
+        this.startNodeId = this.nodes[0].id;
     }
 
 
@@ -48,18 +47,20 @@ export class LogicalOutput extends Component {
         })
 
 
-        this.component.add(body, value, output, this.input.draw());
+        this.component.add(body, value, output);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
 
 
     draw() {
-        if(this.input.getValue()) {
+        if(this.nodes[0].getValue()) {
             this.component.findOne("Text").text("1")
         } else {
             this.component.findOne("Text").text("0")
         }
     }
+
 
 }

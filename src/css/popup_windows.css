@@ -70,7 +70,6 @@
 }
 
 
-
 .closeButton {
     cursor: pointer;
     padding: 10px;
@@ -361,6 +360,14 @@
     text-align: justify;
     font-size: 15px;
     width: 95%;
+
+}
+
+.tutorialGif {
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    pointer-events: none;
 }
 
 .tutorialContent h3 {
@@ -370,6 +377,35 @@
 .tutorialContent p {
     margin-top: 20px;
 }
+
+/*================================================
+
+Štýly pre - Edit Boxy
+
+=================================================== */
+
+.channelOption {
+    position: absolute;
+    top: 60px;
+    left: 10px
+}
+
+.applyButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 1px solid var(--border_color);
+    color: var(--text_color);
+}
+
+.okButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 1px solid var(--border_color);
+    color: var(--text_color);
+}
+
 
 
 /*================================================

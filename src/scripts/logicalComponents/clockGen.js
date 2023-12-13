@@ -1,29 +1,29 @@
-import { mainEditor } from "../circuitEditor.js";
 import { Component } from "./component.js";
 import { Node } from "./node.js";
 
 export class ClockGen extends Component{
-    constructor(x, y, color, highlightColor) {
-        super(x, y, color, highlightColor);
-        this.x = x;
-        this.y = y;
-        this.color = color;
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation);
+
+        
         this.value = false;
-        this.highlightColor = highlightColor;
 
-        this.component.setAttrs({
-            id: "CLK"
-        })
+        this.id = "CLK";
 
-        this.truePeriod = 2000 * 50 / 100;
-        this.falsePeriod = 2000 * (100 - 50) / 100;
-        this.lastTick = new Date().getTime();
+        // perioda a duty cycle 
+        this.f = 500;
+        this.truePeriod = this.f * 50 / 100;
+        this.falsePeriod = this.f * (100 - 50) / 100;
+        this.lastTick = performance.now();
 
+    }
 
-        this.layer = mainEditor.findOne("#componentLayer");
+    setupNodes() {
 
-        this.output = new Node(100, 20, true, this.value, this.color);
+        this.nodes[0] = new Node(100, 20, true, this.value, this.color);
+        this.component.add(this.nodes[0].draw());
 
+        this.startNodeId = this.nodes[0].id;
     }
 
 
@@ -52,12 +52,39 @@ export class ClockGen extends Component{
         })
 
 
-        this.component.add(body, symbol, output, this.output.draw());
+        this.component.add(body, symbol, output);
+        this.setupNodes();
 
         this.layer.add(this.component)
     }
 
     draw() {
+        const currTick = performance.now();
+
+        const period = (this.value) ? this.truePeriod : this.falsePeriod;
+        
+        if (currTick - this.lastTick > period) {
+            this.toggle();
+            this.lastTick = currTick;
+        }
+
+
+        this.nodes[0].setValue(this.value);
+    }
+
+}
+
+
+
+/*
+
+        // perioda a duty cycle 
+        this.f = 500;
+        this.truePeriod = this.f * 50 / 100;
+        this.falsePeriod = this.f * (100 - 50) / 100;
+        this.lastTick = new Date().getTime();
+
+
         const currTick = new Date().getTime();
 
         const period = (this.value) ? this.truePeriod : this.falsePeriod;
@@ -66,6 +93,8 @@ export class ClockGen extends Component{
             this.lastTick = currTick;
         }
 
-        this.output.setValue(this.value);
-    }
-}
+        this.nodes[0].setValue(this.value);
+
+
+
+*/

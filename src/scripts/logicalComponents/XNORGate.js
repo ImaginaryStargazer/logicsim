@@ -1,29 +1,26 @@
 import { Component } from "./component.js";
 import { Node } from "./node.js";
-import { mainEditor } from "../circuitEditor.js";
 
 export class XNORGate extends Component{
-    constructor(x, y, color, highlightColor) {
+    constructor(x, y, color, rotation) {
 
-        super(x, y, color, highlightColor)
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.highlightColor = highlightColor
+        super(x, y, color, rotation)
+
         
-        this.component.setAttrs({
-            id: "XNOR",
-        })
+        this.id = "XNOR";
 
-        this.layer = mainEditor.findOne("#componentLayer");
+    }
 
-        this.input = [];
+    setupNodes() {
 
-        this.input.push(new Node(-60, 20, false, false, this.color))
-        this.input.push(new Node(-60, 60, false, false, this.color))
+        this.nodes[0] = new Node(-60, 20, false, false, this.color); // I0
+        this.component.add(this.nodes[0].draw());
+        this.nodes[1] = new Node(-60, 60, false, false, this.color); // I1
+        this.component.add(this.nodes[1].draw());
+        this.nodes[2] = new Node(120, 40, true, false, this.color); // Y0
+        this.component.add(this.nodes[2].draw());
 
-        this.output = new Node(120, 40, true, false, this.color);
-
+        this.startNodeId = this.nodes[0].id;
     }
 
     render() {
@@ -51,15 +48,15 @@ export class XNORGate extends Component{
         });
 
         var ANSIgateBody = new Konva.Shape({
-            sceneFunc: function (context, shape) {
-              context.beginPath();
-              context.moveTo(-5,10);
-              context.quadraticCurveTo(35, 5, 60, 40);
-              context.quadraticCurveTo(35, 75, -5, 70);
-              context.quadraticCurveTo(10, 40, -4, 10);
-              context.moveTo(-15,10);
-              context.quadraticCurveTo(10, 40, -15, 70);
-              context.fillStrokeShape(shape);
+            sceneFunc: (context, shape) => {
+                context.beginPath();
+                context.moveTo(-5, 10);
+                context.quadraticCurveTo(35, 5, 60, 40);
+                context.quadraticCurveTo(35, 75, -5, 70);
+                context.quadraticCurveTo(10, 40, -4, 10);
+                context.moveTo(-15, 10);
+                context.quadraticCurveTo(10, 40, -15, 70);
+                context.fillStrokeShape(shape);
 
             },
 
@@ -100,38 +97,24 @@ export class XNORGate extends Component{
         })
 
 
-        this.component.add(firstInput, secondInput, gateBody, symbol, output, bubble, ANSIgateBody, this.input[0].draw(), this.input[1].draw(), this.output.draw());
+        this.component.add(firstInput, secondInput, gateBody, symbol, output, bubble, ANSIgateBody);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
 
     calculateValue() {
 
-        return !(this.input[0].getValue() ^ this.input[1].getValue());
+        return !(this.nodes[0].getValue() ^ this.nodes[1].getValue());
 
     }
 
 
     generateOutput() {
 
-        this.output.setValue(this.calculateValue());
+        this.nodes[2].setValue(this.calculateValue());
     }
 
-
-    destroy() {
-
-        for(let i = 0; i < this.input.length; i++) {
-
-            this.input[i].destroy();
-            delete this.input[i];
-
-        }
-
-        this.output.destroy();
-        delete this.output;
-        
-        this.component.destroy();
-    }
 
     draw() {
         this.generateOutput();

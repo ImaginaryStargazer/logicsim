@@ -339,8 +339,6 @@ body {
 }
 
 .componentImage {
-    height: 30px;
-    width: 100px;
     -webkit-user-drag: none;
 }
 
@@ -394,11 +392,11 @@ Menšie obrazovky
 
 @media screen and (max-width: 1400px) {
     .componentImage {
-        height: 20px;
-        width: 70px;
+        display: none;
     }
 
     .componentsTitle {
+        justify-content: center;
         font-size: 14px;
     }
 }

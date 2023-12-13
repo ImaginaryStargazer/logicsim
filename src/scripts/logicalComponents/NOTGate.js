@@ -1,28 +1,26 @@
 import { Component } from "./component.js";
-import { mainEditor } from "../circuitEditor.js";
 import { Node } from "./node.js";
 
 export class NOTGate extends Component {
-    constructor(x, y, color, highlightColor) {
+    constructor(x, y, color, rotation) {
 
-        super(x, y, color, highlightColor)
+        super(x, y, color, rotation)
 
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.highlightColor = highlightColor;
+        this.id = "NOT";
+        
+    }
 
-        this.component.setAttrs({
-            id: "NOT",
-        })
+    setupNodes() {
+        
+        this.nodes[0] = new Node(-60, 40, false, false, this.color); // I0
+        this.component.add(this.nodes[0].draw());
+        this.nodes[1] = new Node(120, 40, true, false, this.color); // Y0
+        this.component.add(this.nodes[1].draw());
 
-        this.layer = mainEditor.findOne("#componentLayer");
-
-
-        this.input = new Node(-60, 40, false, false, this.color);
-        this.output = new Node(120, 40, true, false, this.color);
+        this.startNodeId = this.nodes[0].id;
 
     }
+
 
     render() {
 
@@ -81,7 +79,9 @@ export class NOTGate extends Component {
             strokeWidth: this.strokeWidth,
         })
 
-        this.component.add(firstInput, gateBody, symbol, output, bubble, ANSIgateBody, this.input.draw(), this.output.draw());
+
+        this.component.add(firstInput, gateBody, symbol, output, bubble, ANSIgateBody);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
@@ -89,27 +89,16 @@ export class NOTGate extends Component {
 
     calculateValue() {
 
-        return !this.input.getValue();
+        return !this.nodes[0].getValue();
 
     }
 
 
     generateOutput() {
 
-        this.output.setValue(this.calculateValue());
+        this.nodes[1].setValue(this.calculateValue());
     }
 
-
-    destroy() {
-
-        this.input.destroy();
-        delete this.input;
-        this.output.destroy();
-        delete this.output;
-
-        this.component.destroy();
-
-    }
 
     draw() {
         this.generateOutput();

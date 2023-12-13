@@ -13,12 +13,36 @@ import { ClockGen } from "./logicalComponents/clockGen.js";
 
 import { LogicalOutput } from "./logicalComponents/logicalOutput.js";
 import { LightBulb } from "./logicalComponents/lightBulb.js";
+import { WireMng } from "./logicalComponents/wire.js";
 
 import { SevenSegmentDecoder } from "./logicalComponents/7segmentDecoder.js";
+import { Timer } from "./logicalComponents/elementTimer.js";
+import { backToEdit ,currentMouseAction} from "./main.js";
+
+
+import { CURRENT_ACTION, INPUT_STATE } from "./logicalComponents/states.js";
+import { icons } from "./icons.js";
 import { SevenSegmentDisplay } from "./logicalComponents/7segmentDisplay.js";
 import { D_FlipFlop } from "./logicalComponents/D_FlipFlop.js";
+import { T_FlipFlop } from "./logicalComponents/T_FlipFlop.js";
+import { Multiplexor } from "./logicalComponents/Multiplexor.js";
+import { Demultiplexor } from "./logicalComponents/Demultiplexor.js";
+import { Counter } from "./logicalComponents/Counter.js";
+import { JK_FlipFlop } from "./logicalComponents/JK_FlipFlop.js";
+import { Latch } from "./logicalComponents/Latch.js";
+import { DecimalDisplay } from "./logicalComponents/decimalDisplay.js";
+import { RingCounter } from "./logicalComponents/ringCounter.js";
+import { HalfAdder } from "./logicalComponents/halfAdder.js";
+import { SIPOregister } from "./logicalComponents/SIPOregister.js";
+import { SequenceGenerator } from "./logicalComponents/sequenceGenerator.js";
+import { nodeList } from "./logicalComponents/node.js";
+import { ClockCounter } from "./logicalComponents/clockCounter.js";
+import { BinarySwitch } from "./logicalComponents/binarySwitch.js";
+import { LEDarray } from "./logicalComponents/LEDarray.js";
+import { Oscilloscope } from "./logicalComponents/oscilloscope.js";
+import { RGBLed } from "./logicalComponents/RGBLED.js";
+import { FullAdder } from "./logicalComponents/fullAdder.js";
 
-import { resetMenu, backToEdit , currentMouseAction} from "./main.js";
 
 export const mainEditor = new Konva.Stage({container: "mainBoard"});
 
@@ -34,12 +58,15 @@ export class circuitEditor {
             y: 0 
         })
 
+
         this.layer = new Konva.Layer({
             id: "componentLayer"
         });
 
         this.gridLayer = new Konva.Layer();
-        this.graphingLayer = new Konva.Layer();
+        this.graphingLayer = new Konva.Layer({
+            id: "graphingLayer"
+        });
 
         this.mainEditor.add(this.gridLayer);
         this.mainEditor.add(this.layer);
@@ -48,20 +75,26 @@ export class circuitEditor {
         this.simulation = null;
         this.tileSize = 20;
         this.time = 0;
-        this.timestep = 5e-6;
+        this.timestep = 5e-3;
         this.showGrid = true;
         this.selectedComponents = [];
         this.components = [];
+        this.nodes = nodeList;
         this.componentColor = "white";
-        this.highlightColor = "#fcb103";
+        this.highlightColor = "yellow"; // #fcb103
         this.newComponent = null;
         this.scaleBy = 1.05;
         this.isComponentSelected = false;
+        this.timer = new Timer(200, 100, 0, 0, this.time, this.timestep);
+        this.graph = new Oscilloscope(this.mainEditor.width() - 200, 100, 200, 0);
         this.simRunning = false;
         this.maxScale = 0.25;
         this.minScale = 4;
         this.isIEC = false;
         this.mouseSelectedComponent = null;
+
+
+        this.wireMng = new WireMng();
     
         this.transformer = new Konva.Transformer({
             resizeEnabled: false,
@@ -70,37 +103,66 @@ export class circuitEditor {
         })
 
 
-        this.layer.add(this.transformer);
+        this.timer.renderTimer(this.graphingLayer)
+        this.graph.renderOscilloscope(this.graphingLayer);
+        this.graphingLayer.add(this.transformer);
 
         this.mainEditor.on("contextmenu", (e) => e.evt.preventDefault());
 
         window.onkeydown = (e) => this.onKeyDown(e);
         window.onkeyup = (e) => this.onKeyUp(e);
         this.mainEditor.on("wheel", (e) => this.onWheel(e));
-
     }
 
     simulate() {
-        
     
+        
+        if(this.simRunning) {
+
+            setTimeout(() => {
+                
+                this.timer.time += this.timestep;
+                let fixed =  this.timer.time.toFixed(6);
+                this.timer.clock.text(`t = ${fixed} s`);
+                
+
+                let iter = 15;
+
+                for(let i = 0;  i < iter; i++) {
+
+                    for (const component of this.components) {
+                        component.draw();
+   
+                    }
+
+                    this.wireMng.draw();
+                    
+                }
+
+
+                nodeList.forEach(node => {
+                    node.fillValue();
+                })
+                
+
+                this.simulation = requestAnimationFrame(() => this.simulate());
+
+            },1000 / 24) // pridať slider na zmenenie hodnoty
+
+        }
+
+        
     }
 
 
     createGrid() {
 
-
-        /* Prekresli grid pri každej zmene */
-
         this.gridLayer.removeChildren();
 
-
-        /* Vypočíta viditelnú šírku a výšku vzhladom ku mierke */
         
         const visibleWidth = (this.mainEditor.width() / this.mainEditor.scaleX())
         const visibleHeight = (this.mainEditor.height() / this.mainEditor.scaleY())
 
-
-        /* Vypočíta začiatočný bod pre x a y a koncový bod pre x a y súradnice*/
 
         const startX = Math.floor(((-this.mainEditor.x() / this.mainEditor.scaleX())) / this.tileSize) * this.tileSize;
         const endX = Math.floor(((-this.mainEditor.x() / this.mainEditor.scaleX()) +  visibleWidth + this.tileSize ) / this.tileSize) * this.tileSize;
@@ -111,6 +173,7 @@ export class circuitEditor {
 
         let gridShape = new Konva.Shape({
             sceneFunc: (context, shape) => {
+
                 context.beginPath();
 
                 for (let x = startX; x < endX; x += this.tileSize) {
@@ -132,6 +195,9 @@ export class circuitEditor {
     
         this.gridLayer.add(gridShape);
 
+
+        this.timer.setStaticPosition(this.mainEditor.scaleY(), this.calculatePositionToScale(0).xAxis, this.calculatePositionToScale(0).yAxis);
+        this.graph.setStaticPosition(this.mainEditor.scaleY(), this.calculatePositionToScale(0).xAxis, this.calculatePositionToScale(0).yAxis);
     }
     
 
@@ -139,19 +205,330 @@ export class circuitEditor {
     mainEditorBoard() {
 
 
-        /* Prekresli grid pri každom pohybe */
+        document.getElementById("startSimulation").onclick = () => {
+
+            let simIcon = document.getElementById("startSimulation")
+
+            if(this.simRunning) {
+
+   
+                this.simRunning = false;
+                simIcon.innerHTML = icons.startSimulation;
+                this.graph.running.stop();
+                cancelAnimationFrame(this.simulation);
+
+            } else {
+
+                this.simRunning = true;
+                simIcon.innerHTML = icons.stopSimulation;
+                this.graph.running.start();
+                
+
+                this.simulate();
+                
+            }
+            
+        }
+
 
         this.mainEditor.on('dragmove', (e) => {
 
             if(e.target != this.mainEditor) return;
             this.createGrid();
 
+        
+        });
+
+        this.mainEditor.on("mouseenter", () => {
+
+            /*
+            if(this.mouseSelectedComponent != null /*&& UI.isGraphicalElement === true) {
+
+                this.mainEditor.container().style.cursor = "crosshair";
+            */
+
+            if (this.mouseSelectedComponent != null) {
+
+                this.enableEditing();
+                
+                let newPart = this.getClickedComponent();
+
+                this.mainEditor.container().style.cursor = "default";
+
+                this.newComponent = new newPart(0, 0, this.componentColor);
+
+
+                this.newComponent.render();
+                this.components.push(this.newComponent);
+
+                this.highlightComponent(this.newComponent.component)
+                this.snapToGrid(this.newComponent.component);
+
+                this.convertToIECorANSI();
+        
+            } 
         });
 
 
+
+        this.mainEditor.on("mousemove", () => {
+
+            if (this.newComponent != null && this.mouseSelectedComponent != null) {
+
+                const pos = this.mainEditor.getPointerPosition();
+
+                let x = this.calculatePositionToScale(pos.x).xAxis;
+                let y = this.calculatePositionToScale(pos.y).yAxis;
+
+
+                this.newComponent.component.x(x - this.newComponent.component.width() / 2);
+                this.newComponent.component.y(y - this.newComponent.component.height() / 2);
+                
+                
+            }
+        });
+        
+
+        this.mainEditor.on("mouseup mouseleave", (e) => {
+
+            
+            
+            if(this.newComponent != null && this.mouseSelectedComponent != null) {
+
+                // snap to grid
+                            
+                this.newComponent.component.position({
+
+                    x: Math.round(this.newComponent.component.x() / this.tileSize) * this.tileSize,
+                    y: Math.round(this.newComponent.component.y() / this.tileSize) * this.tileSize
+                })
+                
+                this.newComponent.updatePosition();
+
+                this.mouseSelectedComponent = null;
+                this.newComponent = null;
+
+                backToEdit();
+            }
+        
+        });
+
+
+        
         this.createGrid();
+        this.highlightSelectedComponent();
+        this.createWire();
+
     }
 
+
+    createWire() {
+
+        
+        this.layer.on("click", (event) => {
+
+            if(event.evt.button != 0) return;
+
+            if(event.target.name() === "wire" && currentMouseAction != CURRENT_ACTION.EDIT) {
+
+                let wireObj = event.target.getAttr("Wire"); 
+                
+                if(wireObj.endNode == null || currentMouseAction != CURRENT_ACTION.REMOVE_WIRE) return;
+
+                const index = this.wireMng.wire.findIndex(wire => wire === wireObj);
+
+              
+                this.wireMng.wire[index].destroy();
+                this.wireMng.wire[index].wire.destroy();
+                this.wireMng.wire.splice(index, 1);
+            }
+
+            if(event.target.name() === "node") {
+        
+
+                let nodeObj = event.target.getAttr("Node"); 
+
+
+                if(nodeObj.inputState == INPUT_STATE.FREE || nodeObj.isOutput) {
+
+                    this.wireMng.addNode(nodeObj);
+                    this.wireMng.draw();
+                    
+
+                    return true;
+        
+                }
+        
+                return false;
+                
+            }
+
+        })
+
+          
+        this.layer.on("dragmove dragend", () => {
+
+            this.wireMng.draw();
+        
+        })
+        
+
+        this.mainEditor.on("mousemove", () => {
+
+            if(this.wireMng.finishedDrawing) return;
+            this.wireMng.draw();
+        
+        
+
+        })
+    
+    }
+
+    
+    highlightSelectedComponent() {
+
+
+
+        this.layer.on("mousedown", (event) => {
+
+            if(event.target.name() === "node" || event.target.name() === "wire") {
+                return;
+            }
+
+            let modifierKeysPressed =  event.evt.ctrlKey || event.evt.altKey;
+
+            
+            let selectedComponent = event.target.findAncestor('.component').getAttr("componentType");
+            
+
+            if(modifierKeysPressed) {
+                
+                if(this.selectedComponents.includes(selectedComponent.component)) {
+                    return;
+                } 
+
+                this.highlightComponent(selectedComponent.component);
+                this.transformer.nodes(this.selectedComponents);
+
+
+            } else if (!modifierKeysPressed) {
+
+                if(this.transformer.nodes().length > 0) return;
+
+                this.unhighlightAllComponents();
+
+                this.highlightComponent(selectedComponent.component);
+            } 
+
+            
+        });
+    
+        this.mainEditor.on("click", (event) => {
+
+            
+            if(event.target !== this.mainEditor || this.selectedComponents.length <= 0) {
+                return;
+            }
+        
+            this.unhighlightAllComponents();
+        });
+    }
+
+    
+    highlightComponent(component) {
+
+        component.getChildren().forEach(shape => {
+            if(shape.name() === "node") {
+
+                shape.setAttr("stroke", "grey");
+
+            } else {
+                shape.setAttr("stroke", this.highlightColor);
+            }
+        });
+
+        this.selectedComponents.push(component);
+
+        for(let i = 0; i < this.selectedComponents.length; i++) {
+            this.selectedComponents[i].getAttr("componentType").isFullySelected = true;
+        }
+    }
+    
+    unhighlightAllComponents() {
+
+        this.selectedComponents.forEach(component => {
+            component.getChildren().forEach(shape => {
+                if(shape.name() === "node") {
+
+                    shape.setAttr("stroke", "grey");
+
+                } else {
+                    shape.setAttr("stroke", this.componentColor);
+                }
+            });
+        });
+
+
+        for(let i = 0; i < this.selectedComponents.length; i++) {
+            this.selectedComponents[i].getAttr("componentType").isFullySelected = false;
+        }
+        
+        this.selectedComponents = [];
+        this.transformer.nodes([]);
+    }
+    
+
+
+
+    convertToIECorANSI() {
+
+        const iecComponents = this.mainEditor.find("#IEC");
+        const ansiComponents = this.mainEditor.find("#ANSI");
+        
+        const componentsToShow = this.isIEC ? iecComponents : ansiComponents;
+        const componentsToHide = this.isIEC ? ansiComponents : iecComponents;
+    
+        componentsToShow.forEach((component) => {
+            component.show();
+
+        });
+    
+        componentsToHide.forEach((component) => {
+            component.hide();
+
+        });
+    }
+
+
+    /*
+    snapToGrid(component) {
+
+        component.on('mouseup dragend', () => {
+
+            component.position({
+                x: Math.round(component.x() / this.tileSize) * this.tileSize,
+                y: Math.round(component.y() / this.tileSize) * this.tileSize
+            })
+                
+        });
+
+    }
+    */
+
+    snapToGrid(component) {
+
+        component.on('dragend', () => {
+
+            
+            component.position({
+
+                x: Math.round(component.x() / this.tileSize) * this.tileSize,
+                y: Math.round(component.y() / this.tileSize) * this.tileSize
+            })
+
+            component.getAttr("componentType").updatePosition();
+        })
+    }
 
 
     onKeyDown(e) {
@@ -159,14 +536,23 @@ export class circuitEditor {
 
         if(e.key == "Escape") {
 
+            this.enableEditing();
+            backToEdit();
+
+            if(this.newComponent == null) {return};
+
             this.mainEditor.container().focus();
             this.mainEditor.container().style.cursor = "default";
 
+            
+            this.newComponent.component.position({
 
+                x: Math.round(this.newComponent.component.x() / this.tileSize) * this.tileSize,
+                y: Math.round(this.newComponent.component.y() / this.tileSize) * this.tileSize
+            })
+            
+            
             this.mouseSelectedComponent = null;
-
-            this.enableEditing();
-            backToEdit();
 
         }
     
@@ -174,27 +560,43 @@ export class circuitEditor {
 
     }
 
+    onKeyUp(e) {
 
-    onWheel(e) {
+        /*
+        if (e.key === 'g' || e.key === 'G') {
+        
+            this.mainEditor.container().style.cursor = "default";
+            this.mainEditor.draggable(false);
+            this.dragSelectEnabled = true;
 
+
+        }
+        */
+    }
+
+
+    
+    onWheel(e) {;
+
+        if(this.selectedComponents.length > 0) {
+            this.unhighlightAllComponents();
+        }
+    
     
         let oldScale = this.mainEditor.scaleX();
         let pointer = this.mainEditor.getPointerPosition();
       
         let mousePointTo = {
-
-            x: (pointer.x - this.mainEditor.x()) / oldScale,
-            y: (pointer.y - this.mainEditor.y()) / oldScale,
-
+          x: (pointer.x - this.mainEditor.x()) / oldScale,
+          y: (pointer.y - this.mainEditor.y()) / oldScale,
         };
       
         let direction = e.evt.deltaY > 0 ? -1 : 1;
       
-
         if (e.evt.ctrlKey) {
           direction = -direction;
         }
-    
+      
 
         let newScale = direction > 0 ? oldScale * this.scaleBy : oldScale / this.scaleBy;
         newScale = Math.max(this.maxScale, Math.min(this.minScale, newScale));
@@ -212,11 +614,11 @@ export class circuitEditor {
     }
 
 
-    calculatePositionToScale(variable) {
+    calculatePositionToScale(letiable) {
 
         return {
-            xAxis: variable / this.mainEditor.scaleX() - this.mainEditor.x() / this.mainEditor.scaleX(),
-            yAxis: variable / this.mainEditor.scaleY() - this.mainEditor.y() / this.mainEditor.scaleY(),
+            xAxis: letiable / this.mainEditor.scaleX() - this.mainEditor.x() / this.mainEditor.scaleX(),
+            yAxis: letiable / this.mainEditor.scaleY() - this.mainEditor.y() / this.mainEditor.scaleY(),
         };
     }
 
@@ -240,7 +642,23 @@ export class circuitEditor {
             "BLB": LightBulb,
             "7SD": SevenSegmentDecoder,
             "7SL": SevenSegmentDisplay,
-            "DFF": D_FlipFlop
+            "DFF": D_FlipFlop,
+            "TFF": T_FlipFlop,
+            "JKFF": JK_FlipFlop,
+            "LTC": Latch,
+            "MUX": Multiplexor,
+            "DEMUX": Demultiplexor,
+            "CTR": Counter,
+            "RCTR": RingCounter,
+            "DLD": DecimalDisplay,
+            "HAD": HalfAdder,
+            "SIPO": SIPOregister,
+            "SQG": SequenceGenerator,
+            "CLC": ClockCounter,
+            "BSW": BinarySwitch,
+            "LDA": LEDarray,
+            "RGB": RGBLed,
+            "FAD": FullAdder
         };
 
         return components[this.mouseSelectedComponent];
@@ -267,8 +685,47 @@ export class circuitEditor {
 
     disableEditing() {
 
+        this.unhighlightAllComponents();
+
         this.getAllComponents().forEach(component => {
             component.listening(false)
         })
     }
+
+
+    rotateComponent() {
+
+        for(let i = 0; i < this.components.length; i++) {
+
+            if(this.components[i].isFullySelected) {
+                this.components[i].component.rotate(90);
+                
+            }
+
+
+            if(this.components[i].component.rotation() == 360) {
+                this.components[i].component.rotation(0)
+            }
+
+            
+            this.components[i].updateRotation();
+
+        }
+
+        this.wireMng.draw();
+
+    }
+
+
+    newBlankCircuit() {
+
+        this.layer.removeChildren();
+    
+        this.components.splice(0, this.components.length);
+        this.wireMng.wire.splice(0, this.wireMng.wire.length);
+        nodeList.splice(0, nodeList.length);
+    
+    }
+      
+    
 }

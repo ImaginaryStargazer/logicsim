@@ -13,8 +13,8 @@ export const icons = {
     github: `<i class="fa-brands fa-github fa-xl"></i>`,
     close: `<i class="fa-solid fa-xmark close"></i>`,
     newFile: `<i data-change="modalOpenFile" class="fa-solid fa-file openModal"></i>`,
-    openFolder: `<i data-change="modalOpenFolder" class="fa-solid fa-folder-open openModal"></i>`,
-    download: `<i data-change="modalDownload" class="fa-solid fa-download openModal"></i>`,
+    openFolder: `<i class="fa-solid fa-folder-open"></i>`, // openModal data-change="modalOpenFolder"
+    download: `<i class="fa-solid fa-download"></i>`, // data-change="modalDownload"
     undo: `<i class="fa-solid fa-rotate-left"></i>`,
     redo: `<i class="fa-solid fa-rotate-right"></i>`,
     startSimulation: `<i class="fa-solid fa-play"></i>`,
@@ -47,6 +47,17 @@ export const icons = {
     Line: "images/components/Line.png",
     Box: "images/components/Box.png",
     Text: "images/components/Text.png",
+
+    // Tutorial Gify
+
+    Settings: "images/Gifs/Settings.gif",
+    MovingEditor: "images/Gifs/MovingEditor.gif",
+    AddComponents: "images/Gifs/AddComponents.gif",
+    EditComponents: "images/Gifs/EditComponents.gif",
+    AddWires: "images/Gifs/AddWires.gif",
+    Simulate: "images/Gifs/Simulate.gif",
+    OscilloscopeSettings: "images/Gifs/OscilloscopeSettings.gif",
+    SaveAndLoad: "images/Gifs/SaveAndLoad.gif",
 
     // Ukážkové obvody
 
@@ -90,6 +101,23 @@ export const icons = {
         SevenSegDecoder: "images/components/7SegDeoder.png",
         SevenSegDisplay: "images/components/7SegDisplay.png",
         D_FlipFlop: "images/components/D_FlipFlop.png",
+        T_FlipFlop: "images/components/T_FlipFlop.png",
+        JK_FlipFlop: "images/components/JK_FlipFlop.png",
+        Latch: "images/components/Latch.png",
+        Multiplexor: "images/components/Multiplexor.png",
+        Demultiplexor: "images/components/Demultiplexor.png",
+        Counter: "images/components/Counter.png",
+        RingCounter: "images/components/RingCounter.png",
+        DecimalDisplay: "images/components/DecimalDisplay.png",
+        HalfAdder: "images/components/HalfAdder.png",
+        FullAdder: "images/components/FullAdder.png",
+        SIPOregister: "images/components/SIPO.png",
+        SequenceGen: "images/components/SequenceGenerator.png",
+        ClockCounter: "images/components/ClockCounter.png",
+        BinarySwitch: "images/components/BinarySwitch.png",
+        LEDarray: "images/components/LEDarray.png",
+        RGBLED: "images/components/RGBLED.png",
+        
     },
 
     // Americké ikony komponentov
@@ -131,6 +159,23 @@ export const icons = {
         SevenSegDecoder: "images/components/7SegDecoderANSI.png",
         SevenSegDisplay: "images/components/7SegDisplayANSI.png",
         D_FlipFlop: "images/components/D_FlipFlopANSI.png",
+        T_FlipFlop: "images/components/T_FlipFlopANSI.png",
+        JK_FlipFlop: "images/components/JK_FlipFlopANSI.png",
+        Latch: "images/components/LatchANSI.png",
+        Multiplexor: "images/components/MultiplexorANSI.png",
+        Demultiplexor: "images/components/DemultiplexorANSI.png",
+        Counter: "images/components/CounterANSI.png",
+        RingCounter: "images/components/RingCounter.png",
+        DecimalDisplay: "images/components/DecimalDisplayANSI.png",
+        HalfAdder: "images/components/HalfAdderANSI.png",
+        FullAdder: "images/components/FullAdderANSI.png",
+        SIPOregister: "images/components/SIPOANSI.png",
+        SequenceGen: "images/components/SequenceGeneratorANSI.png",
+        ClockCounter: "images/components/ClockCounterANSI.png",
+        BinarySwitch: "images/components/BinarySwitchANSI.png",
+        LEDarray: "images/components/LEDarrayANSI.png",
+        RGBLED: "images/components/RGBLEDANSI.png",
+    
     }
     
 

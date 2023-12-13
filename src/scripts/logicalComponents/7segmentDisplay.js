@@ -1,44 +1,34 @@
 import { Component } from "./component.js";
 import { Node } from "./node.js";
-import { mainEditor } from "../circuitEditor.js";
-
 
 export class SevenSegmentDisplay extends Component{
-    constructor(x, y, color, highlightColor) {
-        super(x, y, color, highlightColor);
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.highlightColor = highlightColor;
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation);
 
-        this.component.setAttrs({
-            id: "7SL"
-        })
+        this.id = "SSL";
 
-        this.input = [];
         this.segment = [];
-
-        this.layer = mainEditor.findOne("#componentLayer");
     }
 
 
     setupNodes() {
+        
 
-        this.input[0] = new Node(-20, 20, false, false, this.color); // a
-        this.component.add(this.input[0].draw());
-        this.input[1] = new Node(-20, 40, false, false, this.color); // b
-        this.component.add(this.input[1].draw());
-        this.input[2] = new Node(-20, 60, false, false, this.color); // c
-        this.component.add(this.input[2].draw());
-        this.input[3] = new Node(-20, 80, false, false, this.color); // d
-        this.component.add(this.input[3].draw());
+        this.nodes[0] = new Node(-20, 20, false, false, this.color, "a"); // a
+        this.component.add(this.nodes[0].draw());
+        this.nodes[1] = new Node(-20, 40, false, false, this.color, "b"); // b
+        this.component.add(this.nodes[1].draw());
+        this.nodes[2] = new Node(-20, 60, false, false, this.color, "c"); // c
+        this.component.add(this.nodes[2].draw());
+        this.nodes[3] = new Node(-20, 80, false, false, this.color, "d"); // d
+        this.component.add(this.nodes[3].draw());
 
-        this.input[4] = new Node(40, 120, false, false, this.color); // e
-        this.component.add(this.input[4].draw());
-        this.input[5] = new Node(60, 120, false, false, this.color); // f
-        this.component.add(this.input[5].draw());
-        this.input[6] = new Node(80, 120, false, false, this.color); // g
-        this.component.add(this.input[6].draw());
+        this.nodes[4] = new Node(40, 120, false, false, this.color, "e"); // e
+        this.component.add(this.nodes[4].draw());
+        this.nodes[5] = new Node(60, 120, false, false, this.color, "f"); // f
+        this.component.add(this.nodes[5].draw());
+        this.nodes[6] = new Node(80, 120, false, false, this.color, "g"); // g
+        this.component.add(this.nodes[6].draw());
 
 
         this.segment[0] = new LedSegment(40, 25, 60, 25); // a
@@ -56,6 +46,8 @@ export class SevenSegmentDisplay extends Component{
         this.component.add(this.segment[5].draw());
         this.segment[6] = new LedSegment(40, 48, 60, 48); // g
         this.component.add(this.segment[6].draw());
+
+        this.startNodeId = this.nodes[0].id;
     }
 
 
@@ -69,28 +61,41 @@ export class SevenSegmentDisplay extends Component{
             fill: "red",
             fontFamily: "Digital Numbers Regular",
             opacity: 0.2,
+            strokeEnabled: false
         })
 
         const sevenSegmentDisplay = new Konva.Shape({
             x: 0,
             y: 0,
 
-            sceneFunc: function(context, shape) {
+            sceneFunc: (context, shape) => {
                 context.beginPath();
-                context.rect(0,0,100,100);
- 
-                for(let i = 20; i < 100; i +=20) {
+                context.rect(0, 0, 100, 100);
 
-                    context.moveTo(0,i)
-                    context.lineTo(-20,i);
+                context.fillStyle = this.color;
+                context.font = "bold 13px Arial";
+
+                let ii = 0;
+                for (let i = 20; i < 100; i += 20) {
+
+                    context.moveTo(0, i);
+                    context.lineTo(-20, i);
+                    context.fillText(this.nodes[ii].label, 3, 5 + i);
+
+                    ii++;
                 }
 
-                for(let i = 40; i < 100; i +=20) {
+                for (let i = 40; i < 100; i += 20) {
 
-                    context.moveTo(i, 100)
+                    context.moveTo(i, 100);
                     context.lineTo(i, 120);
+
+                    context.fillText(this.nodes[ii].label, -4 + i, 95);
+
+                    ii++;
                 }
-                
+
+                context.closePath();
                 context.fillStrokeShape(shape);
 
             },
@@ -112,9 +117,9 @@ export class SevenSegmentDisplay extends Component{
 
     draw() {
 
-        for(let i = 0; i < this.input.length; i++) {
+        for(let i = 0; i < this.nodes.length; i++) {
             
-            if(this.input[i].getValue()) {
+            if(this.nodes[i].getValue()) {
                 this.segment[i].segment.setAttrs({
                     stroke: "red",
                     //zIndex: 0,
@@ -127,6 +132,7 @@ export class SevenSegmentDisplay extends Component{
             }
         }
     }
+
 }
 
 

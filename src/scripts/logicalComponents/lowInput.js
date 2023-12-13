@@ -1,24 +1,24 @@
-import { mainEditor } from "../circuitEditor.js";
 import { Component } from "./component.js";
 import { Node } from "./node.js";
 
 export class LowInput extends Component{
-    constructor(x, y, color, highlightColor) {
-        super(x, y, color, highlightColor)
-        this.x = x;
-        this.y = y;
-        this.color = color;
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation)
+
         this.value = false;
 
-        this.highlightColor = highlightColor;
 
-        this.component.setAttrs({
-            id: "LI",
-        })
+        this.id = "LI";
 
-        this.layer = mainEditor.findOne("#componentLayer");
 
-        this.output = new Node(100, 20, true, this.value, this.color);
+    }
+
+    setupNodes() {
+
+        this.nodes[0] = new Node(100, 20, true, this.value, this.color);
+        this.component.add(this.nodes[0].draw());
+
+        this.startNodeId = this.nodes[0].id;
     }
 
     render() {
@@ -48,7 +48,8 @@ export class LowInput extends Component{
         })
 
 
-        this.component.add(body, low, output, this.output.draw());
+        this.component.add(body, low, output);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
@@ -56,4 +57,7 @@ export class LowInput extends Component{
     draw() {
         
     }
+
+
+    
 }

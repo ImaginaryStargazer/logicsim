@@ -1,21 +1,23 @@
 import { Component } from "./component.js";
 import { Node } from "./node.js";
-import { mainEditor } from "../circuitEditor.js";
-
 
 export class LightBulb extends Component {
 
-    constructor(x, y, color,highlightColor) {
-        super(x, y, color, highlightColor)
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation)
 
-        this.color = color;
 
-        this.component.setAttr("id", "Bulb")
-        
-        this.layer = mainEditor.findOne("#componentLayer");
+        this.id = "BLB";
+    
 
-        this.input = new Node(-80, 0, false, false, this.color);
+    }
 
+    setupNodes() {
+
+        this.nodes[0] = new Node(-80, 0, false, false, this.color);
+        this.component.add(this.nodes[0].draw());
+
+        this.startNodeId = this.nodes[0].id;
     }
 
 
@@ -50,18 +52,20 @@ export class LightBulb extends Component {
             points: [-20, 0, -80, 0],
             stroke: this.color,
             strokeWidth: 2,
+            name: "wire"
 
         })
 
 
-        this.component.add(body, output, this.input.draw());
+        this.component.add(body, output);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
 
     draw() {
-        if(this.input.getValue()) {
-            this.component.findOne("Circle").fill("yellow")
+        if(this.nodes[0].getValue()) {
+            this.component.findOne("Circle").fill("orange")
         } else {
             this.component.findOne("Circle").fill("")
         }

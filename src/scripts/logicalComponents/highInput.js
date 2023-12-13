@@ -1,24 +1,24 @@
-import { mainEditor } from "../circuitEditor.js"
 import { Component } from "./component.js";
 import { Node } from "./node.js";
 
 export class HighInput extends Component {
-    constructor(x, y, color, highlightColor) {
-        super(x, y, color, highlightColor);
-        this.x = x;
-        this.y = y;
-        this.color = color;
+    constructor(x, y, color, rotation) {
+        super(x, y, color, rotation);
+
         this.value = true;
-        this.highlightColor = highlightColor;
+
         
-        this.component.setAttrs({
-            id: "HI",
-        })
+        this.id = "HI";
+    }
 
 
-        this.layer = mainEditor.findOne("#componentLayer");
+    setupNodes() {
 
-        this.output = new Node(100, 20, true, this.value, this.color)
+        this.nodes[0] = new Node(100, 20, true, this.value, this.color);
+        this.component.add(this.nodes[0].draw());
+
+        this.startNodeId = this.nodes[0].id;
+
     }
 
     render() {
@@ -49,7 +49,8 @@ export class HighInput extends Component {
         })
 
 
-        this.component.add(body, high, output, this.output.draw());
+        this.component.add(body, high, output);
+        this.setupNodes();
 
         this.layer.add(this.component);
     }
@@ -58,4 +59,6 @@ export class HighInput extends Component {
     draw() {
         
     }
+
+
 }

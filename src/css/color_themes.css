@@ -1,17 +1,17 @@
 .light-theme {
-    --header_color: #cfcfcf;
-    --content_color: #cfcfcf;
-    --border_color: #B0B0B0;
+    --header_color: #bbbbbb;
+    --content_color: #bbbbbb;
+    --border_color: #1c1c1c;
     --text_color: #2C2C2C;
     --icon_color: #2C2C2C;
-    --component_type_color: #ece6e6;
-    --component_option_color: #cfcfcf;
+    --component_type_color: #eeeeee;
+    --component_option_color: #bbbbbb;
     --scrollbar_track-color: #cfcfcf;
     --scrollbar_thumb-color: #ece6e6;
-    --main_board_color: #cfcfcf;
+    --main_board_color: #aaaaaa;
     --grid_minor_line_color: #D3D3D3;
-    --component_hover_color: #c5c3c3;
-    --button_hover_color: #dfdfdf;
+    --component_hover_color: #e6e6e9;
+    --button_hover_color: #1c1c1c;
 }
 
 .dark-theme {
