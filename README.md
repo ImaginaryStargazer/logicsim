@@ -16,7 +16,8 @@ Skoro žiadna podpora pre menšie obrazovky a mobily.
 
 ## :wrench: TODO
 
-Dokumentácia súčiastok
+Dokumentácia súčiastok.
+Obvody na vyskúšanie v hlavnom menu.
 
 ## Autor
 
