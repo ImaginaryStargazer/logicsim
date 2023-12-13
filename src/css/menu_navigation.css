@@ -1,14 +1,3 @@
-/*Fonty font-family: 'Electrolize', sans-serif;*/
-
-/*Farby https://colorhunt.co/palette/0f044c141e61787a91eeeeee 
-
-https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8
-
-hover color - #caf0f8
-
-#000022 background color
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kreon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
@@ -16,7 +5,7 @@ hover color - #caf0f8
     font-family: 'Digital Numbers Regular';
     font-style: normal;
     font-weight: normal;
-    src: url('/font/DigitalNumbers-Regular.woff'), format('woff');
+    src: url('src/css/font/DigitalNumbers-Regular.woff'), format('woff');
 }
 @import url("color_themes.css");
 
