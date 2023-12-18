@@ -35,6 +35,7 @@ import { ClockCounter } from "./logicalComponents/clockCounter.js";
 import { BinarySwitch } from "./logicalComponents/binarySwitch.js";
 import { LEDarray } from "./logicalComponents/LEDarray.js";
 import { RGBLed } from "./logicalComponents/RGBLED.js";
+import { BusConnection } from "./logicalComponents/busConnection.js";
 
 
 const container = document.querySelector("#mainBoardContainer");
@@ -449,6 +450,9 @@ export class FileManager {
                                 break;
                             case "RGB":
                                 editor.components.push(new RGBLed(objectParsed.posX, objectParsed.posY, objectParsed.color, objectParsed.rotation));
+                                break;
+                            case "BUS":
+                                editor.components.push(new BusConnection(objectParsed.posX, objectParsed.posY, objectParsed.color, objectParsed.rotation));
                                 break;
                             case "SSD":
                                 editor.components.push(new SevenSegmentDecoder(objectParsed.posX, objectParsed.posY, objectParsed.color, objectParsed.rotation));

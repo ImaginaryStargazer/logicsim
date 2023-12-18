@@ -117,6 +117,7 @@ export const icons = {
         BinarySwitch: "images/components/BinarySwitch.png",
         LEDarray: "images/components/LEDarray.png",
         RGBLED: "images/components/RGBLED.png",
+        Bus: "images/components/Bus.png",
         
     },
 
@@ -175,6 +176,7 @@ export const icons = {
         BinarySwitch: "images/components/BinarySwitchANSI.png",
         LEDarray: "images/components/LEDarrayANSI.png",
         RGBLED: "images/components/RGBLEDANSI.png",
+        Bus: "images/components/BusANSI.png",
     
     }
     

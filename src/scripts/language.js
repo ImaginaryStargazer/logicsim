@@ -70,6 +70,7 @@ export var lang = {
         LEDarray: "LED Pole",
         RGBLED: "RGB LED",
         Oscilloscope: "Osciloskop",
+        Bus: "Zbernica",
 
 
         // Označenia tlačidiel, menu, nastavení
@@ -291,6 +292,7 @@ export var lang = {
         LEDarray: "LED Array",
         RGBLED: "RGB LED",
         Oscilloscope: "Oscilloscope",
+        Bus: "Bus",
 
         // Označenia tlačidiel, menu, nastavení
 

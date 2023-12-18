@@ -707,6 +707,7 @@ class UserInterface {
                         ${this.createComponent(lang[this.language].Bulb, icons.ANSI.LightBulb, "BLB")}
                         ${this.createComponent(lang[this.language].LEDarray, icons.ANSI.LEDarray, "LDA")}
                         ${this.createComponent(lang[this.language].RGBLED, icons.ANSI.RGBLED, "RGB")}
+                        ${this.createComponent(lang[this.language].Bus, icons.ANSI.Bus, "BUS")}
                     </ul>
                 </div>
                 <div>

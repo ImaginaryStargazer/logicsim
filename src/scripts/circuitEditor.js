@@ -42,6 +42,7 @@ import { LEDarray } from "./logicalComponents/LEDarray.js";
 import { Oscilloscope } from "./logicalComponents/oscilloscope.js";
 import { RGBLed } from "./logicalComponents/RGBLED.js";
 import { FullAdder } from "./logicalComponents/fullAdder.js";
+import { BusConnection } from "./logicalComponents/busConnection.js";
 
 
 export const mainEditor = new Konva.Stage({container: "mainBoard"});
@@ -658,7 +659,8 @@ export class circuitEditor {
             "BSW": BinarySwitch,
             "LDA": LEDarray,
             "RGB": RGBLed,
-            "FAD": FullAdder
+            "FAD": FullAdder,
+            "BUS": BusConnection
         };
 
         return components[this.mouseSelectedComponent];
