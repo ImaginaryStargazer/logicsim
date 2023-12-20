@@ -7,6 +7,7 @@ export class LogicalSwitch extends Component {
 
 
         this.id = "LSW";
+        this.editType = "noEdit";
 
         this.component.on("dblclick", () => {this.doubleClick()});
 

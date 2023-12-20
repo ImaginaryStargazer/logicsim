@@ -6,6 +6,8 @@ export class SIPOregister extends Component {
         super(x, y, color, rotation); 
 
         this.id = "SIPO";
+        this.editType = "bitEdit";
+        this.bits = 8;
 
         this.DATA_PIN_INDEX = 2;
         this.lastClock = false;

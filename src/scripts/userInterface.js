@@ -363,14 +363,57 @@ class UserInterface {
 
         const componentEditBox = `
         <div id="componentEditBox" class="modal" style="color: white;">
-            <div style="width: 200px; height: 300px;" class="modalContent">
+            <div style="width: 200px; height: 200px;" class="modalContent">
                 ${this.createModalHeader(lang[this.language].EditComponent)}
                 
-                <p>Sample text</p>
-                <p>Sample text</p>
+
+                <div id="inputOption" class="channelOption" style="display: none">
+
+                    <label>${lang[this.language].NumOfInputs}</label>
+                    <input id="inputEdit" placeholder="2-6" type="text">
+
+                </div>
+
+                <div id="colorOption" class="channelOption" style="display: none">
+
+                    <label>${lang[this.language].SetColor}</label>
+                    <input id="colorEdit" type="color">
+
+                </div>
+
+                
+                <div id="clockGenOption" class="channelOption" style="display: none">
+
+                    <label>${lang[this.language].SetPeriod}</label>
+                    <input id="clockGenEdit" type="text">
+
+                </div>
+
+                <div id="bitOption" class="channelOption" style="display: none">
+
+                    <label>${lang[this.language].NumOfBits}</label>
+                    <input id="bitEdit" type="text">
+
+                </div>
+
+                <div id="sequenceOption" class="channelOption" style="display: none">
+
+                    <label>${lang[this.language].SetSequence}</label>
+                    <input id="sequenceEdit" type="text" placeholder="01101001">
+
+                </div>
+
+                
+                <div id="clockCountOption" class="channelOption" style="display: none">
+
+                    <label>${lang[this.language].SetClockCount}</label>
+                    <input id="clockCountEdit" type="text">
+
+                </div>
 
                 <div class="circuitsNav">
-                    ${this.createButton(["applyButton"], lang[this.language].Apply,  "apply" , "block")}
+                    ${this.createButton(["applyButton"], lang[this.language].Apply, "applyComponent", "block")}
+                    ${this.createButton(["okButton"], lang[this.language].Ok,  "okComponent" , "block")}
                 </div>
             </div>
         </div>

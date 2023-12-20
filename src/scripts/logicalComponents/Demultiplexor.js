@@ -8,7 +8,8 @@ export class Demultiplexor extends Component {
 
 
         this.id = "DEMUX";
-
+        this.editType = "bitEdit";
+        this.bits = 4;
 
     }
 

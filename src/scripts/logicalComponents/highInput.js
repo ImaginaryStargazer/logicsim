@@ -9,6 +9,7 @@ export class HighInput extends Component {
 
         
         this.id = "HI";
+        this.editType = "noEdit";
     }
 
 

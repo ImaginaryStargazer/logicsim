@@ -9,6 +9,7 @@ export class LowInput extends Component{
 
 
         this.id = "LI";
+        this.editType = "noEdit";
 
 
     }

@@ -10,7 +10,7 @@ export class RGBLed extends Component{
 
         this.id = "RGB";
         this.colors = [0, 0, 0];
-
+        this.editType = "noEdit";
     }
 
 

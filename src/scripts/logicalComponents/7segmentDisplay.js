@@ -6,6 +6,8 @@ export class SevenSegmentDisplay extends Component{
         super(x, y, color, rotation);
 
         this.id = "SSL";
+        this.editType = "colorEdit";
+        this.ledColor = "red";
 
         this.segment = [];
     }
@@ -121,7 +123,7 @@ export class SevenSegmentDisplay extends Component{
             
             if(this.nodes[i].getValue()) {
                 this.segment[i].segment.setAttrs({
-                    stroke: "red",
+                    stroke: this.ledColor,
                     //zIndex: 0,
                     opacity: 1
                 })

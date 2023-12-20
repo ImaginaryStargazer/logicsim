@@ -7,6 +7,7 @@ export class BinarySwitch extends Component {
         super(x, y, color, rotation);
 
         this.id = "BSW";
+        this.editType = "noEdit";
 
         this.lastClock = false;
     }

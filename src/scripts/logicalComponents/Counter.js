@@ -7,7 +7,8 @@ export class Counter extends Component {
         super(x, y, color, rotation);
 
         this.id = "CTR";
-
+        this.editType = "bitEdit";
+        this.bits = 4;
 
         this.lastClock = undefined;
 

@@ -9,6 +9,8 @@ export class ORGate extends Component {
 
 
         this.id = "OR";
+        this.editType = "inputEdit";
+        this.numOfInputs = 2;
     }
 
 

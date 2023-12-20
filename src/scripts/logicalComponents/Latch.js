@@ -7,6 +7,7 @@ export class Latch extends Component {
         super(x, y, color, rotation);
 
         this.id = "LTC";
+        this.editType = "bitEdit";
 
         this.lastLoad = false; // LD node
         this.bits = 4;

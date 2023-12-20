@@ -8,6 +8,7 @@ export class D_FlipFlop extends Component {
 
 
         this.id = "DFF";
+        this.editType = "noEdit";
         this.lastClock = undefined;
 
     }

@@ -98,10 +98,6 @@ export class Node {
             stroke: "grey",
             strokeWidth: 4,
             radius: 8,
-            shadowColor: 'black',
-            shadowBlur: 10,
-            shadowOffset: { x: 0, y: 0 },
-            shadowOpacity: 0.6,
         })
 
         return true;
@@ -113,7 +109,6 @@ export class Node {
         this.node.setAttrs({
             strokeWidth: 2,
             stroke: "grey",
-            shadowOpacity: 0,
             radius: this.radius,
         })
 

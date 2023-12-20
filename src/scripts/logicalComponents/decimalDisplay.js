@@ -9,6 +9,7 @@ export class DecimalDisplay extends Component{
         super(x, y, color, rotation);
 
         this.id = "DLD";
+        this.editType = "colorEdit";
 
         this.number = new Konva.Text({
             text: "0",

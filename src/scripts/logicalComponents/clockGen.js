@@ -9,11 +9,12 @@ export class ClockGen extends Component{
         this.value = false;
 
         this.id = "CLK";
+        this.editType = "clockGenEdit";
 
         // perioda a duty cycle 
-        this.f = 500;
-        this.truePeriod = this.f * 50 / 100;
-        this.falsePeriod = this.f * (100 - 50) / 100;
+        this.T = 500;
+        this.truePeriod = this.T * 50 / 100;
+        this.falsePeriod = this.T * (100 - 50) / 100;
         this.lastTick = performance.now();
 
     }

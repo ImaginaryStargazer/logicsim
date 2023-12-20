@@ -8,6 +8,7 @@ export class T_FlipFlop extends Component {
 
 
         this.id = "TFF";
+        this.editType = "noEdit";
 
         this.lastClock = undefined;
 

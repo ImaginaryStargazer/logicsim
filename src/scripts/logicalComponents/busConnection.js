@@ -8,7 +8,8 @@ export class BusConnection extends Component {
         super(x, y, color, rotation);
 
         this.id = "BUS";
-        this.nodeCount = 20;
+        this.nodeCount = 10;
+        this.editType = "bitEdit";
     }
 
     setupNodes() {
@@ -20,7 +21,7 @@ export class BusConnection extends Component {
 
 
         for(let i = 1; i <= this.nodeCount; i++) {
-            this.nodes[i] = new Node(this.nodeCount * 85 - shift, 0, true, false, this.color, "Q" + i);
+            this.nodes[i] = new Node(this.nodeCount * 90 - shift, 0, true, false, this.color, "Q" + i);
             this.component.add(this.nodes[i].draw());
 
             shift += 80;
@@ -35,7 +36,7 @@ export class BusConnection extends Component {
     render() {
 
         const busConnection = new Konva.Line({
-            points: [0, 0, this.nodeCount * 85, 0],
+            points: [0, 0, this.nodeCount * 90, 0],
             stroke: this.color,
             strokeWidth: this.strokeWidth,
             hitStrokeWidth: 30

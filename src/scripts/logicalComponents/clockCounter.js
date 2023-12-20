@@ -6,11 +6,12 @@ export class ClockCounter extends Component{
         super(x, y, color, rotation);
 
         this.id = "CLC";
-
+        this.editType = "clockCountEdit";
 
         this.lastClock = false;
         this.clockCount = 4;
         this.currentClockCount = 0;
+        
     }
 
     setupNodes() {

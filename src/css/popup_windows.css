@@ -390,6 +390,10 @@
     left: 10px
 }
 
+.channelOption input {
+    width: 60px;
+}
+
 .applyButton {
     position: absolute;
     bottom: 0;

@@ -8,6 +8,8 @@ export class ANDGate extends Component {
 
 
         this.id = "AND";
+        this.editType = "inputEdit";
+        this.numOfInputs = 2;
 
     }
 
@@ -68,7 +70,6 @@ export class ANDGate extends Component {
                 context.moveTo(0, 10);
                 context.quadraticCurveTo(60, 5, 60, 40);
                 context.quadraticCurveTo(60, 75, 0, 70);
-                context.lineTo(0, 10);
                 context.closePath();
                 context.fillStrokeShape(shape);
 

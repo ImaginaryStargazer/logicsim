@@ -7,6 +7,8 @@ export class LEDarray extends Component {
         super(x, y, color, rotation);
 
         this.id = "LDA";
+        this.editType = "colorEdit";
+        this.ledColor = "red";
         this.LED = [];
     }
 

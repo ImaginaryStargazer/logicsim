@@ -7,7 +7,7 @@ export class NOTGate extends Component {
         super(x, y, color, rotation)
 
         this.id = "NOT";
-        
+        this.editType = "noEdit";
     }
 
     setupNodes() {

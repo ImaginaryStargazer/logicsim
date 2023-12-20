@@ -8,6 +8,7 @@ export class LogicalOutput extends Component {
 
 
         this.id = "OUT";
+        this.editType = "noEdit";
 
     }
 

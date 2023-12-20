@@ -7,6 +7,8 @@ export class NORGate extends Component{
         super(x, y, color, rotation)
 
         this.id = "NOR";
+        this.editType = "inputEdit";
+        this.numOfInputs = 2;
     }
 
 

@@ -8,6 +8,8 @@ export class RingCounter extends Component {
 
 
         this.id = "RCTR";
+        this.editType = "bitEdit";
+        this.bits = 7;
 
         this.lastClock = undefined;
 

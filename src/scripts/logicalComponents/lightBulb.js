@@ -8,7 +8,8 @@ export class LightBulb extends Component {
 
 
         this.id = "BLB";
-    
+        this.editType = "colorEdit";
+        this.ledColor = "orange";
 
     }
 
@@ -65,7 +66,7 @@ export class LightBulb extends Component {
 
     draw() {
         if(this.nodes[0].getValue()) {
-            this.component.findOne("Circle").fill("orange")
+            this.component.findOne("Circle").fill(this.ledColor)
         } else {
             this.component.findOne("Circle").fill("")
         }

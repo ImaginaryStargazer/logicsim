@@ -7,6 +7,7 @@ export class SevenSegmentDecoder extends Component{
         super(x, y, color, rotation);
 
         this.id = "SSD";
+        this.editType = "noEdit";
 
 
         this.symbols = [

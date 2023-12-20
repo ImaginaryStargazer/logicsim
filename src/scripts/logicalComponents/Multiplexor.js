@@ -7,7 +7,8 @@ export class Multiplexor extends Component {
         super(x, y, color, rotation);
 
         this.id = "MUX";
-
+        this.editType = "bitEdit";
+        this.bits = 4;
     }
 
 

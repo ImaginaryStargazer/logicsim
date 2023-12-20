@@ -8,7 +8,8 @@ export class NANDGate extends Component {
 
 
         this.id = "NAND";
-
+        this.editType = "inputEdit";
+        this.numOfInputs = 2;
     }
 
     setupNodes() {

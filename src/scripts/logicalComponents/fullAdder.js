@@ -9,6 +9,7 @@ export class FullAdder extends Component {
         super(x, y, color, rotation);
 
         this.id = "FAD";
+        this.editType = "noEdit";
     }
 
     setupNodes() {

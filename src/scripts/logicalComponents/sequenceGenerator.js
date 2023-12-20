@@ -6,6 +6,7 @@ export class SequenceGenerator extends Component {
         super(x, y, color, rotation);
 
         this.id = "SQG";
+        this.editType = "sequenceEdit";
 
         this.sequence = "01010000";
         this.lastClock = false;

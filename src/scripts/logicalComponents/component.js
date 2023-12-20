@@ -30,7 +30,7 @@ export class Component {
         this.startNodeId = undefined;
 
 
-        this.component.on("contextmenu", () => {this.rightClick()});
+        this.component.on("contextmenu", (event) => {this.doubleClick(event)});
         this.layer = mainEditor.findOne("#componentLayer");
         this.graphingLayer = mainEditor.findOne("#graphingLayer");
 
@@ -62,9 +62,78 @@ export class Component {
     }
 
 
-    rightClick() {
-    
-        return this;
+    doubleClick(event) {
+        
+        if(event.target.name() === "node") return;
+
+        let editedProperty;
+
+        inputOption.style.display = "none";
+        colorOption.style.display = "none";
+        clockGenOption.style.display = "none";
+        bitOption.style.display = "none";
+        clockCountOption.style.display = "none";
+        sequenceOption.style.display = "none";
+        
+
+        componentEditBox.style.display = "block";
+
+
+        switch (this.editType) {
+            case "inputEdit":
+                inputOption.style.display = "block";
+                editedProperty = this.numOfInputs;
+                break;
+            
+            case "colorEdit":
+                colorOption.style.display = "block";
+                editedProperty = this.ledColor;
+                break;
+
+            case "clockGenEdit":
+                clockGenOption.style.display = "block";
+                editedProperty = this.T;
+                break;           
+
+            case "bitEdit":
+                bitOption.style.display = "block";
+                editedProperty = this.bits;
+                break;     
+        
+            case "clockCountEdit":
+                clockCountOption.style.display = "block";
+                editedProperty = this.clockCount;
+                break;   
+
+
+            case "sequenceEdit":
+                sequenceOption.style.display = "block";
+                editedProperty = this.sequence;
+                break;   
+
+            default:
+                break;
+        }
+        
+
+        document.getElementById("applyComponent").onclick = () => {
+
+            if(this.editType == "noEdit") return;
+
+            this.ledColor = document.getElementById(this.editType).value;
+            
+            
+            
+            console.log(this)
+
+        }
+        
+
+        document.getElementById("okComponent").onclick = () => {
+
+            componentEditBox.style.display  = "none";
+        }
+
     }
 
     updatePosition() {

@@ -131,6 +131,12 @@ export var lang = {
         Reverse: "Invertovať:",
         Toggle: "Prepnúť",
         RemoveFromChannel: "Odstrániť signál z kanála:",
+        NumOfInputs: "Počet Vstupov:",
+        SetColor: "Nastav Farbu:",
+        SetPeriod: "Nastav Periódu:",
+        NumOfBits: "Počet Bitov:",
+        SetSequence: "Nastav Sekvenciu:",
+        SetClockCount: "Nastav Hodnotu:",
 
         // Obvody
 
@@ -352,6 +358,12 @@ export var lang = {
         Reverse: "Reverse:",
         Toggle: "Toggle",
         RemoveFromChannel: "Remove Signal From Channel:",
+        NumOfInputs: "Number Of Inputs:",
+        SetColor: "Set Color:",
+        SetPeriod: "Set Period:",
+        NumOfBits: "Set Number Of Bits:",
+        SetSequence: "Set Sequence:",
+        SetClockCount: "Set Clock Count:",
 
         // Obvody
 

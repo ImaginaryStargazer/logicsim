@@ -8,7 +8,8 @@ export class XORGate extends Component {
 
 
         this.id = "XOR";
-
+        this.editType = "inputEdit";
+        this.numOfInputs = 2;
 
     }
 

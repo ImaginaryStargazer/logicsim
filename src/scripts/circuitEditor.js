@@ -47,6 +47,43 @@ import { BusConnection } from "./logicalComponents/busConnection.js";
 
 export const mainEditor = new Konva.Stage({container: "mainBoard"});
 
+export const componentsMap =  {
+
+    "NOT": NOTGate,
+    "AND": ANDGate,
+    "OR": ORGate,
+    "NOR": NORGate,
+    "NAND": NANDGate,
+    "XOR": XORGate,
+    "XNOR": XNORGate,
+    "LI": LowInput,
+    "HI": HighInput,
+    "LSW": LogicalSwitch,
+    "CLK": ClockGen,
+    "LO": LogicalOutput,
+    "BLB": LightBulb,
+    "7SD": SevenSegmentDecoder,
+    "7SL": SevenSegmentDisplay,
+    "DFF": D_FlipFlop,
+    "TFF": T_FlipFlop,
+    "JKFF": JK_FlipFlop,
+    "LTC": Latch,
+    "MUX": Multiplexor,
+    "DEMUX": Demultiplexor,
+    "CTR": Counter,
+    "RCTR": RingCounter,
+    "DLD": DecimalDisplay,
+    "HAD": HalfAdder,
+    "SIPO": SIPOregister,
+    "SQG": SequenceGenerator,
+    "CLC": ClockCounter,
+    "BSW": BinarySwitch,
+    "LDA": LEDarray,
+    "RGB": RGBLed,
+    "FAD": FullAdder,
+    "BUS": BusConnection
+};
+
 export class circuitEditor {
     constructor(width, height) {
 
@@ -169,7 +206,6 @@ export class circuitEditor {
         const endX = Math.floor(((-this.mainEditor.x() / this.mainEditor.scaleX()) +  visibleWidth + this.tileSize ) / this.tileSize) * this.tileSize;
         const startY = Math.floor(((-this.mainEditor.y() / this.mainEditor.scaleY())) / this.tileSize) * this.tileSize;
         const endY = Math.floor(((-this.mainEditor.y() / this.mainEditor.scaleY()) + visibleHeight + this.tileSize) / this.tileSize) * this.tileSize;
-
 
 
         let gridShape = new Konva.Shape({
@@ -625,45 +661,8 @@ export class circuitEditor {
 
 
     getClickedComponent() {
-        
-        let components = {
 
-            "NOT": NOTGate,
-            "AND": ANDGate,
-            "OR": ORGate,
-            "NOR": NORGate,
-            "NAND": NANDGate,
-            "XOR": XORGate,
-            "XNOR": XNORGate,
-            "LI": LowInput,
-            "HI": HighInput,
-            "LSW": LogicalSwitch,
-            "CLK": ClockGen,
-            "LO": LogicalOutput,
-            "BLB": LightBulb,
-            "7SD": SevenSegmentDecoder,
-            "7SL": SevenSegmentDisplay,
-            "DFF": D_FlipFlop,
-            "TFF": T_FlipFlop,
-            "JKFF": JK_FlipFlop,
-            "LTC": Latch,
-            "MUX": Multiplexor,
-            "DEMUX": Demultiplexor,
-            "CTR": Counter,
-            "RCTR": RingCounter,
-            "DLD": DecimalDisplay,
-            "HAD": HalfAdder,
-            "SIPO": SIPOregister,
-            "SQG": SequenceGenerator,
-            "CLC": ClockCounter,
-            "BSW": BinarySwitch,
-            "LDA": LEDarray,
-            "RGB": RGBLed,
-            "FAD": FullAdder,
-            "BUS": BusConnection
-        };
-
-        return components[this.mouseSelectedComponent];
+        return componentsMap[this.mouseSelectedComponent];
     }
 
 

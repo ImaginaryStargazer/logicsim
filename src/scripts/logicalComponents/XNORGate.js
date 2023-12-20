@@ -8,6 +8,8 @@ export class XNORGate extends Component{
 
         
         this.id = "XNOR";
+        this.editType = "inputEdit";
+        this.numOfInputs = 2;
 
     }
 

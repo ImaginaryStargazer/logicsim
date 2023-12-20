@@ -9,6 +9,7 @@ export class HalfAdder extends Component {
 
 
         this.id = "HAD";
+        this.editType = "noEdit";
     }
 
     setupNodes() {
