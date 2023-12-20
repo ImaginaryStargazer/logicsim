@@ -46,8 +46,6 @@ export class BusConnection extends Component {
         this.component.add(busConnection);
         this.setupNodes();
         this.layer.add(this.component);
-
-        console.log(this)
     }
 
 
