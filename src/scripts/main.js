@@ -205,16 +205,6 @@ document.getElementById("oscilloscope").addEventListener("click", (e) => {
 })
 
 
-/* Zmena farby napätia na kábloch a svorkách */
-
-/*
-document.getElementById("changeVoltageColor").addEventListener("change", (e) => {
-
-    
-
-})
-
-*/
 
 /* Zmena komponentov v editore a v menu komponentov na ANSI a IEC */
 
