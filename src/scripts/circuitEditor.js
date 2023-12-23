@@ -62,8 +62,8 @@ export const componentsMap =  {
     "CLK": ClockGen,
     "LO": LogicalOutput,
     "BLB": LightBulb,
-    "7SD": SevenSegmentDecoder,
-    "7SL": SevenSegmentDisplay,
+    "SSD": SevenSegmentDecoder,
+    "SSL": SevenSegmentDisplay,
     "DFF": D_FlipFlop,
     "TFF": T_FlipFlop,
     "JKFF": JK_FlipFlop,
@@ -362,7 +362,7 @@ export class circuitEditor {
     createWire() {
 
         
-        this.layer.on("click", (event) => {
+        this.layer.on("pointerclick", (event) => {
 
             if(event.evt.button != 0) return;
 
@@ -460,7 +460,7 @@ export class circuitEditor {
             
         });
     
-        this.mainEditor.on("click", (event) => {
+        this.mainEditor.on("pointerclick", (event) => {
 
             
             if(event.target !== this.mainEditor || this.selectedComponents.length <= 0) {

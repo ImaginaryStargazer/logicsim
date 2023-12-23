@@ -12,6 +12,12 @@ export class SevenSegmentDisplay extends Component{
         this.segment = [];
     }
 
+    setEditInfo(value) {
+
+        this.ledColor = value;
+
+    }
+
 
     setupNodes() {
         

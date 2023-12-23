@@ -13,6 +13,12 @@ export class Demultiplexor extends Component {
 
     }
 
+    setEditInfo(value) {
+
+        this.bits = value;
+
+    }
+
 
     setupNodes() {
 

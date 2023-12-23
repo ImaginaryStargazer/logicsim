@@ -14,6 +14,12 @@ export class Latch extends Component {
     }
 
 
+    setEditInfo(value) {
+
+        this.bits = value;
+
+    }
+
     setupNodes() {
 
         this.nodes[0] = new Node(-20, 20, false, false, this.color, "I3");

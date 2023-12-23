@@ -11,6 +11,12 @@ export class NORGate extends Component{
         this.numOfInputs = 2;
     }
 
+    setEditInfo(value) {
+
+        this.numOfInputs = value;
+
+    }
+
 
     setupNodes() {
 

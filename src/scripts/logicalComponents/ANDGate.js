@@ -13,12 +13,31 @@ export class ANDGate extends Component {
 
     }
 
+    setEditInfo(value) {
+
+        this.numOfInputs = Number(value);
+
+    }
+
     setupNodes() {
 
+        let shift = 20;
+
+        // načítaj vstupy
+
+        for(let i = 0; i < this.numOfInputs; i++) {
+            this.nodes[i] = new Node(-60, shift, false, false, this.color);
+            this.component.add(this.nodes[i].draw());
+
+            shift += 40;
+        }
+
+        /*
         this.nodes[0] = new Node(-60, 20, false, false, this.color); // I0
         this.component.add(this.nodes[0].draw());
         this.nodes[1] = new Node(-60, 60, false, false, this.color); // I1
         this.component.add(this.nodes[1].draw());
+        */
         this.nodes[2] = new Node(120, 40, true, false, this.color); // Y0
         this.component.add(this.nodes[2].draw());
 

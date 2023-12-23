@@ -15,6 +15,12 @@ export class SequenceGenerator extends Component {
     }
 
 
+    setEditInfo(value) {
+
+        this.sequence = value;
+
+    }
+
     setupNodes() {
 
         this.nodes[0] = new Node(-20, 20, false, false, this.color, "CLK");

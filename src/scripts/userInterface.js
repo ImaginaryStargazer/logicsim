@@ -756,8 +756,8 @@ class UserInterface {
                 <div>
                     <p class="componentsTitle">${lang[this.language].DigitalChips}</p>
                     <ul class="components">
-                        ${this.createComponent(lang[this.language].SevenSegDecoder, icons.ANSI.SevenSegDecoder, "7SD")}
-                        ${this.createComponent(lang[this.language].SevenSegDisplay, icons.ANSI.SevenSegDisplay, "7SL")}
+                        ${this.createComponent(lang[this.language].SevenSegDecoder, icons.ANSI.SevenSegDecoder, "SSD")}
+                        ${this.createComponent(lang[this.language].SevenSegDisplay, icons.ANSI.SevenSegDisplay, "SSL")}
                         ${this.createComponent(lang[this.language].D_FlipFlop, icons.ANSI.D_FlipFlop, "DFF")}
                         ${this.createComponent(lang[this.language].T_FlipFlop, icons.ANSI.T_FlipFlop, "TFF")}
                         ${this.createComponent(lang[this.language].JK_FlipFlop, icons.ANSI.JK_FlipFlop, "JKFF")}

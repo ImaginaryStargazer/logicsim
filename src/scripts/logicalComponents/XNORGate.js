@@ -13,6 +13,12 @@ export class XNORGate extends Component{
 
     }
 
+    setEditInfo(value) {
+
+        this.numOfInputs = value;
+
+    }
+
     setupNodes() {
 
         this.nodes[0] = new Node(-60, 20, false, false, this.color); // I0

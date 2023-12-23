@@ -13,6 +13,11 @@ export class ORGate extends Component {
         this.numOfInputs = 2;
     }
 
+    setEditInfo(value) {
+
+        this.numOfInputs = value;
+
+    }
 
     setupNodes() {
 

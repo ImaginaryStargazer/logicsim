@@ -15,6 +15,12 @@ export class RingCounter extends Component {
 
     }
 
+    setEditInfo(value) {
+
+        this.bits = value;
+
+    }
+
 
     setupNodes() {
 

@@ -1,4 +1,5 @@
 import { mainEditor } from "../circuitEditor.js";
+import { Node } from "./node.js";
 
 
 export class Component {
@@ -66,7 +67,6 @@ export class Component {
         
         if(event.target.name() === "node") return;
 
-        let editedProperty;
 
         inputOption.style.display = "none";
         colorOption.style.display = "none";
@@ -82,33 +82,33 @@ export class Component {
         switch (this.editType) {
             case "inputEdit":
                 inputOption.style.display = "block";
-                editedProperty = this.numOfInputs;
+
                 break;
             
             case "colorEdit":
                 colorOption.style.display = "block";
-                editedProperty = this.ledColor;
+
                 break;
 
             case "clockGenEdit":
                 clockGenOption.style.display = "block";
-                editedProperty = this.T;
+
                 break;           
 
             case "bitEdit":
                 bitOption.style.display = "block";
-                editedProperty = this.bits;
+
                 break;     
         
             case "clockCountEdit":
                 clockCountOption.style.display = "block";
-                editedProperty = this.clockCount;
+
                 break;   
 
 
             case "sequenceEdit":
                 sequenceOption.style.display = "block";
-                editedProperty = this.sequence;
+
                 break;   
 
             default:
@@ -120,12 +120,9 @@ export class Component {
 
             if(this.editType == "noEdit") return;
 
-            this.ledColor = document.getElementById(this.editType).value;
-            
-            
-            
+            this.setEditInfo(document.getElementById(this.editType).value);
             console.log(this)
-
+        
         }
         
 

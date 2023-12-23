@@ -11,6 +11,12 @@ export class Multiplexor extends Component {
         this.bits = 4;
     }
 
+    setEditInfo(value) {
+
+        this.bits = value;
+
+    }
+
 
     setupNodes() {
 

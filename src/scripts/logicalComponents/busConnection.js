@@ -12,6 +12,12 @@ export class BusConnection extends Component {
         this.editType = "bitEdit";
     }
 
+    setEditInfo(value) {
+
+        this.nodeCount = value;
+
+    }
+
     setupNodes() {
 
         let shift = 0;

@@ -14,6 +14,12 @@ export class ClockCounter extends Component{
         
     }
 
+    setEditInfo(value) {
+
+        this.clockCount = value;
+
+    }
+
     setupNodes() {
 
 

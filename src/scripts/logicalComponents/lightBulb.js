@@ -13,6 +13,12 @@ export class LightBulb extends Component {
 
     }
 
+    setEditInfo(value) {
+
+        this.ledColor = value;
+
+    }
+
     setupNodes() {
 
         this.nodes[0] = new Node(-80, 0, false, false, this.color);

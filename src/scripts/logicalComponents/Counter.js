@@ -14,6 +14,12 @@ export class Counter extends Component {
 
     }
 
+    setEditInfo(value) {
+
+        this.bits = value;
+
+    }
+
 
     setupNodes() {
 

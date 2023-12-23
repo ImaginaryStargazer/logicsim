@@ -13,9 +13,13 @@ export class ClockGen extends Component{
 
         // perioda a duty cycle 
         this.T = 500;
-        this.truePeriod = this.T * 50 / 100;
-        this.falsePeriod = this.T * (100 - 50) / 100;
         this.lastTick = performance.now();
+
+    }
+
+    setEditInfo(value) {
+
+        this.T = Number(value);
 
     }
 
@@ -62,7 +66,7 @@ export class ClockGen extends Component{
     draw() {
         const currTick = performance.now();
 
-        const period = (this.value) ? this.truePeriod : this.falsePeriod;
+        const period = (this.value) ? this.T * 50 / 100 : this.T * (100 - 50) / 100;
         
         if (currTick - this.lastTick > period) {
             this.toggle();

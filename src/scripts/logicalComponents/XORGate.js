@@ -13,6 +13,11 @@ export class XORGate extends Component {
 
     }
 
+    setEditInfo(value) {
+
+        this.numOfInputs = value;
+
+    }
 
     setupNodes() {
 

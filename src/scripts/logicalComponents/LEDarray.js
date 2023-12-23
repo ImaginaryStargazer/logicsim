@@ -7,9 +7,14 @@ export class LEDarray extends Component {
         super(x, y, color, rotation);
 
         this.id = "LDA";
-        this.editType = "colorEdit";
-        this.ledColor = "red";
+        this.editType = "noEdit";
         this.LED = [];
+    }
+
+    setEditInfo(value) {
+
+        this.ledColor = value;
+
     }
 
     setupNodes() {
@@ -132,7 +137,7 @@ export class LEDarray extends Component {
 }
 
 
-class LED {
+class LED{
     constructor(x, y) {
 
         this.LED = new Konva.Circle({

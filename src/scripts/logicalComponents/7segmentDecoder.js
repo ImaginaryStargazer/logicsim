@@ -58,8 +58,6 @@ export class SevenSegmentDecoder extends Component{
         this.component.add(this.nodes[7].draw());
 
         this.startNodeId = this.nodes[0].id;
-
-        console.log(this.startNodeId)
     }
 
     render() {

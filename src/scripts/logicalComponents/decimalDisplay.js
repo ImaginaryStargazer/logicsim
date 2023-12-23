@@ -10,16 +10,23 @@ export class DecimalDisplay extends Component{
 
         this.id = "DLD";
         this.editType = "colorEdit";
+        this.ledColor = "red";
 
         this.number = new Konva.Text({
             text: "0",
             x: 28,
             y: 35,
             fontSize: 35,
-            fill: "red",
+            fill: this.ledColor,
             fontFamily: "Arial",
             strokeEnabled: false
         })
+    }
+
+    setEditInfo(value) {
+
+        this.ledColor = value;
+
     }
 
 

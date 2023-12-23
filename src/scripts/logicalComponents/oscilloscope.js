@@ -67,8 +67,6 @@ export class Oscilloscope{
         // Nastavenia signálu
 
         let maxLength = this.oscilloscope.width();
-        let amplitude = 10;
-        let isRisingEdge = false;
 
 
         const background = new Konva.Rect({
@@ -113,36 +111,32 @@ export class Oscilloscope{
 
         this.oscilloscope.add(background, text ,signalOne, signalTwo, signalThree);
 
-        let y, oldPoints, newPoints;
+        let y, oldPoints, newPoints, lastX;
         // Animácia signálov v osciloskope
-
-        this.running = new Konva.Animation((frame) => {
-
-            
-            for(let i = 0; i < this.channels.length; i++) {
-
-                if(this.nodeValues[i] === undefined) continue;
-                
-                isRisingEdge = this.nodeValues[i].value;
-                amplitude = this.nodeValues[i].amplitude;
-
-                y = isRisingEdge ? -amplitude : amplitude;
-
-                oldPoints = this.channels[i].points();
-                newPoints = oldPoints.concat([this.channels[i].points().length, y]);
-
-                this.channels[i].points(newPoints);
-
-                if (this.channels[i].points().length > maxLength)
-                    this.channels[i].points().length = 0;
-            
-            }
-
-        }, this.graphingLayer);
         
+        this.running = new Konva.Animation((frame) => {
+            for (let i = 0; i < this.channels.length; i++) {
+                if (this.nodeValues[i] === undefined) continue;
+        
+                let isRisingEdge = this.nodeValues[i].value;
+                let amplitude = this.nodeValues[i].amplitude;
+        
+                y = isRisingEdge ? -amplitude : amplitude;
+        
+                oldPoints = this.channels[i].points();
+                lastX = oldPoints.length > 1 ? oldPoints[oldPoints.length - 2] : 0;
+                newPoints = oldPoints.concat([lastX + 1, y]);
+        
+                this.channels[i].points(newPoints);
+        
+                if (this.channels[i].points().length > maxLength * 2) {
+                    this.channels[i].points().length = 0;
+                }
+            }
+        }, this.graphingLayer);
 
-        layer.add(this.oscilloscope)
-    }
+        layer.add(this.oscilloscope);
+    }        
 
 
     resetOscilloscope() {
