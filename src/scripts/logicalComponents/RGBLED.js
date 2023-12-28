@@ -19,7 +19,7 @@ export class RGBLed extends Component{
         let shift = 0;
 
         for(let i = 0; i < 3; i++) {
-            this.nodes[i] = new Node(-60, 0 + shift, false, false, this.color, this.id.split("")[i]);
+            this.nodes[i] = new Node(-60, 0 + shift, false, false, this.color);
             this.component.add(this.nodes[i].draw());
 
             shift += 20;
@@ -77,14 +77,7 @@ export class RGBLed extends Component{
                 context.fillStyle = this.color;
                 context.font = "bold 13px Arial";
                 context.rotate(Math.PI/2);
-                let shift = 5;
 
-                for(let i = 0; i < 3; i++) {
-                
-                    context.fillText(this.nodes[i].label, shift, -5)
-
-                    shift += 10;
-                }
 
                 context.fillStrokeShape(shape);
             },

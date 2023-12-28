@@ -71,7 +71,7 @@ export var lang = {
         RGBLED: "RGB LED",
         Oscilloscope: "Osciloskop",
         Bus: "Zbernica",
-        CustomLogic: "Vlastná Logika",
+        CustomLogic: "Vlastná Súčiastka",
 
 
 

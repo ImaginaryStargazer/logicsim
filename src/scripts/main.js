@@ -174,7 +174,7 @@ document.addEventListener("keydown", (ev) => {
         editor.wireMng.draw();
         editor.transformer.nodes([]);
 
-    } else if (ev.key == "r") {
+    } else if (ev.key == "r" || "R") {
 
         editor.rotateComponent();
 

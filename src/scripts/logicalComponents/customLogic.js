@@ -64,6 +64,10 @@ export class CustomLogic extends Component {
             this.table.push(word[i].split("").map(value => value === '1'));
         }
 
+
+        if(this.table.length > 0) this.oldTable = this.table;
+
+
         this.previousOutputs = this.numOfOutputs;
         this.previousInputs = this.numOfInputs;
     }
@@ -76,12 +80,13 @@ export class CustomLogic extends Component {
         let customName = document.getElementById("customNameEdit").value;
 
         if(!Number(inputValue) || !Number(outputValue) || inputValue < 0 || outputValue < 0 || inputValue > 10) return;
-
+        
         this.destroy();
         this.numOfInputs = inputValue;
         this.numOfOutputs = outputValue;
         this.componentName = customName;
         this.fillInputTextArea();
+        this.table = this.oldTable;
         this.render();
     }
 
