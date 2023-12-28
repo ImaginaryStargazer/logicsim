@@ -89,7 +89,7 @@ class UserInterface {
                 <div class="mainMenu">
                     <div class="documentHolder">
                         <h4 class="appLogo">
-                        <img id="logoHolder" class="appImg">
+                        <img alt="Logo" id="logoHolder" class="appImg">
                         <span class="dash">-</span>
                         </h4>
                         <div class="appTitleHolder">
@@ -226,7 +226,8 @@ class UserInterface {
 
             <div class="options">
                 <p>${lang[this.language].themeText}</p>
-                <select id="theme" class="selectOption">
+                <select title="themes" id="theme" class="selectOption">
+                    <option selected disabled label="${lang[this.language].SelectTheme}"></option>
                     <option id="light" value="light-theme">${lang[this.language].Light_theme}</option>
                     <option id="dark" value="dark-theme">${lang[this.language].Dark_theme}</option>
                 </select>
@@ -242,7 +243,8 @@ class UserInterface {
             <div class="options">
                 <p>${lang[this.language].languageText}</p>
 
-                <select id="lang" class="selectOption">
+                <select title="languages" id="lang" class="selectOption">
+                    <option selected disabled label="${lang[this.language].SelectLanguage}"></option>
                     <option id="sk" value="slovak">Slovenčina (SK)</option>
                     <option id="en_US" value="english">English (EN)</option>
                 </select>
@@ -334,13 +336,14 @@ class UserInterface {
 
         const nodeEditBox = `
         <div id="nodeEditBox" class="modal" style="color: white;">
-            <div style="width: 200px; height: 150px;" class="modalContent">
+            <div style="width: 200px; height: 170px;" class="modalContent">
                 ${this.createModalHeader(lang[this.language].EditNode)}
                 
                 <div class="channelOption">
                     <label>${lang[this.language].AddTo}</label>
 
-                    <select id="channels">
+                    <select title="channels" id="channels">
+                        <option selected disabled label="${lang[this.language].SelectChannel}"></option>
                         <option value="0">CH1</option>
                         <option value="1">CH2</option>
                         <option value="2">CH3</option>
@@ -363,53 +366,78 @@ class UserInterface {
 
         const componentEditBox = `
         <div id="componentEditBox" class="modal" style="color: white;">
-            <div style="width: 200px; height: 200px;" class="modalContent">
+            <div style="width: 400px; height: 300px;" class="modalContent">
                 ${this.createModalHeader(lang[this.language].EditComponent)}
-                
 
-                <div id="inputOption" class="channelOption" style="display: none">
-
+                <div id="gateEditBox" class="componentEditBox" style="display: none">
                     <label>${lang[this.language].NumOfInputs}</label>
-                    <input id="inputEdit" placeholder="2-6" type="text">
-
+                    <input id="inputEdit" type="text">
                 </div>
-
-                <div id="colorOption" class="channelOption" style="display: none">
-
-                    <label>${lang[this.language].SetColor}</label>
-                    <input id="colorEdit" type="color">
-
-                </div>
-
                 
-                <div id="clockGenOption" class="channelOption" style="display: none">
-
+                <div id="clockGenEditBox" class="componentEditBox" style="display: none">
                     <label>${lang[this.language].SetPeriod}</label>
                     <input id="clockGenEdit" type="text">
-
                 </div>
 
-                <div id="bitOption" class="channelOption" style="display: none">
+                <div id="colorEdit" class="componentEditBox" style="display: none">
+                    <label>${lang[this.language].SetColor}</label>
+                    <input id="colorEditValue" type="color">
+                </div>
 
+                <div id="decimalDisplayEdit" class="componentEditBox" style="display: none">
+                    <label>${lang[this.language].NumOfBits}</label>
+                    <input id="decBitEdit" type="text">
+                    </br></br>
+                    <label>${lang[this.language].SetColor}</label>
+                    <input id="numberColor" type="color">
+                </div>
+
+                <div id="ledArrEditBox" class="componentEditBox" style="display: none">
+                    <label>${lang[this.language].SetColor}</label>
+                    <input id="ledArrColor" type="color">
+                    </br></br>
+                    <label>${lang[this.language].SetNumOfRows}</label>
+                    <input id="rows" type="text">
+                    </br></br>
+                    <label>${lang[this.language].SetNumOfCols}</label>
+                    <input id="cols" type="text">
+                </div>
+
+                <div id="chipEditBox" class="componentEditBox" style="display: none">
                     <label>${lang[this.language].NumOfBits}</label>
                     <input id="bitEdit" type="text">
-
                 </div>
 
-                <div id="sequenceOption" class="channelOption" style="display: none">
-
+                <div id="sequenceGenEditBox" class="componentEditBox" style="display: none">
                     <label>${lang[this.language].SetSequence}</label>
                     <input id="sequenceEdit" type="text" placeholder="01101001">
-
                 </div>
 
                 
-                <div id="clockCountOption" class="channelOption" style="display: none">
-
+                <div id="clockCountEditBox" class="componentEditBox" style="display: none">
                     <label>${lang[this.language].SetClockCount}</label>
                     <input id="clockCountEdit" type="text">
-
                 </div>
+
+                <div id="customLogicEditBox" class="componentEditBox" style="display: none">
+                    <div>
+                        <p>${lang[this.language].ComponentName}</p>
+                        <input id="customNameEdit" type="text">
+                        <p>${lang[this.language].NumOfInputs}</p>
+                        <input id="customInputEdit" type="text" placeholder="Max: 10">
+                        <p>${lang[this.language].NumOfOutputs}</p>
+                        <input id="customOutputEdit" type="text">
+                    </div>
+                    <div class="textareaInputsContainer">
+                        <p>${lang[this.language].DefinitionInputs}</p>
+                        <textarea id="inputTextarea" disabled rows="10" cols="18"></textarea>
+                    </div>
+                    <div class="textareaOutputsContainer">
+                        <p>${lang[this.language].DefinitionOutputs}</p>
+                        <textarea id="outputTextarea" rows="10" cols="13"></textarea>
+                    </div>
+                </div>
+
 
                 <div class="circuitsNav">
                     ${this.createButton(["applyButton"], lang[this.language].Apply, "applyComponent", "block")}
@@ -428,14 +456,15 @@ class UserInterface {
 
         const oscilloscopeEditBox = `
         <div id="oscilloscopeEditBox" class="modal" style="color: white;">
-            <div style="width: 300px; height: 280px;" class="modalContent">
+            <div style="width: 320px; height: 280px;" class="modalContent">
                 ${this.createModalHeader(lang[this.language].EditOscilloscope)}
                 
                 <div class="channelOption">
 
                     <label>${lang[this.language].ChooseScope}</label>
 
-                    <select id="chooseChannel">
+                    <select title="channels" id="chooseChannel">
+                        <option selected disabled label="${lang[this.language].SelectChannel}"></option>
                         <option value="0">CH1</option>
                         <option value="1">CH2</option>
                         <option value="2">CH3</option>
@@ -486,7 +515,7 @@ class UserInterface {
 
         return `
         <div class="sampleCircuits">
-            <img src="${src}">
+            <img alt="Sample Circuit Image" src="${src}">
             <p>${circuitName}</p>
         </div>
         `;
@@ -668,7 +697,7 @@ class UserInterface {
                         <span style="display: none;" id="counter"><h4 id="count">${this.tutorialCounter}</h4><h4>/9</h4></span>
                         <div class="tutorialContent">
                             <h3 id="tutorialTitle">${lang[this.language].WelcomeTitle}</h3><p id="tutorialText">${lang[this.language].WelcomeText}</p>
-                            <img style="display:none" id="gif" width="500" height="300" class="tutorialGif" autoplay loop muted>
+                            <img alt="Tutorial Gif" style="display:none" id="gif" width="500" height="300" class="tutorialGif" autoplay loop muted>
                         </div>
                         <label class="showLabel">${lang[this.language].Show}</label>
                         ${this.createToggleSwitch("showAgain", "dontShow")}
@@ -694,7 +723,7 @@ class UserInterface {
 
     createComponent(componentName, image, part) {
 
-        return `<li part=${part} class="component">${componentName}<img class="componentImage" src=${image}></li>`;
+        return `<li data-part=${part} class="component">${componentName}<img alt="Component" class="componentImage" src=${image}></li>`;
 
 
     }
@@ -702,7 +731,7 @@ class UserInterface {
     createTool(componentName, icon, tool, style) {
 
         //selected-tool="${tool}"
-        //${this.createTool("Drag Selection", icons.multipleSelect)}
+        //${this.createTool("Drag Selection", icons.multipleSelect)
 
         return `<li selected-tool="${tool}" class="component editorTool editorTools ${style}">${componentName} ${icon}</li>`;
     }
@@ -773,6 +802,7 @@ class UserInterface {
                         ${this.createComponent(lang[this.language].SequenceGen, icons.ANSI.SequenceGen, "SQG")}
                         ${this.createComponent(lang[this.language].ClockCounter, icons.ANSI.ClockCounter, "CLC")}
                         ${this.createComponent(lang[this.language].BinarySwitch, icons.ANSI.BinarySwitch, "BSW")}
+                        ${this.createComponent(lang[this.language].CustomLogic, icons.ANSI.CustomLogic, "CML")}
                     </ul>
                 </div>
                 
