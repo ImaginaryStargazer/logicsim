@@ -1,5 +1,4 @@
-import { mainEditor } from "../circuitEditor.js";
-import { Node } from "./node.js";
+import { mainEditor, wireMng, useIECgates } from "../circuitEditor.js";
 
 
 export class Component {
@@ -27,14 +26,25 @@ export class Component {
         this.strokeWidth = 2;
         this.isFullySelected = false;
         this.nodes = [];
+        this.useIECgates = useIECgates;
 
         this.startNodeId = undefined;
 
 
-        this.component.on("contextmenu", (event) => {this.doubleClick(event)});
+        this.component.on("contextmenu", (event) => {this.rightClick(event)});
         this.layer = mainEditor.findOne("#componentLayer");
         this.graphingLayer = mainEditor.findOne("#graphingLayer");
 
+
+
+    }
+
+
+    useEuroGates() {
+
+        this.useIECgates = useIECgates;
+
+        return this.useIECgates;
     }
 
 
@@ -63,65 +73,68 @@ export class Component {
     }
 
 
-    doubleClick(event) {
+    getEditInfo() {
+
+        this.hideEditInfo();
+
+        switch(this.editType) {
+
+            case "gateEdit":
+                gateEditBox.style.display = "block";
+                break;
+            case "clockGenEdit":
+                clockGenEditBox.style.display = "block";
+                break;
+            case "ledArrEdit":
+                ledArrEditBox.style.display = "block";
+                break;
+            case "chipEdit":
+                chipEditBox.style.display = "block";
+                break;
+            case "colorEdit":
+                colorEdit.style.display = "block";
+                break;
+            case "decimalDisplayEdit":
+                decimalDisplayEdit.style.display = "block";
+                break;
+            case "sequenceEdit":
+                sequenceGenEditBox.style.display = "block";
+                break;
+            case "clockCountEdit":
+                clockCountEditBox.style.display = "block";
+                break;
+            case "customEdit":
+                customLogicEditBox.style.display = "block";
+                break;
+            default: break;
+        }
+
+    }
+
+    hideEditInfo() {
+        gateEditBox.style.display = "none";
+        clockGenEditBox.style.display = "none";
+        ledArrEditBox.style.display = "none";
+        chipEditBox.style.display = "none";
+        colorEdit.style.display = "none";
+        decimalDisplayEdit.style.display = "none";
+        sequenceGenEditBox.style.display = "none";
+        clockCountEditBox.style.display = "none";
+        customLogicEditBox.style.display = "none";
+    }
+
+
+    rightClick(event) {
         
         if(event.target.name() === "node") return;
 
-
-        inputOption.style.display = "none";
-        colorOption.style.display = "none";
-        clockGenOption.style.display = "none";
-        bitOption.style.display = "none";
-        clockCountOption.style.display = "none";
-        sequenceOption.style.display = "none";
-        
-
         componentEditBox.style.display = "block";
-
-
-        switch (this.editType) {
-            case "inputEdit":
-                inputOption.style.display = "block";
-
-                break;
-            
-            case "colorEdit":
-                colorOption.style.display = "block";
-
-                break;
-
-            case "clockGenEdit":
-                clockGenOption.style.display = "block";
-
-                break;           
-
-            case "bitEdit":
-                bitOption.style.display = "block";
-
-                break;     
-        
-            case "clockCountEdit":
-                clockCountOption.style.display = "block";
-
-                break;   
-
-
-            case "sequenceEdit":
-                sequenceOption.style.display = "block";
-
-                break;   
-
-            default:
-                break;
-        }
+        this.getEditInfo();
         
 
         document.getElementById("applyComponent").onclick = () => {
 
-            if(this.editType == "noEdit") return;
-
-            this.setEditInfo(document.getElementById(this.editType).value);
-            console.log(this)
+            this.setEditInfo();
         
         }
         
@@ -146,11 +159,11 @@ export class Component {
     }
 
 
-    calculatePositionToScale(variable) {
+    calculatePositionToScale(value) {
 
         return {
-            xAxis: variable / mainEditor.scaleX() - mainEditor.x() / mainEditor.scaleX(),
-            yAxis: variable / mainEditor.scaleY() - mainEditor.y() / mainEditor.scaleY(),
+            xAxis: value / mainEditor.scaleX() - mainEditor.x() / mainEditor.scaleX(),
+            yAxis: value / mainEditor.scaleY() - mainEditor.y() / mainEditor.scaleY(),
         };
     }
 
@@ -177,6 +190,8 @@ export class Component {
 
         for(let i = 0; i < this.nodes.length; i++) {
 
+            if(this.nodes[i] === undefined) continue;
+
             this.nodes[i].destroy();
             //delete nodeList[this.nodes[i].id]
             delete this.nodes[i];
@@ -184,28 +199,8 @@ export class Component {
         }
 
         this.component.destroy();
-
-        //Node.resetNodelistId(); 
-        
+        wireMng.draw();
     }
-    
-
-    /*
-    refreshNodes()
-
-    {
-        let currentID = this.nodes[0].id;
-
-
-        for(let i = 0; i < this.nodes.length; i++) {
-
-            this.nodes[i].setId(currentID);
-            currentID++;
-            console.log(currentID)
-        }
-    }
-    */
-    
 
     
 }

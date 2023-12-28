@@ -17,7 +17,7 @@ export class LowInput extends Component{
     setupNodes() {
 
         this.nodes[0] = new Node(100, 20, true, this.value, this.color);
-        this.component.add(this.nodes[0].draw());
+        this.nodes[0].createPin(40, 20, 100, 20, this.component);
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -42,14 +42,8 @@ export class LowInput extends Component{
             fontSize: 25,
         })
 
-        const output = new Konva.Line({
-            points: [40, 20, 100, 20],
-            stroke: this.color,
-            strokeWidth: 2,
-        })
 
-
-        this.component.add(body, low, output);
+        this.component.add(body, low);
         this.setupNodes();
 
         this.layer.add(this.component);

@@ -7,41 +7,55 @@ export class LEDarray extends Component {
         super(x, y, color, rotation);
 
         this.id = "LDA";
-        this.editType = "noEdit";
+        this.editType = "ledArrEdit";
         this.LED = [];
+        this.numOfRows = 4;
+        this.numOfCols = 4;
+        this.ledColor = "red";
     }
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.ledColor = value;
+        let colorValue = document.getElementById("ledArrColor").value;
+        let rowsValue = document.getElementById("rows").value;
+        let colsValue = document.getElementById("cols").value;
 
+        if(!Number(rowsValue) || !Number(colsValue) || Number(colsValue) < 0 || Number(rowsValue) < 0) return;
+
+        this.destroy();
+        this.LED = [];
+
+        this.numOfRows = Number(rowsValue);
+        this.numOfCols = Number(colsValue);
+        this.ledColor = colorValue;
+
+        this.render();
     }
 
     setupNodes() {
 
-        let shiftX = 20;
-        let shiftY = 20;
+        let shift = 20;
 
-        for(let row = 0; row < 4; row++) {
+
+        for(let row = 0; row < this.numOfRows; row++) {
             
-            this.nodes[row] = new Node(-20, shiftX, false, false, this.color, "ROW" + row);
-            this.component.add(this.nodes[row].draw());
+            this.nodes[row] = new Node(-20, shift, false, false, this.color, "ROW" + row);
+            this.nodes[row].createPin(0, shift, -20, shift, this.component);
 
-            shiftX +=20;
+            shift +=20;
         }
 
+        shift = 20;
 
+        for(let col = 0; col < this.numOfCols; col++) {
+            this.nodes[col + this.numOfRows] = new Node(shift, this.numOfRows * 20 + 40, false, false, this.color, "COL" + col);
+            this.nodes[col + this.numOfRows].createPin(shift, this.numOfRows * 20 + 20, shift, this.numOfRows * 20 + 40, this.component);
 
-        for(let col = 0; col < 4; col++) {
-            this.nodes[col + 4] = new Node(shiftY, 120, false, false, this.color, "COL" + col);
-            this.component.add(this.nodes[col + 4].draw());
-
-            shiftY +=20;
+            shift +=20;
         }
 
 
         this.startNodeId = this.nodes[0].id;
-
 
     }
 
@@ -55,15 +69,7 @@ export class LEDarray extends Component {
             sceneFunc: (context, shape) => {
                 context.beginPath();
 
-                context.rect(0, 0, 100, 100);
-
-                for(let i = 20; i < 100; i+=20) {
-                    context.moveTo(0, i);
-                    context.lineTo(-20,i);
-                    context.moveTo(i, 100);
-                    context.lineTo(i, 120);
-                }
-
+                context.rect(0, 0, this.numOfCols * 20 + 20 , this.numOfRows * 20 + 20);
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -75,17 +81,22 @@ export class LEDarray extends Component {
         let shiftX, shiftY = 0;
 
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < this.numOfRows; i++) {
 
             shiftX = 0;
             shiftY += 20;
 
-            for (let j = 0; j < 4; j++) {
+            for (let j = 0; j < this.numOfCols; j++) {
 
                 shiftX += 20;
 
                 const newLED = new LED(shiftX, shiftY);
                 this.LED.push(newLED);
+
+                for(let i = 0; i < this.LED.length; i++) {
+                    this.LED[i].LED.setAttr("fill", this.ledColor);
+                }
+
                 this.component.add(newLED.render());
 
                 
@@ -93,11 +104,9 @@ export class LEDarray extends Component {
 
         }
 
-
-        console.log(this.LED)
-
-        this.component.add(LEDarray);
         this.setupNodes();
+        this.component.add(LEDarray);
+
         this.layer.add(this.component)
         
 
@@ -107,26 +116,26 @@ export class LEDarray extends Component {
 
     draw() {
         
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < this.numOfRows; i++) {
             
             if (this.nodes[i].value) {
 
-                for (let row = 0; row < 4; row++) {
-                    this.LED[i * 4 + row].turnOn();
+                for (let row = 0; row < this.numOfCols; row++) {
+                    this.LED[i * this.numOfCols + row].turnOn();
                 }
 
             } else {
-                for (let row = 0; row < 4; row++) {
-                    this.LED[i * 4 + row].turnOff();
+                for (let row = 0; row < this.numOfCols; row++) {
+                    this.LED[i * this.numOfCols + row].turnOff();
                 }
             }
         }
 
-        for (let i = 4; i < 8; i++) {
+        for (let i = this.numOfRows; i < this.numOfRows + this.numOfCols; i++) {
             
             if (this.nodes[i].value) {
-                for (let col = 0; col < 4; col++) {
-                    this.LED[col * 4 + (i - 4)].turnOff();
+                for (let col = 0; col < this.numOfRows; col++) {
+                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff();
                 }
             }
         }
@@ -143,8 +152,8 @@ class LED{
         this.LED = new Konva.Circle({
             x: x,
             y: y,
-            radius: 8,
             fill: "red",
+            radius: 8,
             strokeEnabled: false,
             opacity: 0.2,
         })

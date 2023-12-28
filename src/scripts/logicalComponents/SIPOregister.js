@@ -6,7 +6,7 @@ export class SIPOregister extends Component {
         super(x, y, color, rotation); 
 
         this.id = "SIPO";
-        this.editType = "bitEdit";
+        this.editType = "chipEdit";
         this.bits = 8;
 
         this.DATA_PIN_INDEX = 2;
@@ -14,25 +14,31 @@ export class SIPOregister extends Component {
     }
 
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.bits = value;
+        let inputValue = document.getElementById("bitEdit").value;
 
+        if(!Number(inputValue)) return;
+
+        this.destroy();
+        this.bits = Number(inputValue);
+        this.render();
     }
 
     setupNodes() {
 
         let shift = 20;
 
-        this.nodes[0] = new Node(-20, 20, false, false, this.color, "D");
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(-20, 40, false, false, this.color, "CLK");
-        this.component.add(this.nodes[1].draw());
+        this.nodes[0] = new Node(-20, 20, false, false, this.color);
+        this.nodes[0].createPin(0, 20, -20, 20, this.component, "D", 5, 25, 12);
 
-        for(let i = 0; i != 8; i++) {
+        this.nodes[1] = new Node(-20, 40, false, false, this.color);
+        this.nodes[1].createPin(0, 40, -20, 40, this.component, "CLK", 5, 45, 12);
 
-            this.nodes[this.DATA_PIN_INDEX + i] = new Node(shift, -20, true, false, this.color, "Q" + i);
-            this.component.add(this.nodes[this.DATA_PIN_INDEX + i].draw());
+        for(let i = 0; i != this.bits; i++) {
+
+            this.nodes[this.DATA_PIN_INDEX + i] = new Node(shift, -20, true, false, this.color);
+            this.nodes[this.DATA_PIN_INDEX + i].createPin(shift, 0, shift, -20, this.component, "Q" + i, shift - 10, 15, 9);
 
             shift += 20;
         }
@@ -49,31 +55,7 @@ export class SIPOregister extends Component {
 
             sceneFunc: (context, shape) => {
                 context.beginPath();
-                context.rect(0, 0, 180, 60);
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0
-
-                for(let i = 20; i <= 40; i+=20) {
-                    context.moveTo(0, i);
-                    context.lineTo(-20, i);
-
-                    context.fillText(this.nodes[ii].label, 3, i + 5);
-
-                    ii++;
-                }
-
-                for(let i = 20; i < 180; i+=20) {
-                    context.moveTo(i, 0);
-                    context.lineTo(i, -20);
-
-                    context.fillText(this.nodes[ii].label, i - 10, 15);
-
-                    ii++;
-                }
-
-
+                context.rect(0, 0, this.bits * 20 + 20, 60);
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -82,8 +64,8 @@ export class SIPOregister extends Component {
             strokeWidth: this.strokeWidth
         })
 
-        this.component.add(sipoRegister);
         this.setupNodes();
+        this.component.add(sipoRegister);
         this.layer.add(this.component);
     }
 
@@ -92,13 +74,12 @@ export class SIPOregister extends Component {
 
         if (this.nodes[1].value != this.lastClock) {
 			this.lastClock = this.nodes[1].value;
-			if (this.lastClock && 8 > 0) {
 
-				for (let i = 8 - 2; i >= 0; i--) {
+			if (this.lastClock && this.bits > 0) {
+
+				for (let i = this.bits - 2; i >= 0; i--)
 					this.nodes[this.DATA_PIN_INDEX + i + 1].value = this.nodes[this.DATA_PIN_INDEX + i].value;
-                }
-
-				
+                
 				this.nodes[2].value = this.nodes[0].value;
 			}
 		}

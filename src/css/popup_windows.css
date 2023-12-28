@@ -392,7 +392,69 @@
 
 .channelOption input {
     width: 60px;
+    height: 20px;
 }
+
+.componentEditBox {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; 
+}
+
+.componentEditBox div {
+    display: flex;
+    flex-direction: column;
+}
+
+.componentEditBox input,
+.componentEditBox p {
+    margin-bottom: 20px; 
+}
+
+.componentEditBox input {
+    width: 30%;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 2px solid #ffffff;
+}
+
+.textareaInputsContainer {
+    position: absolute;
+    right: 120px;
+    top: 54px;
+}
+
+.textareaOutputsContainer {
+    position: absolute;
+    right: 5px;
+    top: 54px;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #b4bdc7;
+    box-shadow: 0 0 5px #b4bdc7;
+}
+
+input[type="color"] {
+    width: 100px; 
+    height: 30px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.componentEditBox p {
+    margin: 0;
+    margin-left: 2px;
+}
+
+
 
 .applyButton {
     position: absolute;

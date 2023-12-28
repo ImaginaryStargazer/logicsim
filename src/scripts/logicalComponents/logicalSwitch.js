@@ -16,7 +16,7 @@ export class LogicalSwitch extends Component {
     setupNodes() {
 
         this.nodes[0] = new Node(100, 20, true, false, this.color);
-        this.component.add(this.nodes[0].draw());
+        this.nodes[0].createPin(40, 20, 100, 20, this.component);
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -43,16 +43,10 @@ export class LogicalSwitch extends Component {
             id: "button"
         })
 
-        const output = new Konva.Line({
-            points: [40, 20, 100, 20],
-            stroke: this.color,
-            strokeWidth: 2,
-            
-        })
 
-
-        this.component.add(body, button, output);
         this.setupNodes();
+        this.component.add(body, button);
+
 
         this.layer.add(this.component);
     }

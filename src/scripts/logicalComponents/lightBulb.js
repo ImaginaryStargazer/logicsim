@@ -11,26 +11,7 @@ export class LightBulb extends Component {
         this.editType = "colorEdit";
         this.ledColor = "orange";
 
-    }
-
-    setEditInfo(value) {
-
-        this.ledColor = value;
-
-    }
-
-    setupNodes() {
-
-        this.nodes[0] = new Node(-80, 0, false, false, this.color);
-        this.component.add(this.nodes[0].draw());
-
-        this.startNodeId = this.nodes[0].id;
-    }
-
-
-    render() {
-
-        const body = new Konva.Circle({
+        this.bulb = new Konva.Circle({
             x: 0,
             y: 0,
             width: 40,
@@ -38,6 +19,28 @@ export class LightBulb extends Component {
             stroke: this.color,
             strokeWidth: 2,
         })
+
+    }
+
+    setEditInfo() {
+
+        const inputValue = document.getElementById("colorEditValue").value;
+
+        this.ledColor = inputValue;
+
+    }
+
+    setupNodes() {
+
+        this.nodes[0] = new Node(-80, 0, false, false, this.color);
+        this.nodes[0].createPin(-20, 0, -80, 0, this.component);
+
+
+        this.startNodeId = this.nodes[0].id;
+    }
+
+
+    render() {
 
         let shift = 0;
 
@@ -54,27 +57,16 @@ export class LightBulb extends Component {
             this.component.add(symbol);
         }
 
-
-        const output = new Konva.Line({
-            points: [-20, 0, -80, 0],
-            stroke: this.color,
-            strokeWidth: 2,
-            name: "wire"
-
-        })
-
-
-        this.component.add(body, output);
         this.setupNodes();
-
+        this.component.add(this.bulb);
         this.layer.add(this.component);
     }
 
     draw() {
         if(this.nodes[0].getValue()) {
-            this.component.findOne("Circle").fill(this.ledColor)
+            this.bulb.fill(this.ledColor)
         } else {
-            this.component.findOne("Circle").fill("")
+            this.bulb.fill("")
         }
     }
 

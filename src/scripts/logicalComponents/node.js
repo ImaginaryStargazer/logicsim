@@ -7,7 +7,7 @@ let currentId = 0;
 
 
 export class Node {
-    constructor(posX, posY, isOutput = false, value = false, color, label) {
+    constructor(posX, posY, isOutput = false, value = false, color) {
         this.value = value;
         this.posX = posX;
         this.posY = posY;
@@ -15,7 +15,6 @@ export class Node {
         this.radius = 5;
         this.amplitude = 10; // pre osciloskop
         this.color = color;
-        this.label = label;
 
         this.isAlive = true;
         this.inputState = INPUT_STATE.FREE;
@@ -30,6 +29,8 @@ export class Node {
             //fill: "white",
             name: "node",
         })
+
+        this.pin = new Konva.Shape();
 
         this.mainEditor = mainEditor;
 
@@ -86,6 +87,35 @@ export class Node {
         this.posX = posX;
         this.posY = posY;
     }
+
+
+
+    createPin(x, y, lx, ly, component, label, tx, ty, fs) {
+
+        fs = fs || 13;
+
+        this.pin.setAttrs({
+
+            sceneFunc: (context, shape) => {
+
+                context.fillStyle = this.color;
+                context.font = `bold ${fs}px Arial`;
+                context.beginPath();
+                context.moveTo(x, y);
+                context.lineTo(lx, ly);
+                context.fillText(label, tx, ty)
+                context.fillStrokeShape(shape);
+            },
+
+            stroke: this.color,
+            strokeWidth: 2,
+            hitStrokeWidth: 30,
+        })
+
+        component.add(this.pin, this.node);
+    
+    }
+
 
     draw() {
 
@@ -146,10 +176,18 @@ export class Node {
             this.node.setAttrs({
                 fill: "green"
             })
+
+            this.pin.setAttrs({
+                stroke: "green"
+            })
         } else {
 
             this.node.setAttrs({
                 fill: "#343a40"
+            })
+
+            this.pin.setAttrs({
+                stroke: "white"
             })
         }
     }

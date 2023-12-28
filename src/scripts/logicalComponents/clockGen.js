@@ -16,16 +16,19 @@ export class ClockGen extends Component{
         this.lastTick = new Date().getTime();
     }
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.T = Number(value);
+        let inputValue = document.getElementById("clockGenEdit").value;
 
+        if(!Number(inputValue)) return;
+
+        this.T = Number(inputValue);
     }
 
     setupNodes() {
 
         this.nodes[0] = new Node(100, 20, true, this.value, this.color);
-        this.component.add(this.nodes[0].draw());
+        this.nodes[0].createPin(40, 20, 100, 20, this.component);
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -49,15 +52,10 @@ export class ClockGen extends Component{
             strokeWidth: 2,
         })
 
-        const output = new Konva.Line({
-            points: [40, 20, 100, 20],
-            stroke: this.color,
-            strokeWidth: 2,
-        })
-
-
-        this.component.add(body, symbol, output);
+        
         this.setupNodes();
+        this.component.add(body, symbol);
+
 
         this.layer.add(this.component)
     }

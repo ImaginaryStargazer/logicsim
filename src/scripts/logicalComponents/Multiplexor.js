@@ -7,35 +7,45 @@ export class Multiplexor extends Component {
         super(x, y, color, rotation);
 
         this.id = "MUX";
-        this.editType = "bitEdit";
-        this.bits = 4;
+        this.editType = "chipEdit";
+        this.bits = 2;
     }
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.bits = value;
+        let inputValue = document.getElementById("bitEdit").value;
 
+        if(!Number(inputValue)) return;
+
+        this.destroy();
+        this.bits = Number(inputValue);
+        this.render();
     }
 
 
     setupNodes() {
 
-        this.nodes[0] = new Node(-20, 20, false, false, this.color, "I0");
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(-20, 40, false, false, this.color, "I1");
-        this.component.add(this.nodes[1].draw());
-        this.nodes[2] = new Node(-20, 60, false, false, this.color, "I2");
-        this.component.add(this.nodes[2].draw());
-        this.nodes[3] = new Node(-20, 80, false, false, this.color, "I3");
-        this.component.add(this.nodes[3].draw());
+        let shift = 20;
 
-        this.nodes[4] = new Node(20, 140, false, false, this.color, "S0");
-        this.component.add(this.nodes[4].draw());
-        this.nodes[5] = new Node(40, 140, false, false, this.color, "S1");
-        this.component.add(this.nodes[5].draw());
+        for(let i = 0; i < 2**this.bits; i++) {
+            this.nodes[i] = new Node(-20, shift, false, false, this.color);
+            this.nodes[i].createPin(0, shift, -20, shift, this.component, "I" + i, 10, shift + 5);
 
-        this.nodes[6] = new Node(80, 20, true, false, this.color, "Q");
-        this.component.add(this.nodes[6].draw());
+            shift += 20;
+        }
+
+        shift = 20;
+
+        this.nodes[2**this.bits + this.bits] = new Node(this.bits * 40 + 20, 20, true, false, this.color);
+        this.nodes[2**this.bits + this.bits].createPin(this.bits * 40, shift, this.bits * 40 + 20, shift, this.component, "Q", this.bits * 40 - 15, 25);
+
+        for(let i = 0; i < this.bits; i++) {
+            this.nodes[2**this.bits + i] = new Node(shift, 2**this.bits * 20 + 60, false, false, this.color);
+            this.nodes[2**this.bits + i].createPin(shift, 2**this.bits * 20 + 40, shift, 2**this.bits * 20 + 60, this.component, "S" + i, shift - 10, 2**this.bits * 20 + 40 - 10);
+
+            shift += 20;
+        }
+
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -50,40 +60,7 @@ export class Multiplexor extends Component {
             sceneFunc: (context, shape) => {
 
                 context.beginPath();
-
-                context.rect(0, 0, 60, 120);
-                
-                    
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0;
-                
-                for(let i = 20; i < 100; i+=20) {
-                    context.moveTo(0, i);
-                    context.lineTo(-20, i);
-                    context.fillText(this.nodes[ii].label, 5, 5 + i);
-
-                    ii++;
-                }
-
-                
-                for(let i = 20; i < 60; i+=20) {
-                    context.moveTo(i, 120);
-                    context.lineTo(i, 140);    
-            
-                    context.fillText(this.nodes[ii].label, i - 10, 115);
-
-                    ii++;
-                }
-
-                context.moveTo(60, 20);
-                context.lineTo(80, 20);
-
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-                context.fillText(this.nodes[ii].label, 45, 25);
-
+                context.rect(0, 0, this.bits * 40, 2**this.bits * 20 + 40);
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -93,9 +70,8 @@ export class Multiplexor extends Component {
 
         })
 
-        this.component.add(multiplexor);
         this.setupNodes();
-
+        this.component.add(multiplexor);
 
         this.layer.add(this.component);
 
@@ -106,16 +82,16 @@ export class Multiplexor extends Component {
         
         let selectedValue = 0;
 
-        for(let i = 0; i != 2; i++) {
+        for(let i = 0; i != this.bits; i++) {
 
-            if(this.nodes[4+i].value) {
+            if(this.nodes[2**this.bits+i].value) {
 
                 selectedValue |= 1<<i;
             }
 
         }
 
-        this.nodes[6].setValue(this.nodes[selectedValue].value)
+        this.nodes[2**this.bits + this.bits].setValue(this.nodes[selectedValue].value)
 
     }
 

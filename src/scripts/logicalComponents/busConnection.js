@@ -8,14 +8,19 @@ export class BusConnection extends Component {
         super(x, y, color, rotation);
 
         this.id = "BUS";
-        this.nodeCount = 10;
-        this.editType = "bitEdit";
+        this.nodeCount = 5;
+        this.editType = "chipEdit";
     }
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.nodeCount = value;
+        let inputValue = document.getElementById("bitEdit").value;
 
+        if(!Number(inputValue)) return;
+
+        this.destroy();
+        this.nodeCount = Number(inputValue);
+        this.render();
     }
 
     setupNodes() {
@@ -23,8 +28,7 @@ export class BusConnection extends Component {
         let shift = 0;
 
         this.nodes[0] = new Node(0, 0, false, false, this.color, "I0");
-        this.component.add(this.nodes[0].draw());
-
+        this.nodes[0].createPin(0,0, this.nodeCount * 90, 0, this.component);
 
         for(let i = 1; i <= this.nodeCount; i++) {
             this.nodes[i] = new Node(this.nodeCount * 90 - shift, 0, true, false, this.color, "Q" + i);
@@ -41,15 +45,6 @@ export class BusConnection extends Component {
 
     render() {
 
-        const busConnection = new Konva.Line({
-            points: [0, 0, this.nodeCount * 90, 0],
-            stroke: this.color,
-            strokeWidth: this.strokeWidth,
-            hitStrokeWidth: 30
-        })
-
-
-        this.component.add(busConnection);
         this.setupNodes();
         this.layer.add(this.component);
     }
@@ -57,10 +52,9 @@ export class BusConnection extends Component {
 
     draw() {
 
-        for(let i = 1; i <= this.nodeCount; i++) {
-
+        for(let i = 1; i <= this.nodeCount; i++)
             this.nodes[i].setValue(this.nodes[0].value);
-        }
+        
     }
 
 }

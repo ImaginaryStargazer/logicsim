@@ -262,7 +262,7 @@ document.querySelectorAll(".component").forEach((component) => {
 
         component.className += " selectedComponent";
 
-        editor.mouseSelectedComponent = component.getAttribute("part");
+        editor.mouseSelectedComponent = component.getAttribute("data-part");
 
     })
 
@@ -465,6 +465,7 @@ export class FileManager {
                     case "LED":
                     case "graphingLayer":
                     case "type":
+                    case "bulb":
                         return undefined;
                 }
 

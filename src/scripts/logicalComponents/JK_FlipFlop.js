@@ -17,16 +17,21 @@ export class JK_FlipFlop extends Component {
 
     setupNodes() {
 
-        this.nodes[0] = new Node(-20, 20, false, false, this.color, "J");
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(-20, 40, false, false, this.color, "CLK"); 
-        this.component.add(this.nodes[1].draw());
-        this.nodes[2] = new Node(-20, 60, false, false, this.color, "K");
-        this.component.add(this.nodes[2].draw());
-        this.nodes[3] = new Node(80, 20, true, false, this.color, "Q");
-        this.component.add(this.nodes[3].draw());
-        this.nodes[4] = new Node(80, 60, true, true, this.color, "Q'");
-        this.component.add(this.nodes[4].draw());
+        this.nodes[0] = new Node(-20, 20, false, false, this.color);
+        this.nodes[0].createPin(0, 20, -20, 20, this.component, "J", 5, 25);
+
+        this.nodes[1] = new Node(-20, 40, false, false, this.color); 
+        this.nodes[1].createPin(0, 40, -20, 40, this.component, "CLK", 5, 45);
+
+        this.nodes[2] = new Node(-20, 60, false, false, this.color);
+        this.nodes[2].createPin(0, 60, -20, 60, this.component, "K", 5, 65);
+
+        this.nodes[3] = new Node(80, 20, true, false, this.color);
+        this.nodes[3].createPin(60, 20, 80, 20, this.component, "Q", 45, 25);
+
+        this.nodes[4] = new Node(80, 60, true, true, this.color);
+        this.nodes[4].createPin(60, 60, 80, 60, this.component, "Q'", 45, 65);
+
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -42,30 +47,6 @@ export class JK_FlipFlop extends Component {
 
                 context.beginPath();
                 context.rect(0, 0, 60, 80);
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let shift = 0;
-                for(let i = 0; i < 3; i++) {
-
-                    context.moveTo(0, 20 + shift);
-                    context.lineTo(-20, 20 + shift);
-                    context.fillText(this.nodes[i].label, 3, 5 +  20 + shift)
-
-                    shift += 20;
-                }
-
-                shift = 0;
-
-                for(let i = 0; i < 2; i++) {
-
-                    context.moveTo(60, 20 + shift);
-                    context.lineTo(80, 20 + shift);
-                    context.fillText(this.nodes[i + 3].label, 45, 5 +  20 + shift);
-
-                    shift += 40;
-                }
-
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -74,8 +55,8 @@ export class JK_FlipFlop extends Component {
             strokeWidth: this.strokeWidth
         })
 
-        this.component.add(JK_FlipFlop);
         this.setupNodes();
+        this.component.add(JK_FlipFlop);
         this.layer.add(this.component);
 
     }

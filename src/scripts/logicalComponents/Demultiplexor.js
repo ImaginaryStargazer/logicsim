@@ -8,36 +8,46 @@ export class Demultiplexor extends Component {
 
 
         this.id = "DEMUX";
-        this.editType = "bitEdit";
-        this.bits = 4;
+        this.editType = "chipEdit";
+        this.bits = 2;
 
     }
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.bits = value;
+        let inputValue = document.getElementById("bitEdit").value;
 
+        if(!Number(inputValue)) return;
+
+        this.destroy();
+        this.bits = Number(inputValue);
+        this.render();
     }
 
 
     setupNodes() {
 
-        this.nodes[0] = new Node(80, 20, true, false, this.color, "Q0");
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(80, 40, true, false, this.color, "Q1");
-        this.component.add(this.nodes[1].draw());
-        this.nodes[2] = new Node(80, 60, true, false, this.color, "Q2");
-        this.component.add(this.nodes[2].draw());
-        this.nodes[3] = new Node(80, 80, true, false, this.color, "Q3");
-        this.component.add(this.nodes[3].draw());
+        let shift = 20;
 
-        this.nodes[4] = new Node(20, 140, false, false, this.color, "S0");
-        this.component.add(this.nodes[4].draw());
-        this.nodes[5] = new Node(40, 140, false, false, this.color, "S1");
-        this.component.add(this.nodes[5].draw());
+        for(let i = 0; i < 2**this.bits; i++) {
+            this.nodes[i] = new Node(this.bits * 40 + 20, shift, true, false, this.color);
+            this.nodes[i].createPin(this.bits * 40, shift, this.bits * 40 + 20, shift, this.component, "Q" + i, this.bits * 40 - 30, shift + 5);
 
-        this.nodes[6] = new Node(-20, 20, false, false, this.color, "Q");
-        this.component.add(this.nodes[6].draw());
+            shift += 20;
+        }
+
+        shift = 20;
+
+        this.nodes[2**this.bits + this.bits] = new Node(-20, shift, false, false, this.color);
+        this.nodes[2**this.bits + this.bits].createPin(0, shift, -20, shift, this.component, "Q", 5, shift + 5);
+
+        for(let i = 0; i < this.bits; i++) {
+            this.nodes[2**this.bits + i] = new Node(shift, 2**this.bits * 20 + 60, false, false, this.color);
+            this.nodes[2**this.bits + i].createPin(shift, 2**this.bits * 20 + 40, shift, 2**this.bits * 20 + 60, this.component, "S" + i, shift - 10, 2**this.bits * 20 + 40 - 10);
+
+            shift += 20;
+        }
+
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -52,40 +62,7 @@ export class Demultiplexor extends Component {
             sceneFunc: (context, shape) => {
 
                 context.beginPath();
-
-                context.rect(0, 0, 60, 120);
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0;
-                
-                for(let i = 20; i < 100; i+=20) {
-                    context.moveTo(60, i);
-                    context.lineTo(80, i);
-
-                    
-
-                    
-                    context.fillText(this.nodes[ii].label, 35, 5 + i);
-
-                    ii++;
-                }
-
-                for(let i = 20; i < 60; i+=20) {
-                    context.moveTo(i, 120);
-                    context.lineTo(i, 140);    
-            
-                    context.fillText(this.nodes[ii].label, i - 10, 115);
-
-                    ii++;
-                }
-
-                context.moveTo(0, 20);
-                context.lineTo(-20, 20);
-
-                context.fillText(this.nodes[ii].label, 5, 25);
-
-
+                context.rect(0, 0, this.bits * 40, 2**this.bits * 20 + 40);
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -94,8 +71,8 @@ export class Demultiplexor extends Component {
             strokeWidth: this.strokeWidth
         })
 
-        this.component.add(demultiplexor);
         this.setupNodes();
+        this.component.add(demultiplexor);
         this.layer.add(this.component);
 
     }
@@ -105,18 +82,18 @@ export class Demultiplexor extends Component {
         
         let selectedValue = 0;
 
-        for(let i = 0; i != 2; i++) {
+        for(let i = 0; i != this.bits; i++) {
 
-            if(this.nodes[i+4].value) {
+            if(this.nodes[2**this.bits+i].value)
                 selectedValue |= 1<<i;
-            }
+            
         }
 
-        for(let i = 0; i != 4; i++) {
+        for(let i = 0; i != 2**this.bits; i++)
             this.nodes[i].setValue(false);
-        }
+        
 
-        this.nodes[selectedValue].setValue(this.nodes[6].value);
+        this.nodes[selectedValue].setValue(this.nodes[2**this.bits + this.bits].value);
 
     }
 

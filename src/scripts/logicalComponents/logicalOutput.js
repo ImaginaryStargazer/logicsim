@@ -15,7 +15,7 @@ export class LogicalOutput extends Component {
     setupNodes() {
 
         this.nodes[0] = new Node(-60, 20, false, false, this.color);
-        this.component.add(this.nodes[0].draw());
+        this.nodes[0].createPin(0, 20, -60, 20, this.component);
 
         this.startNodeId = this.nodes[0].id;
     }
@@ -41,14 +41,8 @@ export class LogicalOutput extends Component {
             fontSize: 25,
         })
 
-        const output = new Konva.Line({
-            points: [0, 20, -60, 20],
-            stroke: this.color,
-            strokeWidth: 2,
-        })
 
-
-        this.component.add(body, value, output);
+        this.component.add(body, value);
         this.setupNodes();
 
         this.layer.add(this.component);

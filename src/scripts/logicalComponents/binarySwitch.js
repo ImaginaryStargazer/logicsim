@@ -15,13 +15,14 @@ export class BinarySwitch extends Component {
 
     setupNodes() {
 
-        this.nodes[0] = new Node(80, 20, true, false, this.color, "T");
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(80, 40, true, false, this.color, "F");
-        this.component.add(this.nodes[1].draw());
+        this.nodes[0] = new Node(80, 20, true, false, this.color);
+        this.nodes[0].createPin(60, 20, 80, 20, this.component, "T", 45, 25);
 
-        this.nodes[2] = new Node(-20, 20, false, false, this.color, "I0");
-        this.component.add(this.nodes[2].draw());
+        this.nodes[1] = new Node(80, 40, true, false, this.color);
+        this.nodes[1].createPin(60, 40, 80, 40, this.component, "F", 45, 45);
+
+        this.nodes[2] = new Node(-20, 20, false, false, this.color);
+        this.nodes[2].createPin(0, 20, -20, 20, this.component, "I0", 5, 25);
 
         this.startNodeId = this.nodes[0].id;
         
@@ -36,25 +37,6 @@ export class BinarySwitch extends Component {
             sceneFunc: (context, shape) => {
                 context.beginPath();
                 context.rect(0, 0, 60, 60);
-                
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0;
-                for(let i = 20; i <= 40; i+=20) {
-                    context.moveTo(60, i);
-                    context.lineTo(80, i);
-
-                    context.fillText(this.nodes[ii].label, 45, i + 5);
-
-                    ii++;
-                }
-
-                context.moveTo(0, 20);
-                context.lineTo(-20, 20);
-
-                context.fillText(this.nodes[ii].label, 5, 25);
-
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -63,8 +45,8 @@ export class BinarySwitch extends Component {
             strokeWidth: this.strokeWidth
         })
 
-        this.component.add(binarySwitch);
         this.setupNodes();
+        this.component.add(binarySwitch);
         this.layer.add(this.component);
 
     }

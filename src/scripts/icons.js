@@ -118,7 +118,7 @@ export const icons = {
         LEDarray: "images/components/LEDarray.png",
         RGBLED: "images/components/RGBLED.png",
         Bus: "images/components/Bus.png",
-        
+        CustomLogic: "images/components/CustomLogic.png",
     },
 
     // Americké ikony komponentov
@@ -177,6 +177,7 @@ export const icons = {
         LEDarray: "images/components/LEDarrayANSI.png",
         RGBLED: "images/components/RGBLEDANSI.png",
         Bus: "images/components/BusANSI.png",
+        CustomLogic: "images/components/CustomLogicANSI.png",
     
     }
     

@@ -9,39 +9,40 @@ export class DecimalDisplay extends Component{
         super(x, y, color, rotation);
 
         this.id = "DLD";
-        this.editType = "colorEdit";
+        this.editType = "decimalDisplayEdit";
         this.ledColor = "red";
-
-        this.number = new Konva.Text({
-            text: "0",
-            x: 28,
-            y: 35,
-            fontSize: 35,
-            fill: this.ledColor,
-            fontFamily: "Arial",
-            strokeEnabled: false
-        })
+        this.bits = 4;
     }
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.ledColor = value;
+        let bitValue = document.getElementById("decBitEdit").value;
+        let colorValue = document.getElementById("numberColor").value;
+        
+        if(!Number(bitValue) || Number(bitValue) > 16 || Number(bitValue) < 0) return;
 
+        this.destroy();
+        this.bits = Number(bitValue);
+        this.ledColor = colorValue;
+        this.number.setAttr("fill", this.ledColor);
+        this.render();
     }
+
 
 
     setupNodes() {
 
-        this.nodes[3] = new Node(-20, 20, false, false, this.color, "I0");
-        this.component.add(this.nodes[3].draw());
-        this.nodes[2] = new Node(-20, 40, false, false, this.color, "I1");
-        this.component.add(this.nodes[2].draw());
-        this.nodes[1] = new Node(-20, 60, false, false, this.color, "I2");
-        this.component.add(this.nodes[1].draw());
-        this.nodes[0] = new Node(-20, 80, false, false, this.color, "I3");
-        this.component.add(this.nodes[0].draw());
+        let shift = 20;
 
-        this.startNodeId = this.nodes[3].id;
+        for(let i = 0; i < this.bits; i++) {
+            this.nodes[i] = new Node(-20, shift, false, false, this.color);
+            this.nodes[i].createPin(0, shift, -20, shift, this.component, "I" + (this.bits - i - 1), 4, shift + 5);
+
+            shift +=20;
+        }
+
+
+        this.startNodeId = this.nodes[0].id;
     }
 
 
@@ -55,21 +56,11 @@ export class DecimalDisplay extends Component{
 
                 context.beginPath();
 
-                context.rect(0,0,80,100);
+                if(this.bits == 1)
+                    context.rect(0,0,(this.bits * 40),this.bits * 20 + 20)
+                else
+                    context.rect(0,0,(this.bits * 20 + 20),this.bits * 20 + 20);
                 
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0;
-                for(let i = 20; i < 100; i += 20) {
-                    context.moveTo(0, i);
-                    context.lineTo(-20, i);
-                    context.fillText(this.nodes[ii].label, 5, 5 + i)
-
-                    ii++;
-                }
-
-
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -79,8 +70,18 @@ export class DecimalDisplay extends Component{
         })
 
 
-        this.component.add(decimalDisplay, this.number);
+        this.number = new Konva.Text({
+            text: "0",
+            x: (this.bits * 20) / 2,
+            y: (this.bits * 20) / 2,
+            fontSize: 32,
+            fill: this.ledColor,
+            fontFamily: "Arial",
+            strokeEnabled: false
+        })
+
         this.setupNodes();
+        this.component.add(decimalDisplay, this.number);
         this.layer.add(this.component);
     }
 
@@ -88,8 +89,8 @@ export class DecimalDisplay extends Component{
     draw() {
         let input = 0;
 
-        for (let i = 0; i != this.nodes.length; i++)
-            if (this.nodes[i].value)
+        for (let i = 0; i != this.bits; i++)
+            if (this.nodes[this.bits - i - 1].value)
         	    input |= 1<<i;
 
 

@@ -12,9 +12,12 @@ export class SevenSegmentDisplay extends Component{
         this.segment = [];
     }
 
-    setEditInfo(value) {
 
-        this.ledColor = value;
+    setEditInfo() {
+
+        const inputValue = document.getElementById("colorEditValue").value;
+
+        this.ledColor = inputValue;
 
     }
 
@@ -23,20 +26,25 @@ export class SevenSegmentDisplay extends Component{
         
 
         this.nodes[0] = new Node(-20, 20, false, false, this.color, "a"); // a
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(-20, 40, false, false, this.color, "b"); // b
-        this.component.add(this.nodes[1].draw());
-        this.nodes[2] = new Node(-20, 60, false, false, this.color, "c"); // c
-        this.component.add(this.nodes[2].draw());
-        this.nodes[3] = new Node(-20, 80, false, false, this.color, "d"); // d
-        this.component.add(this.nodes[3].draw());
+        this.nodes[0].createPin(0, 20, -20, 20, this.component, "a", 5, 25);
 
-        this.nodes[4] = new Node(40, 120, false, false, this.color, "e"); // e
-        this.component.add(this.nodes[4].draw());
-        this.nodes[5] = new Node(60, 120, false, false, this.color, "f"); // f
-        this.component.add(this.nodes[5].draw());
-        this.nodes[6] = new Node(80, 120, false, false, this.color, "g"); // g
-        this.component.add(this.nodes[6].draw());
+        this.nodes[1] = new Node(-20, 40, false, false, this.color); // b
+        this.nodes[1].createPin(0, 40, -20, 40, this.component, "b", 5, 45);
+
+        this.nodes[2] = new Node(-20, 60, false, false, this.color); // c
+        this.nodes[2].createPin(0, 60, -20, 60, this.component, "c", 5, 65);
+
+        this.nodes[3] = new Node(-20, 80, false, false, this.color); // d
+        this.nodes[3].createPin(0, 80, -20, 80, this.component, "d", 5, 85);
+
+        this.nodes[4] = new Node(40, 120, false, false, this.color); // e
+        this.nodes[4].createPin(40, 100, 40, 120, this.component, "e", 35, 95);
+
+        this.nodes[5] = new Node(60, 120, false, false, this.color); // f
+        this.nodes[5].createPin(60, 100, 60, 120, this.component, "f", 55, 95);
+
+        this.nodes[6] = new Node(80, 120, false, false, this.color); // g
+        this.nodes[6].createPin(80, 100, 80, 120, this.component, "g", 75, 95);
 
 
         this.segment[0] = new LedSegment(40, 25, 60, 25); // a
@@ -66,7 +74,7 @@ export class SevenSegmentDisplay extends Component{
             y: 25,
             text: "8",
             fontSize: 50,
-            fill: "red",
+            fill: this.ledColor,
             fontFamily: "Digital Numbers Regular",
             opacity: 0.2,
             strokeEnabled: false
@@ -79,30 +87,6 @@ export class SevenSegmentDisplay extends Component{
             sceneFunc: (context, shape) => {
                 context.beginPath();
                 context.rect(0, 0, 100, 100);
-
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0;
-                for (let i = 20; i < 100; i += 20) {
-
-                    context.moveTo(0, i);
-                    context.lineTo(-20, i);
-                    context.fillText(this.nodes[ii].label, 3, 5 + i);
-
-                    ii++;
-                }
-
-                for (let i = 40; i < 100; i += 20) {
-
-                    context.moveTo(i, 100);
-                    context.lineTo(i, 120);
-
-                    context.fillText(this.nodes[ii].label, -4 + i, 95);
-
-                    ii++;
-                }
-
                 context.closePath();
                 context.fillStrokeShape(shape);
 

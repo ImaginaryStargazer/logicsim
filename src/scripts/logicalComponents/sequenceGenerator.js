@@ -15,20 +15,23 @@ export class SequenceGenerator extends Component {
     }
 
 
-    setEditInfo(value) {
+    setEditInfo() {
 
-        this.sequence = value;
+        let inputValue = document.getElementById("sequenceEdit").value;
 
+        this.sequence = inputValue;
     }
 
     setupNodes() {
 
-        this.nodes[0] = new Node(-20, 20, false, false, this.color, "CLK");
-        this.component.add(this.nodes[0].draw());
-        this.nodes[1] = new Node(-20, 40, false, false, this.color, "R");
-        this.component.add(this.nodes[1].draw());
-        this.nodes[2] = new Node(80, 40, true, false, this.color, "Q");
-        this.component.add(this.nodes[2].draw());
+        this.nodes[0] = new Node(-20, 20, false, false, this.color);
+        this.nodes[0].createPin(0, 20, -20, 20, this.component, "CLK", 5, 25);
+
+        this.nodes[1] = new Node(-20, 40, false, false, this.color);
+        this.nodes[1].createPin(0, 40, -20, 40, this.component, "R", 5, 45);
+
+        this.nodes[2] = new Node(80, 40, true, false, this.color);
+        this.nodes[2].createPin(60, 40, 80, 40, this.component, "Q", 45, 45);
         
         this.startNodeId = this.nodes[0].id;
     }
@@ -43,26 +46,7 @@ export class SequenceGenerator extends Component {
 
             sceneFunc: (context, shape) => {
                 context.beginPath();
-
                 context.rect(0, 0, 60, 60);
-                
-                context.fillStyle = this.color;
-                context.font = "bold 13px Arial";
-
-                let ii = 0;
-                for(let i = 20; i <= 40; i+=20) {
-                    context.moveTo(0, i);
-                    context.lineTo(-20, i);
-
-                    context.fillText(this.nodes[ii].label, 5, 5 + i)
-
-                    ii++;
-                }
-
-                context.moveTo(60, 40);
-                context.lineTo(80, 40);
-                context.fillText(this.nodes[ii].label, 45, 45)
-
                 context.closePath();
                 context.fillStrokeShape(shape);
             },
@@ -71,8 +55,8 @@ export class SequenceGenerator extends Component {
             strokeWidth: this.strokeWidth
         })
 
-        this.component.add(sequenceGenerator);
         this.setupNodes();
+        this.component.add(sequenceGenerator);
         this.layer.add(this.component);
     }
 

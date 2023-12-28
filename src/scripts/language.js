@@ -71,6 +71,8 @@ export var lang = {
         RGBLED: "RGB LED",
         Oscilloscope: "Osciloskop",
         Bus: "Zbernica",
+        CustomLogic: "Vlastná Logika",
+
 
 
         // Označenia tlačidiel, menu, nastavení
@@ -131,12 +133,21 @@ export var lang = {
         Reverse: "Invertovať:",
         Toggle: "Prepnúť",
         RemoveFromChannel: "Odstrániť signál z kanála:",
+        ComponentName: "Názov Súčiastky:",
         NumOfInputs: "Počet Vstupov:",
+        NumOfOutputs: "Počet Výstupov:",
         SetColor: "Nastav Farbu:",
         SetPeriod: "Nastav Periódu:",
         NumOfBits: "Počet Bitov:",
         SetSequence: "Nastav Sekvenciu:",
         SetClockCount: "Nastav Hodnotu:",
+        SetNumOfRows: "Počet Riadkov:",
+        SetNumOfCols: "Počet Stĺpcov:",
+        SelectChannel: "Vyberte Kanál",
+        SelectTheme: "Vyberte Tému",
+        SelectLanguage: "Vyberte Jazyk",
+        DefinitionInputs: "Vstupy:",
+        DefinitionOutputs: "Výstupy:",
 
         // Obvody
 
@@ -199,7 +210,7 @@ export var lang = {
         Tutorial3: "Rýchle pridávanie súčiastok z knižnice. Na výber je až 32 jedninečných súčiastok.",
 
         EditComponents: "Úprava súčiastok",
-        Tutorial4: "Používatelia môžu voľne editovať všetky súčiastky meniť ich pozíciu, rotáciu a odstrániť nepotrebné súčiastky.",
+        Tutorial4: "Používatelia môžu voľne editovať všetky súčiastky meniť ich pozíciu, rotáciu a odstrániť nepotrebné súčiastky. Kliknutím pravým na súčiastku ju ďalej upravíte.",
 
         AddWires: "Prepájanie súčiastok",
         Tutorial5: "Pri kliknutí na akékoľvek dve svorky sa vytvorí spojenie medzi dvomi súčiastkami.",
@@ -299,6 +310,7 @@ export var lang = {
         RGBLED: "RGB LED",
         Oscilloscope: "Oscilloscope",
         Bus: "Bus",
+        CustomLogic: "Custom Logic",
 
         // Označenia tlačidiel, menu, nastavení
 
@@ -358,12 +370,21 @@ export var lang = {
         Reverse: "Reverse:",
         Toggle: "Toggle",
         RemoveFromChannel: "Remove Signal From Channel:",
+        ComponentName: "Component Name:",
         NumOfInputs: "Number Of Inputs:",
+        NumOfOutputs: "Number Of Outputs:",
         SetColor: "Set Color:",
         SetPeriod: "Set Period:",
         NumOfBits: "Set Number Of Bits:",
         SetSequence: "Set Sequence:",
         SetClockCount: "Set Clock Count:",
+        SetNumOfRows: "Set Number Of Rows:",
+        SetNumOfCols: "Set Number Of Cols:",
+        SelectChannel: "Select Channel",
+        SelectTheme: "Select Theme",
+        SelectLanguage: "Select Language",
+        DefinitionInputs: "Inputs:",
+        DefinitionOutputs: "Outputs:",
 
         // Obvody
 
@@ -425,7 +446,7 @@ export var lang = {
         Tutorial3: "Quick addition of components from the library. There are up to 32 unique components to choose from.",
         
         EditComponents: "Editing Components",
-        Tutorial4: "Users can freely edit all components, change their position, rotation, and remove unnecessary components.",
+        Tutorial4: "Users can freely edit all components, change their position, rotation, and remove unnecessary components. Right click on the component to edit.",
         
         AddWires: "Connecting Components",
         Tutorial5: "Clicking on any two terminals creates a connection between the two components.",

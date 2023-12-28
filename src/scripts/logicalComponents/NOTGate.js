@@ -13,9 +13,10 @@ export class NOTGate extends Component {
     setupNodes() {
         
         this.nodes[0] = new Node(-60, 40, false, false, this.color); // I0
-        this.component.add(this.nodes[0].draw());
+        this.nodes[0].createPin(0, 40, -60, 40, this.component);
+
         this.nodes[1] = new Node(120, 40, true, false, this.color); // Y0
-        this.component.add(this.nodes[1].draw());
+        this.nodes[1].createPin(60, 40, 120, 40, this.component);
 
         this.startNodeId = this.nodes[0].id;
 
@@ -24,26 +25,22 @@ export class NOTGate extends Component {
 
     render() {
 
-        const gateBody = new Konva.Rect({
-            x: 0,
-            y: 0,
-            width: 60,
-            height: 80,
-            stroke: this.color,
-            strokeWidth: this.strokeWidth,
-            visible: true,
-            id: "IEC"
-        });
+        const IECgateBody = new Konva.Shape({
+            
+            sceneFunc: (context, shape) => {
 
-        const symbol = new Konva.Text({
-            x: 22,
-            y: 28,
-            fill: this.color,
-            text: "1",
-            fontSize: 30,
-            visible: true,
-            id: "IEC"
-        });
+                context.fillStyle = this.color;
+                context.font = "bold 25px Arial";
+                context.beginPath();
+                context.rect(0,0,60,this.numOfInputs * 40);
+                context.fillText("&", 20, 40);
+                context.fillStrokeShape(shape);
+            },
+
+            id: "IEC",
+            stroke: this.color,
+            strokeWidth: this.strokeWidth
+        })
 
         const ANSIgateBody = new Konva.RegularPolygon({
             x: 20,
@@ -66,22 +63,18 @@ export class NOTGate extends Component {
             strokeWidth: this.strokeWidth,
         })
 
-        const firstInput = new Konva.Line({
-            points: [0, 40, -60, 40],
-            stroke: this.color,
-            strokeWidth: this.strokeWidth,
-        });
+        if(this.useEuroGates()) {
+            IECgateBody.visible(true);
+            ANSIgateBody.visible(false);
+        } else {
+            IECgateBody.visible(false);
+            ANSIgateBody.visible(true);
+        }
 
 
-        const output = new Konva.Line({
-            points: [60, 40, 120, 40],
-            stroke: this.color,
-            strokeWidth: this.strokeWidth,
-        })
-
-
-        this.component.add(firstInput, gateBody, symbol, output, bubble, ANSIgateBody);
         this.setupNodes();
+        this.component.add(IECgateBody, bubble, ANSIgateBody);
+
 
         this.layer.add(this.component);
     }
@@ -94,14 +87,9 @@ export class NOTGate extends Component {
     }
 
 
-    generateOutput() {
-
-        this.nodes[1].setValue(this.calculateValue());
-    }
-
 
     draw() {
-        this.generateOutput();
+        this.nodes[1].setValue(this.calculateValue());
     }
 
 } 

@@ -43,9 +43,12 @@ import { Oscilloscope } from "./logicalComponents/oscilloscope.js";
 import { RGBLed } from "./logicalComponents/RGBLED.js";
 import { FullAdder } from "./logicalComponents/fullAdder.js";
 import { BusConnection } from "./logicalComponents/busConnection.js";
+import { CustomLogic } from "./logicalComponents/customLogic.js";
 
 
 export const mainEditor = new Konva.Stage({container: "mainBoard"});
+export const wireMng = new WireMng();
+export let useIECgates = false;
 
 export const componentsMap =  {
 
@@ -81,8 +84,11 @@ export const componentsMap =  {
     "LDA": LEDarray,
     "RGB": RGBLed,
     "FAD": FullAdder,
-    "BUS": BusConnection
+    "BUS": BusConnection,
+    "CML": CustomLogic
 };
+
+
 
 export class circuitEditor {
     constructor(width, height) {
@@ -117,7 +123,6 @@ export class circuitEditor {
         this.showGrid = true;
         this.selectedComponents = [];
         this.components = [];
-        this.nodes = nodeList;
         this.componentColor = "white";
         this.highlightColor = "yellow"; // #fcb103
         this.newComponent = null;
@@ -128,11 +133,11 @@ export class circuitEditor {
         this.simRunning = false;
         this.maxScale = 0.25;
         this.minScale = 4;
-        this.isIEC = false;
+        this.isIEC = useIECgates;
         this.mouseSelectedComponent = null;
 
 
-        this.wireMng = new WireMng();
+        this.wireMng = wireMng;
     
         this.transformer = new Konva.Transformer({
             resizeEnabled: false,
@@ -241,7 +246,6 @@ export class circuitEditor {
 
     mainEditorBoard() {
 
-
         document.getElementById("startSimulation").onclick = () => {
 
             let simIcon = document.getElementById("startSimulation")
@@ -301,7 +305,7 @@ export class circuitEditor {
                 this.highlightComponent(this.newComponent.component)
                 this.snapToGrid(this.newComponent.component);
 
-                this.convertToIECorANSI();
+                //this.convertToIECorANSI();
         
             } 
         });
@@ -426,7 +430,7 @@ export class circuitEditor {
 
 
 
-        this.layer.on("mousedown", (event) => {
+        this.layer.on("pointerdown", (event) => {
 
             if(event.target.name() === "node" || event.target.name() === "wire") {
                 return;
@@ -460,7 +464,7 @@ export class circuitEditor {
             
         });
     
-        this.mainEditor.on("pointerclick", (event) => {
+        this.mainEditor.on("click tap", (event) => {
 
             
             if(event.target !== this.mainEditor || this.selectedComponents.length <= 0) {
@@ -515,6 +519,13 @@ export class circuitEditor {
     }
     
 
+    useIECgates() {
+
+        useIECgates = this.isIEC;
+
+        return useIECgates;
+
+    }
 
 
     convertToIECorANSI() {
@@ -534,6 +545,8 @@ export class circuitEditor {
             component.hide();
 
         });
+
+        this.useIECgates();
     }
 
 
@@ -651,11 +664,11 @@ export class circuitEditor {
     }
 
 
-    calculatePositionToScale(letiable) {
+    calculatePositionToScale(value) {
 
         return {
-            xAxis: letiable / this.mainEditor.scaleX() - this.mainEditor.x() / this.mainEditor.scaleX(),
-            yAxis: letiable / this.mainEditor.scaleY() - this.mainEditor.y() / this.mainEditor.scaleY(),
+            xAxis: value / this.mainEditor.scaleX() - this.mainEditor.x() / this.mainEditor.scaleX(),
+            yAxis: value / this.mainEditor.scaleY() - this.mainEditor.y() / this.mainEditor.scaleY(),
         };
     }
 
