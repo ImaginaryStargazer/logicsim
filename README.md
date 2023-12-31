@@ -17,7 +17,6 @@ Skoro žiadna podpora pre menšie obrazovky a mobily.
 ## :wrench: TODO
 
 Dokumentácia súčiastok.\
-Obvody na vyskúšanie v hlavnom menu.\
 Textový zoznam obvodu.
 
 ## Autor
