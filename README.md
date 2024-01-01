@@ -17,8 +17,6 @@ Skoro žiadna podpora pre menšie obrazovky a mobily.
 ## :wrench: TODO
 
 Dokumentácia súčiastok.\
-Obvody na vyskúšanie v hlavnom menu.\
-Editovanie súčiastok (počet bitov).\
 Textový zoznam obvodu.
 
 ## Autor
