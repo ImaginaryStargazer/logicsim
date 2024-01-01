@@ -124,6 +124,7 @@ export class LEDarray extends Component {
 
     }
 
+    // pls dont judge me for this
 
     draw() {
         
@@ -137,7 +138,7 @@ export class LEDarray extends Component {
 
             } else {
                 for (let row = 0; row < this.numOfCols; row++) {
-                    this.LED[i * this.numOfCols + row].turnOff(0.00045);
+                    this.LED[i * this.numOfCols + row].turnOff(0.0044);
                 }
             }
         }
@@ -146,7 +147,7 @@ export class LEDarray extends Component {
             
             if (this.nodes[i].value) {
                 for (let col = 0; col < this.numOfRows; col++) {
-                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff(0.005);
+                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff(0.09999);
                 }
             }
         }
@@ -166,10 +167,10 @@ class LED{
             fill: "red",
             radius: 8,
             strokeEnabled: false,
-            opacity: 0.2,
+            opacity: 0.1,
         })
 
-        this.w = 0.2;
+        this.w = 0.1;
     }
 
     render() {
@@ -179,7 +180,7 @@ class LED{
 
     turnOn() {
 
-        this.w = Math.min(1, this.w + 0.004);
+        this.w = Math.min(1, this.w + 0.09998);
 
         this.LED.setAttrs({
             opacity: this.w
@@ -191,7 +192,7 @@ class LED{
     turnOff(timeout) {
 
         
-        this.w = Math.max(0.2, this.w - timeout);
+        this.w = Math.max(0.1, this.w - timeout);
 
         this.LED.setAttrs({
             opacity: this.w

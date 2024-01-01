@@ -250,11 +250,11 @@ export class circuitEditor {
 
             if(this.simRunning) {
 
-                this.enableEditing();
-                backToEdit();
                 this.simRunning = false;
                 simIcon.innerHTML = icons.startSimulation;
                 cancelAnimationFrame(this.simulation);
+                this.enableEditing();
+                backToEdit();
 
             } else {
 
@@ -577,6 +577,7 @@ export class circuitEditor {
 
     onKeyDown(e) {
 
+        if(this.simRunning) return;
 
         if(e.key == "Escape") {
 
@@ -682,6 +683,8 @@ export class circuitEditor {
 
 
     enableEditing() {
+
+        if(this.simRunning) return;
         
         document.getElementById("mainBoard").style.cursor = "default";
 

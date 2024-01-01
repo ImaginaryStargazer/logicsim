@@ -43,10 +43,11 @@ window.addEventListener("resize", resizeMainBoard);
 executeSelectedAction((selectedTool) => {
 
 
-
     switch (selectedTool) {
 
         case "Edit":
+
+            if(!this.simRunning) return;
             
             currentMouseAction = CURRENT_ACTION.EDIT;
             editor.enableEditing();
@@ -66,6 +67,8 @@ executeSelectedAction((selectedTool) => {
             break;
 
         case "Remove-Wire":
+
+            if(!this.simRunning) return;
         
             editor.enableEditing();
             currentMouseAction = CURRENT_ACTION.REMOVE_WIRE;
@@ -255,8 +258,9 @@ document.querySelectorAll(".component").forEach((component) => {
             
     component.addEventListener("mousedown", () => {
 
+        let selectedTool = component.getAttribute("selected-tool");
         
-        if(editor.simRunning && component.getAttribute("selected-tool") == null) {
+        if(editor.simRunning && selectedTool !== "Move-Editor") {
             openAlert("info", "EditDisabled");
             return;
         };
