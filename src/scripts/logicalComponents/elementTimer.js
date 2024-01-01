@@ -76,10 +76,5 @@ export class Timer {
     }
 
 
-    changeTimestep() {
-        
-    }
-
-
 
 }

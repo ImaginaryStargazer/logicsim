@@ -39,7 +39,7 @@ import { nodeList } from "./logicalComponents/node.js";
 import { ClockCounter } from "./logicalComponents/clockCounter.js";
 import { BinarySwitch } from "./logicalComponents/binarySwitch.js";
 import { LEDarray } from "./logicalComponents/LEDarray.js";
-import { Oscilloscope } from "./logicalComponents/oscilloscope.js";
+import { Oscilloscope, nodeValues } from "./logicalComponents/oscilloscope.js";
 import { RGBLed } from "./logicalComponents/RGBLED.js";
 import { FullAdder } from "./logicalComponents/fullAdder.js";
 import { BusConnection } from "./logicalComponents/busConnection.js";
@@ -63,7 +63,7 @@ export const componentsMap =  {
     "HI": HighInput,
     "LSW": LogicalSwitch,
     "CLK": ClockGen,
-    "LO": LogicalOutput,
+    "OUT": LogicalOutput,
     "BLB": LightBulb,
     "SSD": SevenSegmentDecoder,
     "SSL": SevenSegmentDisplay,
@@ -158,44 +158,42 @@ export class circuitEditor {
     }
 
     simulate() {
-    
         
-        if(this.simRunning) {
+        if (this.simRunning) {
 
-            setTimeout(() => {
-                
-                this.timer.time += this.timestep;
-                let fixed =  this.timer.time.toFixed(6);
-                this.timer.clock.text(`t = ${fixed} s`);
-                
+            this.timer.time += this.timestep;
+            let fixed = this.timer.time.toFixed(6);
+            this.timer.clock.text(`t = ${fixed} s`);
+    
+            let iter = 15;
+    
+            for (let i = 0; i < iter; i++) {
 
-                let iter = 15;
 
-                for(let i = 0;  i < iter; i++) {
-
-                    for (const component of this.components) {
-                        component.draw();
-   
-                    }
-
-                    this.wireMng.draw();
-                    
+                for (const component of this.components) {
+                    component.draw();
                 }
 
 
-                nodeList.forEach(node => {
-                    node.fillValue();
-                })
-                
+                this.wireMng.update();
 
-                this.simulation = requestAnimationFrame(() => this.simulate());
+            }
 
-            },1000 / 24) // pridať slider na zmenenie hodnoty
+
+            nodeList.forEach((node) => {
+                node.fillValue();
+            });
+
+
+            if(this.graph.oscilloscope.visible())
+                this.graph.draw();
+    
 
         }
 
-        
+        this.simulation = requestAnimationFrame(() => this.simulate());
     }
+    
 
 
     createGrid() {
@@ -252,19 +250,17 @@ export class circuitEditor {
 
             if(this.simRunning) {
 
-   
+                this.enableEditing();
+                backToEdit();
                 this.simRunning = false;
                 simIcon.innerHTML = icons.startSimulation;
-                this.graph.running.stop();
                 cancelAnimationFrame(this.simulation);
 
             } else {
 
+                this.disableEditing();
                 this.simRunning = true;
                 simIcon.innerHTML = icons.stopSimulation;
-                this.graph.running.start();
-                
-
                 this.simulate();
                 
             }
@@ -311,7 +307,7 @@ export class circuitEditor {
         });
 
 
-
+        
         this.mainEditor.on("mousemove", () => {
 
             if (this.newComponent != null && this.mouseSelectedComponent != null) {
@@ -364,8 +360,8 @@ export class circuitEditor {
 
 
     createWire() {
+    
 
-        
         this.layer.on("pointerclick", (event) => {
 
             if(event.evt.button != 0) return;
@@ -412,17 +408,16 @@ export class circuitEditor {
             this.wireMng.draw();
         
         })
+
         
 
-        this.mainEditor.on("mousemove", () => {
+        this.mainEditor.on("mousemove", (e) => {
 
             if(this.wireMng.finishedDrawing) return;
             this.wireMng.draw();
-        
-        
-
-        })
     
+        })
+
     }
 
     
@@ -465,6 +460,13 @@ export class circuitEditor {
         });
     
         this.mainEditor.on("click tap", (event) => {
+
+
+            console.log(this.transformer.nodes())
+
+            console.log(this.transformer.width());
+            console.log(this.transformer.height());
+
 
             
             if(event.target !== this.mainEditor || this.selectedComponents.length <= 0) {
@@ -628,6 +630,8 @@ export class circuitEditor {
     
     onWheel(e) {;
 
+        this.getEditorSettings();
+
         if(this.selectedComponents.length > 0) {
             this.unhighlightAllComponents();
         }
@@ -690,10 +694,11 @@ export class circuitEditor {
         document.getElementById("mainBoard").style.cursor = "default";
 
         this.getAllComponents().forEach(component => {
-            component.listening(true)
+            component.draggable(true);
         })
 
         this.mainEditor.draggable(false);
+        this.layer.listening(true);
     }
 
 
@@ -701,8 +706,17 @@ export class circuitEditor {
 
         this.unhighlightAllComponents();
 
+        this.layer.listening(false);
+
         this.getAllComponents().forEach(component => {
-            component.listening(false)
+        
+            if(component.getAttr("componentType").id == "LSW") {
+                
+                component.listening(true);
+                component.draggable(false);
+                
+            }
+        
         })
     }
 
@@ -738,7 +752,46 @@ export class circuitEditor {
         this.components.splice(0, this.components.length);
         this.wireMng.wire.splice(0, this.wireMng.wire.length);
         nodeList.splice(0, nodeList.length);
+        nodeValues.splice(0, nodeValues.length);
+        this.graph.resetOscilloscope();
     
+    }
+
+
+    getEditorSettings() {
+
+        let settings = {
+            x: this.mainEditor.position().x,
+            y: this.mainEditor.position().y,
+            scaleX: this.mainEditor.scale().x,
+            scaleY: this.mainEditor.scale().y,
+        }
+
+        return settings;
+
+    }
+
+
+    setEditorSettings(settings) {
+
+        this.mainEditor.position({ x: settings.x, y: settings.y })
+        this.mainEditor.scale({ x: settings.scaleX , y: settings.scaleY });
+
+        // tiež musíme obnoviť grid
+
+        this.createGrid();
+
+
+        //this.centreCircuit();
+
+    }
+
+
+    centreCircuit() {
+
+
+
+
     }
       
     

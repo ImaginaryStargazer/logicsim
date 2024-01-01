@@ -19,7 +19,8 @@ export class RingCounter extends Component {
 
         let inputValue = document.getElementById("bitEdit").value;
 
-        if(!Number(inputValue)) return;
+
+        if (!this.validateInputFields(inputValue) || inputValue < 5  || inputValue == "") return;
 
         this.destroy();
         this.bits = Number(inputValue);
@@ -43,8 +44,8 @@ export class RingCounter extends Component {
         this.nodes[this.bits] = new Node(60, 80, false, false, this.color);
         this.nodes[this.bits].createPin(60, 60, 60, 80, this.component, "CE'", 50, 50);
 
-        this.nodes[this.bits + 1] = new Node(140, 80, false, false, this.color);
-        this.nodes[this.bits + 1].createPin(140, 60, 140, 80, this.component, "R", 135, 50);
+        this.nodes[this.bits + 1] = new Node(100, 80, false, false, this.color);
+        this.nodes[this.bits + 1].createPin(100, 60, 100, 80, this.component, "R", 95, 50);
 
         this.nodes[this.bits + 2] = new Node(-20, 40, false, false, this.color);
         this.nodes[this.bits + 2].createPin(0, 40, -20, 40, this.component, "CLK", 5, 45);

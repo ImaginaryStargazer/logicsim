@@ -32,8 +32,8 @@ export class NOTGate extends Component {
                 context.fillStyle = this.color;
                 context.font = "bold 25px Arial";
                 context.beginPath();
-                context.rect(0,0,60,this.numOfInputs * 40);
-                context.fillText("&", 20, 40);
+                context.rect(0,0,60,80);
+                context.fillText("1", 20, 40);
                 context.fillStrokeShape(shape);
             },
 

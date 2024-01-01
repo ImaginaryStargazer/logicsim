@@ -2,7 +2,6 @@ import { INPUT_STATE, CURRENT_ACTION } from "./states.js";
 import { mainEditor } from "../circuitEditor.js";
 import { currentMouseAction } from "../main.js";
 import { openAlert } from "../userInterface.js";
-import { Node } from "./node.js";
 
 export class Wire {
     constructor(startNode) {
@@ -42,17 +41,13 @@ export class Wire {
 
         if(this.endNode == null || currentMouseAction != CURRENT_ACTION.REMOVE_WIRE) return;
 
-        this.wire.setAttrs({
-            opacity: 0.3,
-        })
+        this.wire.opacity(0.3);
 
         return true;
     }
 
     mouseOut() {
-        this.wire.setAttrs({
-            opacity: 1
-        })
+        this.wire.opacity(1);
     }
 
     draw() {
@@ -65,42 +60,24 @@ export class Wire {
 
             this.updateEnd(this.calculatePositionToScale(this.mainEditor.getPointerPosition().x).xAxis, this.calculatePositionToScale(this.mainEditor.getPointerPosition().y).yAxis);
 
+            
             this.wire.setAttrs({
                 points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY, this.endX, this.endY]
             })
-
             
 
 
         } else if(this.startNode.isAlive && this.endNode.isAlive) {
 
-            this.generateNodeValue();
 
             this.wire.setAttrs({
                 bezier: true,
                 points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY,
-                    this.startNode.getPosition().posX + 20, this.startNode.getPosition().posY,
+                    this.startNode.getPosition().posX + 20 , this.startNode.getPosition().posY,
                     this.endNode.getPosition().posX - 20, this.endNode.getPosition().posY,
                     this.endNode.getPosition().posX, this.endNode.getPosition().posY]
             })
-
-            // ak je hodnota pravdivá medzi dvoma svorkami
-
-            if (this.startNode.getValue() && this.endNode.getValue()) {
-
-                this.wire.setAttrs({
-                    stroke: "green",
-                })
-
-            } else {
-
-                this.wire.setAttrs({
-                    stroke: "white",
-                })
-            }
         
-
-
         } else {
 
             this.endNode.setValue(false);
@@ -110,6 +87,23 @@ export class Wire {
 
         return true;
 
+    }
+
+
+    updateNodesBetweenWires() {
+
+        this.generateNodeValue();
+
+        // ak je hodnota pravdivá medzi dvoma svorkami
+
+        if (this.startNode.getValue() && this.endNode.getValue()) {
+
+            this.wire.stroke("green")
+
+        } else {
+
+            this.wire.stroke("white");
+        }
     }
 
 
@@ -202,6 +196,7 @@ export class WireMng {
 
     draw() {
 
+
         for(let i = this.wire.length - 1; i >= 0; i--) {
             let result = this.wire[i].draw();
 
@@ -223,22 +218,30 @@ export class WireMng {
     }
 
 
+    update() {
+        
+        for(let i = 0; i < this.wire.length; i++) {
+            this.wire[i].updateNodesBetweenWires();
+        }
+    }
+
+
     addNode(node) {
+        
 
         if (this.isOpened == false) {
             this.wire.push(new Wire(node));
             this.isOpened = true;
             this.finishedDrawing = false;
             document.getElementById("mainBoard").style.cursor = "crosshair";
-
         } else {
+
 
             let index = this.wire.length - 1;
 
             if (node != this.wire[index].getStartNode() && (this.wire[index].getStartNode().isOutput != node.isOutput)) {
 
                 this.wire[index].setEndNode(node);
-                // save state
 
             } else {
                 

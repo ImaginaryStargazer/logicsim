@@ -1,4 +1,5 @@
 import { mainEditor, wireMng, useIECgates } from "../circuitEditor.js";
+import { openAlert } from "../userInterface.js";
 
 
 export class Component {
@@ -14,11 +15,13 @@ export class Component {
             rotation: rotation
         })
 
+        /*
         this.component.setAttrs({
             x: this.posX = this.component.x(),
             y: this.posY = this.component.y(),
             rotation: this.rotation = this.component.rotation(),
         })
+        */
 
         this.component.setAttr("componentType", this)
         
@@ -106,6 +109,8 @@ export class Component {
             case "customEdit":
                 customLogicEditBox.style.display = "block";
                 break;
+            case "labelEdit":
+                labelEditBox.style.display = "block";
             default: break;
         }
 
@@ -121,6 +126,7 @@ export class Component {
         sequenceGenEditBox.style.display = "none";
         clockCountEditBox.style.display = "none";
         customLogicEditBox.style.display = "none";
+        labelEditBox.style.display = "none";
     }
 
 
@@ -200,6 +206,22 @@ export class Component {
 
         this.component.destroy();
         wireMng.draw();
+    }
+
+
+    validateInputFields() {
+
+        var pattern = /^(?:[1-9]\d*|)$/;
+    
+        for (var i = 0; i < arguments.length; i++) {
+            if (!pattern.test(arguments[i])) {
+                arguments[i] = "";
+                openAlert("error", "WrongInput");
+                return false;
+            }
+        }
+    
+        return true;
     }
 
     

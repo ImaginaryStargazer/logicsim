@@ -7,9 +7,20 @@ export class LogicalSwitch extends Component {
 
 
         this.id = "LSW";
-        this.editType = "noEdit";
+        this.editType = "labelEdit";
+        this.label = "";
 
-        this.component.on("pointerdblclick", () => {this.doubleClick()});
+        this.component.on("pointerclick", () => {this.click()});
+
+    }
+
+    setEditInfo() {
+        
+        const labelInput = document.getElementById("labelEdit").value;
+
+        this.label = labelInput;
+        this.labelInfo.text(this.label);
+        this.labelInfo.x(-this.labelInfo.width() / 2 + 20)
 
     }
 
@@ -22,6 +33,8 @@ export class LogicalSwitch extends Component {
     }
 
     render() {
+        
+        const removeLabel = document.getElementById("removeLabel");
 
         const body = new Konva.Rect({
             x: 0,
@@ -32,22 +45,35 @@ export class LogicalSwitch extends Component {
             strokeWidth: 2
         })
         
+        this.labelInfo = new Konva.Text({
+            y: -30,
+            fill: this.color,
+            text: this.label,
+            fontSize: 25,
+            strokeWidth: this.strokeWidth,
+        })
+
+        this.labelInfo.x(-this.labelInfo.width() / 2 + 20);
         
-        const button = new Konva.Circle({
+        this.button = new Konva.Circle({
             x: 20,
             y: 20,
             radius: 10,
             strokeWidth: 2,
             stroke: this.color,
-            fill: "#343a40",
             id: "button"
         })
 
+        removeLabel.onclick = () => {
+            this.label = "";
+            this.labelInfo.text(this.label);
+        }
+
 
         this.setupNodes();
-        this.component.add(body, button);
-
-
+        this.component.add(body, this.button, this.labelInfo);
+        this.fillButton();
+        
         this.layer.add(this.component);
     }
 
@@ -56,20 +82,19 @@ export class LogicalSwitch extends Component {
     }
 
 
-    doubleClick() {
+    click() {
         this.toggle();
+        this.fillButton();
+    
+    }
+
+
+    fillButton() {
         this.nodes[0].setValue(this.value);
-
-        if(this.nodes[0].getValue()) {
-
-            this.component.findOne("#button").setAttrs({
-                fill: "green"
-            });
-        } else {
-            this.component.findOne("#button").setAttrs({
-                fill: "#343a40"
-            });
-        }
+        if(this.nodes[0].getValue()) 
+            this.button.fill("green");
+        else
+            this.button.fill("#343a40");
     }
 
 }

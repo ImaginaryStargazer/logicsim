@@ -148,6 +148,8 @@ export var lang = {
         SelectLanguage: "Vyberte Jazyk",
         DefinitionInputs: "Vstupy:",
         DefinitionOutputs: "Výstupy:",
+        SetLabel: "Označenie:",
+        RemoveLabel: "Odstrániť Označenie:",
 
         // Obvody
 
@@ -237,6 +239,9 @@ export var lang = {
         IncorrectTitle: "Názov musí mať aspoň 4 znaky a menej ako 30!",
         CorrectTitle: "Názov sa zmenil!",
         DownloadCompleted: "Sťahovanie obvodu sa podarilo!",
+        WrongOutput: "Výstup je nesprávne zapísaný",
+        WrongInput: "Nesprávne zvolená hodnota!",
+        EditDisabled: "Editácia nie je možná pri spustenej simulácií!",
     },
     
     //Preklad do angličtiny
@@ -385,6 +390,8 @@ export var lang = {
         SelectLanguage: "Select Language",
         DefinitionInputs: "Inputs:",
         DefinitionOutputs: "Outputs:",
+        SetLabel: "Label:",
+        RemoveLabel: "Remove Label:",
 
         // Obvody
 
@@ -468,5 +475,8 @@ export var lang = {
         IncorrectTitle: "The title must be at least 4 characters long and less than 30!",
         CorrectTitle: "Title changed!",
         DownloadCompleted: "Circuit was downloaded correctly!",
+        WrongOutput: "Output values are incorrectly formated!",
+        WrongInput: "Incorrectly entered value!",
+        EditDisabled: "Edits are not allowed during simulation!",
     },
 }

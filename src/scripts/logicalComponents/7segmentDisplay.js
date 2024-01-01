@@ -18,7 +18,7 @@ export class SevenSegmentDisplay extends Component{
         const inputValue = document.getElementById("colorEditValue").value;
 
         this.ledColor = inputValue;
-
+        this.digitalNumber.fill(this.ledColor);
     }
 
 
@@ -69,7 +69,7 @@ export class SevenSegmentDisplay extends Component{
 
     render() {
 
-        const digitalNumber = new Konva.Text({
+        this.digitalNumber = new Konva.Text({
             x: 30,
             y: 25,
             text: "8",
@@ -97,7 +97,7 @@ export class SevenSegmentDisplay extends Component{
 
         })
 
-        this.component.add(sevenSegmentDisplay, digitalNumber);
+        this.component.add(sevenSegmentDisplay, this.digitalNumber);
 
         this.setupNodes();
         

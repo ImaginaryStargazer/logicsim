@@ -20,9 +20,9 @@ export class ClockGen extends Component{
 
         let inputValue = document.getElementById("clockGenEdit").value;
 
-        if(!Number(inputValue)) return;
+        if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
-        this.T = Number(inputValue);
+        this.T = inputValue;
     }
 
     setupNodes() {
@@ -63,7 +63,7 @@ export class ClockGen extends Component{
     draw() {
         const currTick = new Date().getTime();
 
-        const period = (this.value) ? this.T * 50 / 100 : this.T * (100 - 50) / 100;
+        const period = this.value ? (this.T * 50) / 100 : (this.T * 50) / 100;
         
         if (currTick - this.lastTick > period) {
             this.toggle();

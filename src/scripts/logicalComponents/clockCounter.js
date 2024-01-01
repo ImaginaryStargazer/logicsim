@@ -18,7 +18,7 @@ export class ClockCounter extends Component{
 
         let inputValue = document.getElementById("clockCountEdit").value;
 
-        if(!Number(inputValue)) return;
+        if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
         this.clockCount = Number(inputValue);
 

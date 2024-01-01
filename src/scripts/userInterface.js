@@ -421,21 +421,28 @@ class UserInterface {
 
                 <div id="customLogicEditBox" class="componentEditBox" style="display: none">
                     <div>
-                        <p>${lang[this.language].ComponentName}</p>
+                        <label>${lang[this.language].ComponentName}</label>
                         <input id="customNameEdit" type="text">
-                        <p>${lang[this.language].NumOfInputs}</p>
+                        <label>${lang[this.language].NumOfInputs}</label>
                         <input id="customInputEdit" type="text" placeholder="Max: 10">
-                        <p>${lang[this.language].NumOfOutputs}</p>
+                        <label>${lang[this.language].NumOfOutputs}</label>
                         <input id="customOutputEdit" type="text">
                     </div>
                     <div class="textareaInputsContainer">
-                        <p>${lang[this.language].DefinitionInputs}</p>
+                        <label>${lang[this.language].DefinitionInputs}</label>
                         <textarea id="inputTextarea" disabled rows="10" cols="18"></textarea>
                     </div>
                     <div class="textareaOutputsContainer">
-                        <p>${lang[this.language].DefinitionOutputs}</p>
+                        <label>${lang[this.language].DefinitionOutputs}</label>
                         <textarea id="outputTextarea" rows="10" cols="13"></textarea>
                     </div>
+                </div>
+
+                <div id="labelEditBox" class="componentEditBox" style="display: none">
+                    <label>${lang[this.language].SetLabel}</label>
+                    <input id="labelEdit" type="text">
+                    <label>${lang[this.language].RemoveLabel}</label>
+                    ${this.createButton(["removeLabel"], lang[this.language].Delete,  "removeLabel" , "block")}
                 </div>
 
 
@@ -511,11 +518,11 @@ class UserInterface {
         `;
     }
 
-    createSampleCircuit(src, circuitName) {
+    createSampleCircuit(src, circuitName, path) {
 
         return `
         <div class="sampleCircuits">
-            <img alt="Sample Circuit Image" src="${src}">
+            <img data-path="${path}" alt="Sample Circuit Image" src="${src}">
             <p>${circuitName}</p>
         </div>
         `;
@@ -775,7 +782,7 @@ class UserInterface {
                 <div>
                     <p class="componentsTitle">${lang[this.language].Outputs}</p>
                     <ul class="components">
-                        ${this.createComponent(lang[this.language].LogicalOutput, icons.ANSI.LogicalOutput, "LO")}
+                        ${this.createComponent(lang[this.language].LogicalOutput, icons.ANSI.LogicalOutput, "OUT")}
                         ${this.createComponent(lang[this.language].Bulb, icons.ANSI.LightBulb, "BLB")}
                         ${this.createComponent(lang[this.language].LEDarray, icons.ANSI.LEDarray, "LDA")}
                         ${this.createComponent(lang[this.language].RGBLED, icons.ANSI.RGBLED, "RGB")}

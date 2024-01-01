@@ -414,9 +414,14 @@
 
 .componentEditBox input {
     width: 30%;
-    padding: 5px 10px;
+    padding: 6px 10px;
     margin: 5px 0;
+    margin-left: 5px;
     border: 2px solid #ffffff;
+}
+
+.componentEditBox label {
+    margin-left: 5px;
 }
 
 .textareaInputsContainer {
@@ -429,6 +434,23 @@
     position: absolute;
     right: 5px;
     top: 54px;
+}
+
+.removeLabel {
+    width: 50%;
+    border: 2px solid var(--border_color);
+    color: var(--text_color);
+}
+
+
+#labelEditBox label{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+#labelEditBox input{
+    width: 50%;
 }
 
 textarea {

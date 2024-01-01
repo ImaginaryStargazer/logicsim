@@ -17,10 +17,10 @@ export class Demultiplexor extends Component {
 
         let inputValue = document.getElementById("bitEdit").value;
 
-        if(!Number(inputValue)) return;
+        if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
         this.destroy();
-        this.bits = Number(inputValue);
+        this.bits = inputValue;
         this.render();
     }
 

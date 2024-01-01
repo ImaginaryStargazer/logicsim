@@ -1,5 +1,6 @@
 import { Component } from "./component.js";
 import { Node } from "./node.js";
+import { openAlert } from "../userInterface.js";
 
 export class CustomLogic extends Component {
     
@@ -50,7 +51,10 @@ export class CustomLogic extends Component {
 
 
         let pattern = /^[01]+$/;
-        if(!pattern.test(word.join(""))) return;
+        if(!pattern.test(word.join(""))) {
+            openAlert("error", "WrongOutput")
+            return
+        };
 
         for(let i = 0; i < word.length; i++) {
             
@@ -59,7 +63,7 @@ export class CustomLogic extends Component {
             else if(word[i].length < this.numOfOutputs)
                 word[i] = "0".repeat(this.numOfOutputs) 
 
-            // konvertuj string "1" alebo "0" na true a false nefungovalo s nimi
+            // konvertuj string "1" alebo "0" na true a false
 
             this.table.push(word[i].split("").map(value => value === '1'));
         }
@@ -75,19 +79,24 @@ export class CustomLogic extends Component {
 
     setEditInfo() {
 
-        let inputValue = Number(document.getElementById("customInputEdit").value);
-        let outputValue = Number(document.getElementById("customOutputEdit").value);
+        let inputValue = document.getElementById("customInputEdit").value;
+        let outputValue = document.getElementById("customOutputEdit").value;
         let customName = document.getElementById("customNameEdit").value;
 
-        if(!Number(inputValue) || !Number(outputValue) || inputValue < 0 || outputValue < 0 || inputValue > 10) return;
+        if (!this.validateInputFields(inputValue, outputValue) || inputValue > 10 || inputValue == "" || outputValue == "") return;
+
         
-        this.destroy();
-        this.numOfInputs = inputValue;
-        this.numOfOutputs = outputValue;
-        this.componentName = customName;
+        if(this.previousInputs !== inputValue || this.previousOutputs !== outputValue) {
+            this.destroy();
+            this.numOfInputs = inputValue;
+            this.numOfOutputs = outputValue;
+            this.componentName = customName;
+            this.fillInputTextArea();
+            this.render();
+        }
+
         this.fillInputTextArea();
         this.table = this.oldTable;
-        this.render();
     }
 
 

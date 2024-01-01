@@ -17,11 +17,12 @@ export class ANDGate extends Component {
 
         let inputValue = document.getElementById("inputEdit").value;
 
-        if(!Number(inputValue)) return;
+        if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
         this.destroy();
-        this.numOfInputs = Number(inputValue);
+        this.numOfInputs = inputValue;
         this.render();
+        
     }
 
     setupNodes() {

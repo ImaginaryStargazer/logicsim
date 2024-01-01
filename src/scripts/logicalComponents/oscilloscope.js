@@ -18,6 +18,8 @@ export class Oscilloscope{
             
         })
 
+        this.maxLength = this.oscilloscope.width();
+
         //this.oscilloscope.on("mouseover", () => {this.oscilloscope.getChildren()[0].fill("#333333")});
         //this.oscilloscope.on("mouseout", () => {this.oscilloscope.getChildren()[0].fill("black")});
         this.oscilloscope.on("contextmenu", () => {this.onContextMenu()});
@@ -38,7 +40,7 @@ export class Oscilloscope{
             y: 20,
             points: [],
             stroke: "#FFFFE0",
-            strokeWidth: 3,
+            strokeWidth: 1,
         });
 
 
@@ -47,7 +49,7 @@ export class Oscilloscope{
             y: 50,
             points: [],
             stroke: "#ADD8E6",
-            strokeWidth: 3,
+            strokeWidth: 1,
         });
         
         let signalThree = new Konva.Line({
@@ -55,18 +57,13 @@ export class Oscilloscope{
             y: 80,
             points: [],
             stroke: "#FCD299",
-            strokeWidth: 3,
+            strokeWidth: 1,
         });
 
 
 
 
         this.channels.push(signalOne, signalTwo, signalThree);
-
-
-        // Nastavenia signálu
-
-        let maxLength = this.oscilloscope.width();
 
 
         const background = new Konva.Rect({
@@ -111,32 +108,33 @@ export class Oscilloscope{
 
         this.oscilloscope.add(background, text ,signalOne, signalTwo, signalThree);
 
-        let y, oldPoints, newPoints, lastX;
-        // Animácia signálov v osciloskope
-        
-        this.running = new Konva.Animation((frame) => {
-            for (let i = 0; i < this.channels.length; i++) {
-                if (this.nodeValues[i] === undefined) continue;
-        
-                let isRisingEdge = this.nodeValues[i].value;
-                let amplitude = this.nodeValues[i].amplitude;
-        
-                y = isRisingEdge ? -amplitude : amplitude;
-        
-                oldPoints = this.channels[i].points();
-                lastX = oldPoints.length > 1 ? oldPoints[oldPoints.length - 2] : 0;
-                newPoints = oldPoints.concat([lastX + 1, y]);
-        
-                this.channels[i].points(newPoints);
-        
-                if (this.channels[i].points().length > maxLength * 2) {
-                    this.channels[i].points().length = 0;
-                }
-            }
-        }, this.graphingLayer);
-
         layer.add(this.oscilloscope);
-    }        
+    }
+    
+
+    draw() {
+        
+
+        for (let i = 0; i < this.channels.length; i++) {
+            if (this.nodeValues[i] === undefined) continue;
+        
+            let isRisingEdge = this.nodeValues[i].value;
+            let amplitude = this.nodeValues[i].amplitude;
+        
+            let y = isRisingEdge ? -amplitude : amplitude;
+        
+            let oldPoints = this.channels[i].points();
+            let lastX = oldPoints.length > 1 ? oldPoints[oldPoints.length - 2] : 0;
+            let newPoints = oldPoints.concat([lastX + 1, y]);
+        
+            this.channels[i].points(newPoints);
+        
+            if (this.channels[i].points().length > this.maxLength * 2) {
+                    this.channels[i].points().length = 0;
+            }
+        }
+
+    }
 
 
     resetOscilloscope() {

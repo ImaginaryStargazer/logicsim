@@ -17,20 +17,33 @@ export class LEDarray extends Component {
     setEditInfo() {
 
         let colorValue = document.getElementById("ledArrColor").value;
-        let rowsValue = document.getElementById("rows").value;
-        let colsValue = document.getElementById("cols").value;
+        let rowsValue = Number(document.getElementById("rows").value);
+        let colsValue = Number(document.getElementById("cols").value);
 
-        if(!Number(rowsValue) || !Number(colsValue) || Number(colsValue) < 0 || Number(rowsValue) < 0) return;
-
-        this.destroy();
-        this.LED = [];
-
-        this.numOfRows = Number(rowsValue);
-        this.numOfCols = Number(colsValue);
         this.ledColor = colorValue;
+        this.fillLED(this.ledColor);
 
-        this.render();
+
+        if (!this.validateInputFields(rowsValue, colsValue)  || rowsValue == ""  || colsValue == "") return;
+
+
+        if(rowsValue !== this.numOfRows || colsValue !== this.numOfRows) {
+            this.destroy();
+            this.LED = [];
+    
+            this.numOfRows = Number(rowsValue);
+            this.numOfCols = Number(colsValue);
+            this.render();
+        }
+
     }
+
+    fillLED(color) {
+        for(let i = 0; i < this.LED.length; i++) {
+            this.LED[i].LED.setAttr("fill", color);
+        }
+    }
+
 
     setupNodes() {
 
@@ -93,16 +106,14 @@ export class LEDarray extends Component {
                 const newLED = new LED(shiftX, shiftY);
                 this.LED.push(newLED);
 
-                for(let i = 0; i < this.LED.length; i++) {
-                    this.LED[i].LED.setAttr("fill", this.ledColor);
-                }
-
                 this.component.add(newLED.render());
 
                 
             }
 
         }
+
+        this.fillLED(this.ledColor);
 
         this.setupNodes();
         this.component.add(LEDarray);
@@ -126,7 +137,7 @@ export class LEDarray extends Component {
 
             } else {
                 for (let row = 0; row < this.numOfCols; row++) {
-                    this.LED[i * this.numOfCols + row].turnOff();
+                    this.LED[i * this.numOfCols + row].turnOff(0.00045);
                 }
             }
         }
@@ -135,7 +146,7 @@ export class LEDarray extends Component {
             
             if (this.nodes[i].value) {
                 for (let col = 0; col < this.numOfRows; col++) {
-                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff();
+                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff(0.005);
                 }
             }
         }
@@ -158,7 +169,7 @@ class LED{
             opacity: 0.2,
         })
 
-        this.w = 0;
+        this.w = 0.2;
     }
 
     render() {
@@ -177,10 +188,10 @@ class LED{
         
     }
 
-    turnOff() {
+    turnOff(timeout) {
 
-
-        this.w = Math.max(0.2, this.w - 0.005);
+        
+        this.w = Math.max(0.2, this.w - timeout);
 
         this.LED.setAttrs({
             opacity: this.w

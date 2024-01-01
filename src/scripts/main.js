@@ -4,6 +4,7 @@ import { icons } from "./icons.js";
 import { CURRENT_ACTION } from "./logicalComponents/states.js";
 import { openAlert } from "./userInterface.js";
 import { Node, nodeList } from "./logicalComponents/node.js";
+import { nodeValues } from "./logicalComponents/oscilloscope.js";
 
 
 
@@ -174,7 +175,7 @@ document.addEventListener("keydown", (ev) => {
         editor.wireMng.draw();
         editor.transformer.nodes([]);
 
-    } else if (ev.key == "r" || "R") {
+    } else if (ev.key == "r" || ev.key === 'R') {
 
         editor.rotateComponent();
 
@@ -250,17 +251,25 @@ document.getElementById("grid").onchange = (e) => {
 /* Označovanie komponentov v menu a nastavenie vybraného komponentu */
 
 document.querySelectorAll(".component").forEach((component) => {
+
             
     component.addEventListener("mousedown", () => {
 
-        let active = document.getElementsByClassName("selectedComponent");
+        
+        if(editor.simRunning && component.getAttribute("selected-tool") == null) {
+            openAlert("info", "EditDisabled");
+            return;
+        };
 
+
+        let active = document.getElementsByClassName("selectedComponent");
 
         if (active.length > 0) {
             active[0].className = active[0].className.replace(" selectedComponent", "");
         }
 
         component.className += " selectedComponent";
+
 
         editor.mouseSelectedComponent = component.getAttribute("data-part");
 
@@ -325,26 +334,19 @@ export class FileManager {
     }
 
 
-    loadFile() {
+    loadFile(customFilePath) {
 
-        let input = document.createElement("input");
-        input.type = "file";
         const reader = new FileReader();
 
-        input.addEventListener("change", (e) => {
-            
-            // prázdny obvod
-            editor.newBlankCircuit();
+        const readAndParseFile = (file) => {
 
-
-            
-            const file = e.target.files[0];
-            
-
+        
             if (file) {
 
                 
                 reader.onload = () => {
+
+                    editor.newBlankCircuit();
 
                     const fileContent = reader.result;
                     let parsed = JSON.parse(fileContent);
@@ -382,9 +384,8 @@ export class FileManager {
 
                             let objectParsed = JSON.parse(fileContent).wires[i];
         
-                            if (objectParsed == undefined) {
-                                break;
-                            }
+                            if (objectParsed == undefined) break;
+        
 
                             editor.wireMng.addNode(nodeList[objectParsed.startID]);
                             editor.wireMng.addNode(nodeList[objectParsed.endID]);
@@ -397,18 +398,67 @@ export class FileManager {
                         
                     }
 
+                    if("oscilloscope" in parsed) {
+
+                        for (let i = 0; i < fileContent.length; i++) {
+
+                            let objectParsed = JSON.parse(fileContent).oscilloscope[i];
+        
+                            if (objectParsed == undefined) break;
+                            
+                            nodeValues.push(nodeList[objectParsed.id]);
+
+                        }
+
+                        
+                    }
+
+                    if("editor" in parsed) {
+                    
+                        let objectParsed = JSON.parse(fileContent).editor;
+                        editor.setEditorSettings(objectParsed);
+
+                        console.log(editor.getEditorSettings())
+                    }
+
                     editor.wireMng.draw();
                 };
     
                 reader.readAsText(file);
             }
-    
+        }
 
-            this.loadedFile = file;
-            projectTitle.innerText = this.loadedFile.name;
-        });
+        if (customFilePath) {
+
+            fetch(customFilePath)
+                .then((response) => response.blob())
+                .then((blob) => {
+                    const file = new File([blob], customFilePath.split('/').pop());
+                    readAndParseFile(file);
+                })
+                .catch((error) => {
+                    console.error('Error fetching file:', error);
+                });
+
+        } else {
+
+
+            let input = document.createElement('input');
+            input.type = 'file';
+            input.click();
     
-        input.click();
+            input.addEventListener('change', (e) => {
+
+                const file = e.target.files[0];
+                readAndParseFile(file);
+    
+                this.loadedFile = file;
+                projectTitle.innerText = this.loadedFile.name;
+            });
+    
+        }
+        
+
     
         
     }
@@ -445,6 +495,8 @@ export class FileManager {
 
         workspace["components"] = editor.components;
         workspace["wires"] = editor.wireMng.wire;
+        workspace["oscilloscope"] = nodeValues;
+        workspace["editor"] = editor.getEditorSettings();
 
         let jsonWorkspace = JSON.stringify(workspace,
             function (key, value) {
@@ -466,6 +518,10 @@ export class FileManager {
                     case "graphingLayer":
                     case "type":
                     case "bulb":
+                    case "labelInfo":
+                    case "textValue":
+                    case "pin":
+                    case "button":
                         return undefined;
                 }
 
@@ -504,7 +560,6 @@ document.getElementById("saveAndLoadBlank").addEventListener("click", () => {
 document.getElementById("downloadCircuit").addEventListener("click", () => {
 
     fileManager.saveFile();
-
     // pridať vynulovanie a resetovanie simulácie
 })
 
@@ -512,7 +567,26 @@ document.getElementById("downloadCircuit").addEventListener("click", () => {
 document.getElementById("loadCircuit").addEventListener("click", () => {
 
     fileManager.loadFile();
-    
+        
 
     // pridať vynulovanie a resetovanie simulácie
+})
+
+//////////////////////////////////////////////////////////////////////////
+//
+//
+// Načítanie obvodov na ukážku
+//
+//
+//////////////////////////////////////////////////////////////////////////
+
+
+
+const sampleCircuits = document.querySelectorAll(".sampleCircuits");
+
+sampleCircuits.forEach(circuit => {
+    circuit.onclick = () => {
+        console.log(circuit)
+
+    }
 })

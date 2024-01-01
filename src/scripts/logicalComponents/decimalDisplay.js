@@ -16,16 +16,22 @@ export class DecimalDisplay extends Component{
 
     setEditInfo() {
 
-        let bitValue = document.getElementById("decBitEdit").value;
+        let inputValue = Number(document.getElementById("decBitEdit").value);
         let colorValue = document.getElementById("numberColor").value;
-        
-        if(!Number(bitValue) || Number(bitValue) > 16 || Number(bitValue) < 0) return;
 
-        this.destroy();
-        this.bits = Number(bitValue);
         this.ledColor = colorValue;
-        this.number.setAttr("fill", this.ledColor);
-        this.render();
+        this.number.fill(this.ledColor);
+    
+
+        if (!this.validateInputFields(inputValue) || inputValue == "") return;
+
+        if(inputValue !== this.bits) {
+            this.destroy();
+            this.bits = inputValue;
+            this.render();
+        }
+
+
     }
 
 

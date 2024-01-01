@@ -42,8 +42,10 @@ export class HighInput extends Component {
             fontSize: 25,
         })
 
-        this.component.add(body, high);
+
         this.setupNodes();
+        this.component.add(body, high);
+
 
         this.layer.add(this.component);
     }
