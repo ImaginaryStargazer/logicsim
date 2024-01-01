@@ -461,14 +461,6 @@ export class circuitEditor {
     
         this.mainEditor.on("click tap", (event) => {
 
-
-            console.log(this.transformer.nodes())
-
-            console.log(this.transformer.width());
-            console.log(this.transformer.height());
-
-
-            
             if(event.target !== this.mainEditor || this.selectedComponents.length <= 0) {
                 return;
             }
@@ -694,11 +686,10 @@ export class circuitEditor {
         document.getElementById("mainBoard").style.cursor = "default";
 
         this.getAllComponents().forEach(component => {
-            component.draggable(true);
+            component.listening(true);
         })
 
         this.mainEditor.draggable(false);
-        this.layer.listening(true);
     }
 
 
@@ -706,16 +697,11 @@ export class circuitEditor {
 
         this.unhighlightAllComponents();
 
-        this.layer.listening(false);
-
         this.getAllComponents().forEach(component => {
-        
-            if(component.getAttr("componentType").id == "LSW") {
-                
-                component.listening(true);
-                component.draggable(false);
-                
-            }
+    
+            component.listening(false);
+ 
+            
         
         })
     }
