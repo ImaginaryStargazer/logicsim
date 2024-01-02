@@ -9,6 +9,7 @@ export class LogicalSwitch extends Component {
         this.id = "LSW";
         this.editType = "labelEdit";
         this.label = "";
+        this.component.setAttr("id", this.id);
 
         this.component.on("pointerclick", () => {this.click()});
 

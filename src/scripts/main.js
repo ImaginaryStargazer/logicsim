@@ -47,11 +47,10 @@ executeSelectedAction((selectedTool) => {
 
         case "Edit":
 
-            if(!this.simRunning) return;
-            
             currentMouseAction = CURRENT_ACTION.EDIT;
             editor.enableEditing();
             editor.mainEditor.container().focus();
+            editor.mainEditor.container().style.cursor = "default";
             editor.mainEditor.draggable(false);
 
             break;
@@ -68,11 +67,9 @@ executeSelectedAction((selectedTool) => {
 
         case "Remove-Wire":
 
-            if(!this.simRunning) return;
-        
-            editor.enableEditing();
+            //editor.enableEditing();
             currentMouseAction = CURRENT_ACTION.REMOVE_WIRE;
-            editor.disableEditing();
+            //editor.disableEditing();
 
             break;
 
@@ -260,7 +257,7 @@ document.querySelectorAll(".component").forEach((component) => {
 
         let selectedTool = component.getAttribute("selected-tool");
         
-        if(editor.simRunning && selectedTool !== "Move-Editor") {
+        if(editor.simRunning && selectedTool !== "Move-Editor" && selectedTool !== "Edit") {
             openAlert("info", "EditDisabled");
             return;
         };
@@ -427,9 +424,16 @@ export class FileManager {
 
                     editor.wireMng.draw();
                 };
-    
+
                 reader.readAsText(file);
+
             }
+
+            if(editor.simRunning) {
+                editor.stopSimulation();
+                editor.graph.resetOscilloscope();
+                editor.timer.resetTimer();
+            } 
         }
 
         if (customFilePath) {
@@ -439,6 +443,8 @@ export class FileManager {
                 .then((blob) => {
                     const file = new File([blob], customFilePath.split('/').pop());
                     readAndParseFile(file);
+                    this.loadedFile = file;
+                    projectTitle.innerText = this.loadedFile.name;
                 })
                 .catch((error) => {
                     console.error('Error fetching file:', error);
@@ -462,7 +468,6 @@ export class FileManager {
     
         }
         
-
     
         
     }
@@ -590,7 +595,9 @@ const sampleCircuits = document.querySelectorAll(".sampleCircuits");
 
 sampleCircuits.forEach(circuit => {
     circuit.onclick = () => {
-        console.log(circuit)
+        let circuitPath = circuit.getAttribute("data-path");
+
+        fileManager.loadFile(circuitPath);
 
     }
 })

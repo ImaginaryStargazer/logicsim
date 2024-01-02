@@ -211,7 +211,8 @@ export class Component {
 
     validateInputFields() {
 
-        var pattern = /^(?:[1-9]\d*|)$/;
+        var pattern = /^(?:[1-9]\d*|0)?(?:\.\d+)?$/;
+
     
         for (var i = 0; i < arguments.length; i++) {
             if (!pattern.test(arguments[i])) {

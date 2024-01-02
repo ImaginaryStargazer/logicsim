@@ -52,6 +52,7 @@ export class Wire {
 
     draw() {
 
+
         if(this.endNode == null) {
 
             
@@ -59,7 +60,7 @@ export class Wire {
             if(!this.startNode.isAlive) return false;
 
             this.updateEnd(this.calculatePositionToScale(this.mainEditor.getPointerPosition().x).xAxis, this.calculatePositionToScale(this.mainEditor.getPointerPosition().y).yAxis);
-
+            
             
             this.wire.setAttrs({
                 points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY, this.endX, this.endY]
@@ -99,7 +100,7 @@ export class Wire {
         if (this.startNode.getValue() && this.endNode.getValue()) {
 
             this.wire.stroke("green")
-
+            
         } else {
 
             this.wire.stroke("white");

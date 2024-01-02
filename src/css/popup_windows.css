@@ -515,7 +515,7 @@ input[type="color"] {
     height: 200px;
     display: inline-flex;
     flex-direction: column;
-    padding: 65px;
+    padding: 30px;
     outline: 1px solid var(--border_color);
     outline-offset: -15px;
 }
@@ -527,8 +527,8 @@ input[type="color"] {
 
 
 .sampleCircuits p {
-    margin-left: 35px;
-    margin-top: 15px;
+    text-align: center;
+    margin-top: 10px;
 }
 
 

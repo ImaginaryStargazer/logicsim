@@ -75,28 +75,3 @@ export class ClockGen extends Component{
     }
 
 }
-
-
-
-/*
-
-        // perioda a duty cycle 
-        this.f = 500;
-        this.truePeriod = this.f * 50 / 100;
-        this.falsePeriod = this.f * (100 - 50) / 100;
-        this.lastTick = new Date().getTime();
-
-
-        const currTick = new Date().getTime();
-
-        const period = (this.value) ? this.truePeriod : this.falsePeriod;
-        if (currTick - this.lastTick > period) {
-            this.toggle();
-            this.lastTick = currTick;
-        }
-
-        this.nodes[0].setValue(this.value);
-
-
-
-*/

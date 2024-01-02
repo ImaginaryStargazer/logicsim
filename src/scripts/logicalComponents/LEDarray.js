@@ -17,8 +17,8 @@ export class LEDarray extends Component {
     setEditInfo() {
 
         let colorValue = document.getElementById("ledArrColor").value;
-        let rowsValue = Number(document.getElementById("rows").value);
-        let colsValue = Number(document.getElementById("cols").value);
+        let rowsValue = document.getElementById("rows").value;
+        let colsValue = document.getElementById("cols").value;
 
         this.ledColor = colorValue;
         this.fillLED(this.ledColor);
@@ -138,7 +138,7 @@ export class LEDarray extends Component {
 
             } else {
                 for (let row = 0; row < this.numOfCols; row++) {
-                    this.LED[i * this.numOfCols + row].turnOff(0.0044);
+                    this.LED[i * this.numOfCols + row].turnOff(0.001);
                 }
             }
         }
@@ -147,7 +147,7 @@ export class LEDarray extends Component {
             
             if (this.nodes[i].value) {
                 for (let col = 0; col < this.numOfRows; col++) {
-                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff(0.09999);
+                    this.LED[col * this.numOfCols + (i - this.numOfRows)].turnOff(0.099);
                 }
             }
         }
@@ -180,7 +180,7 @@ class LED{
 
     turnOn() {
 
-        this.w = Math.min(1, this.w + 0.09998);
+        this.w = Math.min(1, this.w + 0.098);
 
         this.LED.setAttrs({
             opacity: this.w
@@ -191,7 +191,6 @@ class LED{
 
     turnOff(timeout) {
 
-        
         this.w = Math.max(0.1, this.w - timeout);
 
         this.LED.setAttrs({

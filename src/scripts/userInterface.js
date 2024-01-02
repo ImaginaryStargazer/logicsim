@@ -521,12 +521,19 @@ class UserInterface {
     createSampleCircuit(src, circuitName, path) {
 
         return `
-        <div class="sampleCircuits">
-            <img data-path="${path}" alt="Sample Circuit Image" src="${src}">
+        <div data-path="${path}" class="sampleCircuits">
+            <img alt="Sample Circuit Image" src="${src}">
             <p>${circuitName}</p>
         </div>
         `;
     }
+
+    /*
+    
+                            ${this.createSampleCircuit(icons.circuit17, lang[this.language].SampleCir17)}
+                        ${this.createSampleCircuit(icons.circuit18, lang[this.language].SampleCir18)}
+
+    */
 
     createCircuitsModal() {
         
@@ -536,30 +543,28 @@ class UserInterface {
                 ${this.createModalHeader(lang[this.language].Circuits)}
                 <div class="circuitsContainer">
                     <div id="circuitsGroup1">
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir1)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir2)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir3)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir4)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir5)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir6)}
+                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir1, icons.ExclusiveOR)}
+                        ${this.createSampleCircuit(icons.circuit2, lang[this.language].SampleCir2, icons.MajorityLogic)}
+                        ${this.createSampleCircuit(icons.circuit3, lang[this.language].SampleCir3, icons.HalfAdderCircuit)}
+                        ${this.createSampleCircuit(icons.circuit4, lang[this.language].SampleCir4, icons.FullAdderCircuit)}
+                        ${this.createSampleCircuit(icons.circuit5, lang[this.language].SampleCir5, icons.DecoderOneFour)}
+                        ${this.createSampleCircuit(icons.circuit6, lang[this.language].SampleCir6, icons.DivideByTwo)}
                     </div>
 
                     <div id="circuitsGroup2" style="display: none">
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir7)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir8)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir9)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir10)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir11)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir12)}
+                        ${this.createSampleCircuit(icons.circuit7, lang[this.language].SampleCir7,icons.DivideByThree)}
+                        ${this.createSampleCircuit(icons.circuit8, lang[this.language].SampleCir8, icons.PriorityEncoder)}
+                        ${this.createSampleCircuit(icons.circuit9, lang[this.language].SampleCir9, icons.SIPO)}
+                        ${this.createSampleCircuit(icons.circuit10, lang[this.language].SampleCir10, icons.PISO)}
+                        ${this.createSampleCircuit(icons.circuit11, lang[this.language].SampleCir11, icons.Smiley)}
+                        ${this.createSampleCircuit(icons.circuit12, lang[this.language].SampleCir12, icons.UpDownCounter)}
                     </div>
 
                     <div id="circuitsGroup3" style="display: none">
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir13)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir14)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir15)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir16)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir17)}
-                        ${this.createSampleCircuit(icons.circuit1, lang[this.language].SampleCir18)}
+                        ${this.createSampleCircuit(icons.circuit13, lang[this.language].SampleCir13, icons.SRFlipFlop)}
+                        ${this.createSampleCircuit(icons.circuit14, lang[this.language].SampleCir14, icons.FourBitCounter)}
+                        ${this.createSampleCircuit(icons.circuit15, lang[this.language].SampleCir15, icons.EightBitCounter)}
+                        ${this.createSampleCircuit(icons.circuit16, lang[this.language].SampleCir16, icons.ThreeGrayCode)}
                     </div>
                 </div>
 
@@ -919,7 +924,6 @@ class UserInterface {
         // ďalšie obvody
         nextBtn.onclick = () => {
 
-            console.log(this.circuitsCounter);
             if (this.circuitsCounter < 2) {
                 this.circuitsCounter++;
                 this.nextOrPreviousClick();

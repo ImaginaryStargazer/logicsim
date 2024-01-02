@@ -45,7 +45,7 @@ import { FullAdder } from "./logicalComponents/fullAdder.js";
 import { BusConnection } from "./logicalComponents/busConnection.js";
 import { CustomLogic } from "./logicalComponents/customLogic.js";
 
-
+Konva.pixelRatio = 1;
 export const mainEditor = new Konva.Stage({container: "mainBoard"});
 export const wireMng = new WireMng();
 export let useIECgates = false;
@@ -89,7 +89,6 @@ export const componentsMap =  {
 };
 
 
-
 export class circuitEditor {
     constructor(width, height) {
 
@@ -107,9 +106,12 @@ export class circuitEditor {
             id: "componentLayer"
         });
 
-        this.gridLayer = new Konva.Layer();
+        this.gridLayer = new Konva.Layer({
+            listening: false,
+        });
+
         this.graphingLayer = new Konva.Layer({
-            id: "graphingLayer"
+            id: "graphingLayer",
         });
 
         this.mainEditor.add(this.gridLayer);
@@ -142,7 +144,7 @@ export class circuitEditor {
         this.transformer = new Konva.Transformer({
             resizeEnabled: false,
             rotateEnabled: false,
-            borderEnabled: false
+            borderEnabled: true
         })
 
 
@@ -153,7 +155,6 @@ export class circuitEditor {
         this.mainEditor.on("contextmenu", (e) => e.evt.preventDefault());
 
         window.onkeydown = (e) => this.onKeyDown(e);
-        window.onkeyup = (e) => this.onKeyUp(e);
         this.mainEditor.on("wheel", (e) => this.onWheel(e));
     }
 
@@ -170,20 +171,20 @@ export class circuitEditor {
             for (let i = 0; i < iter; i++) {
 
 
-                for (const component of this.components) {
+                for (const component of this.components)
                     component.draw();
-                }
+                
 
 
                 this.wireMng.update();
 
             }
 
-
+            
             nodeList.forEach((node) => {
                 node.fillValue();
             });
-
+            
 
             if(this.graph.oscilloscope.visible())
                 this.graph.draw();
@@ -194,6 +195,24 @@ export class circuitEditor {
         this.simulation = requestAnimationFrame(() => this.simulate());
     }
     
+
+    stopSimulation() {
+
+        this.simRunning = false;
+        startSimulation.innerHTML = icons.startSimulation;
+        cancelAnimationFrame(this.simulation);
+        this.enableEditing();
+        backToEdit();
+    }
+
+
+    startSimulation() {
+
+        this.disableEditing();
+        this.simRunning = true;
+        startSimulation.innerHTML = icons.stopSimulation;
+        this.simulate();
+    }
 
 
     createGrid() {
@@ -246,22 +265,13 @@ export class circuitEditor {
 
         document.getElementById("startSimulation").onclick = () => {
 
-            let simIcon = document.getElementById("startSimulation")
-
             if(this.simRunning) {
 
-                this.simRunning = false;
-                simIcon.innerHTML = icons.startSimulation;
-                cancelAnimationFrame(this.simulation);
-                this.enableEditing();
-                backToEdit();
+                this.stopSimulation();
 
             } else {
 
-                this.disableEditing();
-                this.simRunning = true;
-                simIcon.innerHTML = icons.stopSimulation;
-                this.simulate();
+                this.startSimulation();
                 
             }
             
@@ -276,13 +286,9 @@ export class circuitEditor {
         
         });
 
+        
         this.mainEditor.on("mouseenter", () => {
 
-            /*
-            if(this.mouseSelectedComponent != null /*&& UI.isGraphicalElement === true) {
-
-                this.mainEditor.container().style.cursor = "crosshair";
-            */
 
             if (this.mouseSelectedComponent != null) {
 
@@ -349,7 +355,7 @@ export class circuitEditor {
             }
         
         });
-
+    
 
         
         this.createGrid();
@@ -382,6 +388,7 @@ export class circuitEditor {
 
             if(event.target.name() === "node") {
         
+                if(this.simRunning) return;
 
                 let nodeObj = event.target.getAttr("Node"); 
 
@@ -410,14 +417,14 @@ export class circuitEditor {
         })
 
         
-
+        
         this.mainEditor.on("mousemove", (e) => {
 
             if(this.wireMng.finishedDrawing) return;
             this.wireMng.draw();
     
         })
-
+        
     }
 
     
@@ -471,6 +478,8 @@ export class circuitEditor {
 
     
     highlightComponent(component) {
+
+        if(this.simRunning) return;
 
         component.getChildren().forEach(shape => {
             if(shape.name() === "node") {
@@ -544,21 +553,6 @@ export class circuitEditor {
     }
 
 
-    /*
-    snapToGrid(component) {
-
-        component.on('mouseup dragend', () => {
-
-            component.position({
-                x: Math.round(component.x() / this.tileSize) * this.tileSize,
-                y: Math.round(component.y() / this.tileSize) * this.tileSize
-            })
-                
-        });
-
-    }
-    */
-
     snapToGrid(component) {
 
         component.on('dragend', () => {
@@ -584,7 +578,7 @@ export class circuitEditor {
             this.enableEditing();
             backToEdit();
 
-            if(this.newComponent == null) {return};
+            if(this.newComponent == null) return;
 
             this.mainEditor.container().focus();
             this.mainEditor.container().style.cursor = "default";
@@ -605,25 +599,8 @@ export class circuitEditor {
 
     }
 
-    onKeyUp(e) {
-
-        /*
-        if (e.key === 'g' || e.key === 'G') {
-        
-            this.mainEditor.container().style.cursor = "default";
-            this.mainEditor.draggable(false);
-            this.dragSelectEnabled = true;
-
-
-        }
-        */
-    }
-
-
     
     onWheel(e) {;
-
-        this.getEditorSettings();
 
         if(this.selectedComponents.length > 0) {
             this.unhighlightAllComponents();
@@ -684,12 +661,20 @@ export class circuitEditor {
 
     enableEditing() {
 
-        if(this.simRunning) return;
-        
         document.getElementById("mainBoard").style.cursor = "default";
+        this.graphingLayer.listening(true);
 
-        this.getAllComponents().forEach(component => {
-            component.listening(true);
+        this.components.forEach(component => {
+
+
+            component.component.listening(true);
+            component.component.draggable(true);
+
+            if(component.id == "LSW") {
+
+                component.component.on("contextmenu", (event) => {component.rightClick(event)});
+
+            }
         })
 
         this.mainEditor.draggable(false);
@@ -698,14 +683,22 @@ export class circuitEditor {
 
     disableEditing() {
 
-        this.unhighlightAllComponents();
 
-        this.getAllComponents().forEach(component => {
-    
-            component.listening(false);
- 
-            
+        this.unhighlightAllComponents();
+        this.graphingLayer.listening(false);
         
+        this.components.forEach(component => {
+    
+            component.component.listening(false);
+
+            if(component.id == "LSW") {
+                component.component.listening(true);
+                component.component.draggable(false);
+
+                component.component.off("contextmenu");
+
+            }
+
         })
     }
 
@@ -765,23 +758,12 @@ export class circuitEditor {
 
         this.mainEditor.position({ x: settings.x, y: settings.y })
         this.mainEditor.scale({ x: settings.scaleX , y: settings.scaleY });
-
-        // tiež musíme obnoviť grid
-
         this.createGrid();
 
 
-        //this.centreCircuit();
-
+        
     }
 
-
-    centreCircuit() {
-
-
-
-
-    }
       
     
 }

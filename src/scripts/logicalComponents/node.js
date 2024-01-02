@@ -92,6 +92,8 @@ export class Node {
 
     createPin(x, y, lx, ly, component, label, tx, ty, fs) {
 
+        // velkost fontu je volitelny parameter bud je ine cislo alebo vzdy 13
+
         fs = fs || 13;
 
         this.pin.setAttrs({
@@ -173,22 +175,13 @@ export class Node {
     fillValue() {
         if(this.getValue()) {
 
-            this.node.setAttrs({
-                fill: "green"
-            })
+            this.node.fill("green")
+            this.pin.stroke("green")
 
-            this.pin.setAttrs({
-                stroke: "green"
-            })
         } else {
 
-            this.node.setAttrs({
-                fill: "#343a40"
-            })
-
-            this.pin.setAttrs({
-                stroke: "white"
-            })
+            this.node.fill("#343a40");
+            this.pin.stroke("white");
         }
     }
 

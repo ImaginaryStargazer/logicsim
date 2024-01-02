@@ -154,22 +154,22 @@ export var lang = {
         // Obvody
 
         Circuits: "Obvody",
-        SampleCir1: "Obvod1",
-        SampleCir2: "Obvod2",
-        SampleCir3: "Obvod3",
-        SampleCir4: "Obvod4",
-        SampleCir5: "Obvod5",
-        SampleCir6: "Obvod6",
-        SampleCir7: "Obvod7",
-        SampleCir8: "Obvod8",
-        SampleCir9: "Obvod9",
-        SampleCir10: "Obvod10",
-        SampleCir11: "Obvod11",
-        SampleCir12: "Obvod12",
-        SampleCir13: "Obvod13",
-        SampleCir14: "Obvod14",
-        SampleCir15: "Obvod15",
-        SampleCir16: "Obvod16",
+        SampleCir1: "Exkluzívny OR (XOR)",
+        SampleCir2: "Väčšinová logika",
+        SampleCir3: "Polovičná Sčítačka",
+        SampleCir4: "Úplná Sčítačka",
+        SampleCir5: "Dekóder 1 zo 4",
+        SampleCir6: "Delenie Dvomi",
+        SampleCir7: "Delenie Tromi",
+        SampleCir8: "Prioritný Kódovač",
+        SampleCir9: "SIPO",
+        SampleCir10: "PISO",
+        SampleCir11: "Smajlík",
+        SampleCir12: "Počítadlo Hore-Dole",
+        SampleCir13: "SR Preklápací Obvod",
+        SampleCir14: "4-Bit Počítadlo",
+        SampleCir15: "8-Bit Počítadlo",
+        SampleCir16: "3-Bit Grayov Kód",
         SampleCir17: "Obvod17",
         SampleCir18: "Obvod18",
         
@@ -231,17 +231,13 @@ export var lang = {
         Tutorial9: "Celý zdrojový kód aplikácie je dostupný na mojej GitHub stránke.",
 
 
-
-
-
-
         WireLoop: "Bol zistený skrat v obvode!",
         IncorrectTitle: "Názov musí mať aspoň 4 znaky a menej ako 30!",
         CorrectTitle: "Názov sa zmenil!",
         DownloadCompleted: "Sťahovanie obvodu sa podarilo!",
         WrongOutput: "Výstup je nesprávne zapísaný",
         WrongInput: "Nesprávne zvolená hodnota!",
-        EditDisabled: "Editácia nie je možná pri spustenej simulácií!",
+        EditDisabled: "Pridávanie súčiastok a mazanie prepojení nie je možné pri spustenej simulácií!",
     },
     
     //Preklad do angličtiny
@@ -396,24 +392,24 @@ export var lang = {
         // Obvody
 
         Circuits: "Circuits",
-        SampleCir1: "Circuit1",
-        SampleCir2: "Circuit2",
-        SampleCir3: "Circuit3",
-        SampleCir4: "Circuit4",
-        SampleCir5: "Circuit5",
-        SampleCir6: "Circuit6",
-        SampleCir7: "Circuit7",
-        SampleCir8: "Circuit8",
-        SampleCir9: "Circuit9",
-        SampleCir10: "Circuit10",
-        SampleCir11: "Circuit11",
-        SampleCir12: "Circuit12",
-        SampleCir13: "Circuit13",
-        SampleCir14: "Circuit14",
-        SampleCir15: "Circuit15",
-        SampleCir16: "Circuit16",
-        SampleCir17: "Circuit17",
-        SampleCir18: "Circuit18",
+        SampleCir1: "Exclisive OR",
+        SampleCir2: "Majority Logic",
+        SampleCir3: "Half Adder",
+        SampleCir4: "Full Adder",
+        SampleCir5: "1-of-4 Decoder",
+        SampleCir6: "Divide By Two",
+        SampleCir7: "Divide By Three",
+        SampleCir8: "Priority Encoder",
+        SampleCir9: "SIPO",
+        SampleCir10: "PISO",
+        SampleCir11: "Smiley",
+        SampleCir12: "Up-Down Counter",
+        SampleCir13: "SR Flip-Flop",
+        SampleCir14: "4-Bit Counter",
+        SampleCir15: "8-Bit Counter",
+        SampleCir16: "3-Bit Gray Code",
+        SampleCir17: "Obvod17",
+        SampleCir18: "Obvod18",
         
         // Oznamy a texty používateľom
 
@@ -477,6 +473,6 @@ export var lang = {
         DownloadCompleted: "Circuit was downloaded correctly!",
         WrongOutput: "Output values are incorrectly formated!",
         WrongInput: "Incorrectly entered value!",
-        EditDisabled: "Edits are not allowed during simulation!",
+        EditDisabled: "Adding new components and deleting wires is not possible during simulation!",
     },
 }
