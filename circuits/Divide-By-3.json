@@ -1,0 +1,147 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 780,
+			"posY": 360,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 3,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 0,
+			"posX": 580,
+			"posY": 380,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 7,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 0,
+			"posX": 960,
+			"posY": 460,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 11,
+			"value": 0,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": "1000",
+			"lastTick": 1703980953332,
+			"posX": 420,
+			"posY": 500,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 18,
+			"id": "BUS",
+			"nodeCount": "8",
+			"editType": "chipEdit",
+			"posX": 1080,
+			"posY": 300,
+			"rotation": 180
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 27,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 1180,
+			"posY": 460,
+			"rotation": 0
+		}
+	],
+	"wires": [
+		{
+			"startID": 11,
+			"endID": 4,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 5,
+			"endID": 1,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 19,
+			"endID": 3,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 9,
+			"endID": 18,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 2,
+			"endID": 7,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 11,
+			"endID": 8,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 22,
+			"endID": 0,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 9,
+			"endID": 27,
+			"endX": 0,
+			"endY": 0
+		}
+	],
+	"oscilloscope": [
+		{
+			"value": 0,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 11
+		}
+	],
+	"editor": {
+		"x": -338.0602128736824,
+		"y": -204.96342578076366,
+		"scaleX": 1.1025,
+		"scaleY": 1.1025
+	}
+}

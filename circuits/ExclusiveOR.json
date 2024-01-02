@@ -1,0 +1,153 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 780,
+			"posY": 240,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 3,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 780,
+			"posY": 520,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 6,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 1000,
+			"posY": 380,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 9,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 560,
+			"posY": 380,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 12,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 360,
+			"posY": 560,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 13,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 360,
+			"posY": 240,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 14,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 1320,
+			"posY": 400,
+			"rotation": 0
+		}
+	],
+	"wires": [
+		{
+			"startID": 11,
+			"endID": 1,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 11,
+			"endID": 3,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 5,
+			"endID": 7,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 2,
+			"endID": 6,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 12,
+			"endID": 4,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 12,
+			"endID": 10,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 13,
+			"endID": 0,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 13,
+			"endID": 9,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 8,
+			"endID": 14,
+			"endX": 0,
+			"endY": 0
+		}
+	],
+	"oscilloscope": [],
+	"editor": {
+		"x": -169.96056608357617,
+		"y": -93.61452758881325,
+		"scaleX": 0.863837598531476,
+		"scaleY": 0.863837598531476
+	}
+}

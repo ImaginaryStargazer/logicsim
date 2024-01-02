@@ -59,9 +59,44 @@ export const icons = {
     OscilloscopeSettings: "images/Gifs/OscilloscopeSettings.gif",
     SaveAndLoad: "images/Gifs/SaveAndLoad.gif",
 
-    // Ukážkové obvody
+    // Ukážkové obvody obrázky
 
-    circuit1: "images/sampleCircuits/circuit1.png",
+    circuit1: "images/sampleCircuits/ExclusiveOR.png",
+    circuit2: "images/sampleCircuits/MajorityLogic.png",
+    circuit3: "images/sampleCircuits/HalfAdder.png",
+    circuit4: "images/sampleCircuits/FullAdder.png",
+    circuit5: "images/sampleCircuits/1-of-4Decoder.png",
+    circuit6: "images/sampleCircuits/DivideBy2.png",
+    circuit7: "images/sampleCircuits/DivideBy3.png",
+    circuit8: "images/sampleCircuits/PriorityEncoder.png",
+    circuit9: "images/sampleCircuits/SIPO.png",
+    circuit10: "images/sampleCircuits/PISO.png",
+    circuit11: "images/sampleCircuits/Smiley.png",
+    circuit12: "images/sampleCircuits/UpDownCounter.png",
+    circuit13: "images/sampleCircuits/SRFlipFlop.png",
+    circuit14: "images/sampleCircuits/4-BitRippleCounter.png",
+    circuit15: "images/sampleCircuits/8-Bit-RippleCounter.png",
+    circuit16: "images/sampleCircuits/3BitGrayCode.png",
+
+    // Ukážkové obvody spustitelný JSON súbor
+
+    ExclusiveOR: "circuits/ExclusiveOR.json",
+    MajorityLogic: "circuits/MajorityLogic.json",
+    HalfAdderCircuit: "circuits/HalfAdder.json",
+    FullAdderCircuit: "circuits/FullAdder.json",
+    DecoderOneFour: "circuits/DecoderFour.json",
+    DivideByTwo: "circuits/Divide-By-2.json",
+    DivideByThree: "circuits/Divide-By-3.json",
+    PriorityEncoder: "circuits/PriorityEncoder.json",
+    SIPO: "circuits/Serial-In-Parallel-Out.json",
+    PISO: "circuits/Parallel-In-Serial-Out.json",
+    Smiley: "circuits/Smiley.json",
+    UpDownCounter: "circuits/UpDownCounter.json",
+    SRFlipFlop: "circuits/SRFlip-Flop.json",
+    FourBitCounter: "circuits/FourRippleCounter.json",
+    EightBitCounter: "circuits/EightRippleCounter.json",
+    ThreeGrayCode: "circuits/GrayCode.json",
+
         
     // Európske ikony komponentov
         

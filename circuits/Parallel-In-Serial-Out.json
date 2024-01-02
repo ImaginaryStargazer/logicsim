@@ -1,0 +1,343 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 87,
+			"id": "MUX",
+			"editType": "chipEdit",
+			"bits": "1",
+			"posX": 540,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 95,
+			"id": "MUX",
+			"editType": "chipEdit",
+			"bits": "1",
+			"posX": 800,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 91,
+			"id": "MUX",
+			"editType": "chipEdit",
+			"bits": "1",
+			"posX": 1040,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 99,
+			"id": "MUX",
+			"editType": "chipEdit",
+			"bits": "1",
+			"posX": 1280,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 103,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 660,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 107,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 900,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 111,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 1140,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 115,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "load/shift",
+			"posX": 240,
+			"posY": 220,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 116,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "I0",
+			"posX": 380,
+			"posY": 580,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 117,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "I1",
+			"posX": 640,
+			"posY": 580,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 118,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "I2",
+			"posX": 880,
+			"posY": 580,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 119,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "I3",
+			"posX": 1120,
+			"posY": 580,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 120,
+			"value": 1,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": 500,
+			"lastTick": 1703979860561,
+			"posX": 240,
+			"posY": 460,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 127,
+			"id": "BUS",
+			"nodeCount": "7",
+			"editType": "chipEdit",
+			"posX": 520,
+			"posY": 480,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 135,
+			"id": "NOT",
+			"editType": "noEdit",
+			"posX": 420,
+			"posY": 300,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 137,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Q",
+			"posX": 1480,
+			"posY": 320,
+			"rotation": 0
+		}
+	],
+	"wires": [
+		{
+			"startID": 120,
+			"endID": 127,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 116,
+			"endID": 88,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 117,
+			"endID": 96,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 118,
+			"endID": 92,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 119,
+			"endID": 100,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 115,
+			"endID": 135,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 101,
+			"endID": 137,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 136,
+			"endID": 90,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 136,
+			"endID": 98,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 136,
+			"endID": 94,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 136,
+			"endID": 102,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 134,
+			"endID": 104,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 131,
+			"endID": 108,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 128,
+			"endID": 112,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 89,
+			"endID": 103,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 105,
+			"endID": 95,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 97,
+			"endID": 107,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 109,
+			"endID": 91,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 93,
+			"endID": 111,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 113,
+			"endID": 99,
+			"endX": 0,
+			"endY": 0
+		}
+	],
+	"oscilloscope": [
+		{
+			"value": false,
+			"posX": -60,
+			"posY": 20,
+			"isOutput": false,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 137
+		}
+	],
+	"editor": {
+		"x": -69.75838534691968,
+		"y": -20.220116825450305,
+		"scaleX": 0.7106813301301212,
+		"scaleY": 0.7106813301301212
+	}
+}

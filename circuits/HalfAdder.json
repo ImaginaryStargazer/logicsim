@@ -1,0 +1,123 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 780,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 3,
+			"id": "XOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 780,
+			"posY": 540,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 6,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 480,
+			"posY": 360,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 7,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 480,
+			"posY": 540,
+			"rotation": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 8,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 1080,
+			"posY": 560,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 9,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 1080,
+			"posY": 340,
+			"rotation": 0
+		}
+	],
+	"wires": [
+		{
+			"startID": 6,
+			"endID": 4,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 7,
+			"endID": 3,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 7,
+			"endID": 0,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 6,
+			"endID": 1,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 2,
+			"endID": 9,
+			"endX": 0,
+			"endY": 0
+		},
+		{
+			"startID": 5,
+			"endID": 8,
+			"endX": 0,
+			"endY": 0
+		}
+	],
+	"oscilloscope": [],
+	"editor": {
+		"x": -285.9981250000002,
+		"y": -220.30825000000004,
+		"scaleX": 1.05,
+		"scaleY": 1.05
+	}
+}
