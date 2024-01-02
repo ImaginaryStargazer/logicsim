@@ -136,6 +136,17 @@
 			"isAlive": true,
 			"inputState": 1,
 			"id": 11
+		},
+				{
+			"value": 0,
+			"posX": -60,
+			"posY": 20,
+			"isOutput": false,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 27
 		}
 	],
 	"editor": {
