@@ -48,10 +48,12 @@ executeSelectedAction((selectedTool) => {
         case "Edit":
 
             currentMouseAction = CURRENT_ACTION.EDIT;
-            editor.enableEditing();
             editor.mainEditor.container().focus();
             editor.mainEditor.container().style.cursor = "default";
             editor.mainEditor.draggable(false);
+
+            if(!editor.simRunning)
+                editor.enableEditing();
 
             break;
 
