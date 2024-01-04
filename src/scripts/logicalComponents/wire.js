@@ -78,8 +78,6 @@ export class Wire {
                     let snapEndY = Math.round(this.endY / 20) * 20;
                     this.points.push(snapEndX, snapEndY);
                     this.drawConnectionDotFromPoints();
-     
-
                 }
 
 
