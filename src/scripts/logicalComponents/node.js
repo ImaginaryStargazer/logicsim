@@ -202,7 +202,6 @@ export class Node {
         document.getElementById("apply").onclick = () => {
 
             nodeValues[channels.value] = currentNode;
-            console.log(nodeValues)
         }
 
 

@@ -444,8 +444,6 @@ export class FileManager {
                     
                         let objectParsed = JSON.parse(fileContent).editor;
                         editor.setEditorSettings(objectParsed);
-
-                        console.log(editor.getEditorSettings())
                     }
 
                     editor.wireMng.draw();

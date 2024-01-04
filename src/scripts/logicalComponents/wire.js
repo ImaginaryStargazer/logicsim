@@ -17,6 +17,7 @@ export class Wire {
         this.layer = this.mainEditor.findOne("#componentLayer");
 
         this.wgroup = new Konva.Group();
+        this.dotgroup = new Konva.Group();
 
         this.wire = new Konva.Line({
             stroke: "grey",
@@ -32,7 +33,7 @@ export class Wire {
         this.wire.on("mouseout", () => this.mouseOut());
 
 
-        this.layer.add(this.wgroup);
+        this.layer.add(this.wgroup, this.dotgroup);
         this.wgroup.zIndex(0);
 
         this.endX = 0;
@@ -159,8 +160,7 @@ export class Wire {
             listening: false,
         })
 
-        this.wgroup.add(dot);
-        dot.zIndex = -99;
+        this.dotgroup.add(dot);
 
     }
 
@@ -280,6 +280,7 @@ export class WireMng {
                 this.isOpened = false;
                 if(this.wire[i] != null) {
                     this.wire[i].wgroup.destroy();
+                    this.wire[i].dotgroup.destroy();
                     this.wire[i].destroy();
 
                 }
@@ -321,7 +322,8 @@ export class WireMng {
 
             } else {
                 
-                this.wire[index].wire.destroy();
+                this.wire[index].wgroup.destroy();
+                this.wire[index].dotgroup.destroy();
                 delete this.wire[index];
                 this.wire.length--;
                 openAlert("warning", "WireLoop");
