@@ -557,6 +557,7 @@ export class FileManager {
                     case "button":
                     case "digitalNumber":
                     case "wgroup":
+                    case "dotgroup": 
                         return undefined;
                 }
 
