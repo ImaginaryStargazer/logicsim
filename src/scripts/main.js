@@ -414,8 +414,9 @@ export class FileManager {
 
                             editor.wireMng.addNode(nodeList[objectParsed.startID]);
                             editor.wireMng.wire[i].points = objectParsed.points;
-                            editor.wireMng.wire[i].loadConnectionDots();
                             editor.wireMng.addNode(nodeList[objectParsed.endID]);
+
+                            editor.wireMng.wire[i].loadConnectionDots();
 
                             //Object.assign(editor.wireMng.wire[i], objectParsed)
                             

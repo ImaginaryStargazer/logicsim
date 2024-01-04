@@ -142,7 +142,9 @@ export class Wire {
 
     loadConnectionDots() {
 
-        for(let i = 0; i < this.points.length; i++) {
+        if(this.points.length == 0) return;
+
+        for(let i = 0; i < this.points.length / 2; i++) {
             this.drawConnectionDot(this.points[0 + i * 2], this.points[1 + i * 2]);
         }
     }
