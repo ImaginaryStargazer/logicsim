@@ -205,7 +205,7 @@ export var lang = {
         Save_project: "Uložiť projekt?",
 
         WelcomeTitle: "Simulátor Logických Obvodov",
-        WelcomeText: "Vitajte na stránke LogicSim! Učebná pomôcka pre simuláciu logických obvodov. Či už ste skúsený nadšenec elektroniky alebo zvedavý začiatočník. S intuitívnym rozhraním a rozsiahlou knižnicou komponentov, môžete oživiť svoje nápady a pozorovať simuláciu logických obvodov v reálnom čase. Dúfam, že sa Vám tento simulátor pomôže zlepšiť chápanie logických obvodov. Veselé simulovanie!",
+        WelcomeText: "Vitajte na stránke LogicSim! Učebná pomôcka pre simuláciu logických obvodov. Či už ste skúsený nadšenec elektroniky alebo zvedavý začiatočník. S intuitívnym rozhraním a rozsiahlou knižnicou komponentov, môžete oživiť svoje nápady a pozorovať simuláciu logických obvodov v reálnom čase. Dúfam, že Vám tento simulátor pomôže lepšie pochopiť ako fungujú logické obvody. Veselé simulovanie!",
 
         ChangeSettings: "Zmena nastavení",
         Tutorial1: "Jednoduchá zmena nastavení celej stránky. Je možné meniť farebný motív, jazyk a mnoho ďaľších nastavení pre prácu v editore.",
