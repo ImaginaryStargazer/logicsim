@@ -414,6 +414,7 @@ export class FileManager {
 
                             editor.wireMng.addNode(nodeList[objectParsed.startID]);
                             editor.wireMng.wire[i].points = objectParsed.points;
+                            editor.wireMng.wire[i].loadConnectionDots();
                             editor.wireMng.addNode(nodeList[objectParsed.endID]);
 
                             //Object.assign(editor.wireMng.wire[i], objectParsed)
@@ -557,6 +558,7 @@ export class FileManager {
                     case "pin":
                     case "button":
                     case "digitalNumber":
+                    case "wgroup":
                         return undefined;
                 }
 

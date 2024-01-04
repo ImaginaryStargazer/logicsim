@@ -220,7 +220,7 @@ export var lang = {
         Tutorial4: "Používatelia môžu voľne editovať všetky súčiastky meniť ich pozíciu, rotáciu a odstrániť nepotrebné súčiastky. Kliknutím pravým na súčiastku ju ďalej upravíte.",
 
         AddWires: "Prepájanie súčiastok",
-        Tutorial5: "Pri kliknutí na akékoľvek dve svorky sa vytvorí spojenie medzi dvomi súčiastkami.",
+        Tutorial5: "Pri kliknutí na akékoľvek dve svorky sa vytvorí spojenie medzi dvomi súčiastkami. Pri kreslení spojenia z výstupu je možné pravým kliknutím meniť tvar prepojenia.",
 
         Simulate: "Simulácia obvodov",
         Tutorial6: "Animovaná simulácia akéhokoľvek logického obvodu. Simulácia sa spustí a zastaví len jediným kliknutím.",
@@ -462,7 +462,7 @@ export var lang = {
         Tutorial4: "Users can freely edit all components, change their position, rotation, and remove unnecessary components. Right click on the component to edit.",
         
         AddWires: "Connecting Components",
-        Tutorial5: "Clicking on any two terminals creates a connection between the two components.",
+        Tutorial5: "Clicking on any two terminals creates a connection between the two components. If you are drawing a wire from output you can shape the connection by right clicking anywhere in the editor.",
         
         Simulate: "Circuit Simulation",
         Tutorial6: "Animated simulation of any logical circuit. The simulation starts and stops with just one click.",

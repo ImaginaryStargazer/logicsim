@@ -391,7 +391,7 @@ export class circuitEditor {
 
               
                 this.wireMng.wire[index].destroy();
-                this.wireMng.wire[index].wire.destroy();
+                this.wireMng.wire[index].wgroup.destroy();
                 this.wireMng.wire.splice(index, 1);
             }
 
