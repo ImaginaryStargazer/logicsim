@@ -13,15 +13,7 @@ import { ClockGen } from "./logicalComponents/clockGen.js";
 
 import { LogicalOutput } from "./logicalComponents/logicalOutput.js";
 import { LightBulb } from "./logicalComponents/lightBulb.js";
-import { WireMng } from "./logicalComponents/wire.js";
 
-import { SevenSegmentDecoder } from "./logicalComponents/7segmentDecoder.js";
-import { Timer } from "./logicalComponents/elementTimer.js";
-import { backToEdit ,currentMouseAction} from "./main.js";
-
-
-import { CURRENT_ACTION, INPUT_STATE } from "./logicalComponents/states.js";
-import { icons } from "./icons.js";
 import { SevenSegmentDisplay } from "./logicalComponents/7segmentDisplay.js";
 import { D_FlipFlop } from "./logicalComponents/D_FlipFlop.js";
 import { T_FlipFlop } from "./logicalComponents/T_FlipFlop.js";
@@ -44,6 +36,13 @@ import { RGBLed } from "./logicalComponents/RGBLED.js";
 import { FullAdder } from "./logicalComponents/fullAdder.js";
 import { BusConnection } from "./logicalComponents/busConnection.js";
 import { CustomLogic } from "./logicalComponents/customLogic.js";
+
+import { WireMng } from "./logicalComponents/wire.js";
+import { SevenSegmentDecoder } from "./logicalComponents/7segmentDecoder.js";
+import { Timer } from "./logicalComponents/elementTimer.js";
+import { backToEdit ,currentMouseAction} from "./main.js";
+import { CURRENT_ACTION, INPUT_STATE } from "./logicalComponents/states.js";
+import { icons } from "./icons.js";
 
 Konva.pixelRatio = 1;
 export const mainEditor = new Konva.Stage({container: "mainBoard"});
@@ -401,34 +400,19 @@ export class circuitEditor {
 
                     this.wireMng.addNode(nodeObj);
                     this.wireMng.draw();
-                    
-
-                    return true;
-        
                 }
-        
-                return false;
-                
             }
-
         })
 
           
-        this.layer.on("dragmove dragend", () => {
+        this.layer.on("dragmove dragend", () => { this.wireMng.draw();})
 
-            this.wireMng.draw();
-        
-        })
-
-        
-        
         this.mainEditor.on("mousemove", (e) => {
 
             if(this.wireMng.finishedDrawing) return;
+            
             this.wireMng.draw();
-    
         })
-        
     }
 
     
@@ -527,11 +511,9 @@ export class circuitEditor {
     
 
     useIECgates() {
-
+        
         useIECgates = this.isIEC;
-
         return useIECgates;
-
     }
 
 
@@ -781,11 +763,6 @@ export class circuitEditor {
         this.mainEditor.position({ x: settings.x, y: settings.y })
         this.mainEditor.scale({ x: settings.scaleX , y: settings.scaleY });
         this.createGrid();
-
-
-        
     }
-
-      
     
 }
