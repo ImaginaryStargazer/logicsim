@@ -215,6 +215,9 @@ export class circuitEditor {
         this.simRunning = true;
         startSimulation.innerHTML = icons.stopSimulation;
         this.simulate();
+
+        this.mouseSelectedComponent = null;
+        this.newComponent = null;
         
         if(this.toggleNodes)
             this.hideNodes();
