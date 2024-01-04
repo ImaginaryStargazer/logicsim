@@ -1,0 +1,2878 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 540,
+			"posY": 200
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 8,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "1",
+			"rotation": 90,
+			"posX": 400,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 5,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 460,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 50,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "2",
+			"rotation": 90,
+			"posX": 520,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 23,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 620,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 19,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 720,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 31,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "M",
+			"value": 0,
+			"posX": -140,
+			"posY": -20,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 32,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "Cn'",
+			"posX": -140,
+			"posY": 60,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 33,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "A0",
+			"value": 0,
+			"posX": 280,
+			"posY": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 34,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "B0",
+			"posX": 600,
+			"posY": 0,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 35,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 660,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 44,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 500,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 48,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 40,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 76,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "1",
+			"posX": 860,
+			"posY": 500,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 56,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 920,
+			"posY": 500,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 59,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 980,
+			"posY": 500,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 68,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"posX": 1080,
+			"posY": 500,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 72,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1180,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 84,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 960,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 81,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1120,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 88,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "A1",
+			"value": 0,
+			"posX": 740,
+			"posY": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 89,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "B1",
+			"posX": 1060,
+			"posY": 0,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 90,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 1000,
+			"posY": 200
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 107,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "1",
+			"rotation": 90,
+			"posX": 1320,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 95,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1380,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 98,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1440,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 109,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1540,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 113,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1640,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 120,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1420,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 124,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1580,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 127,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 1460,
+			"posY": 200
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 129,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "A2",
+			"value": 0,
+			"posX": 1200,
+			"posY": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 130,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "B2",
+			"posX": 1520,
+			"posY": 0,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 160,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "1",
+			"rotation": 90,
+			"posX": 1780,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 137,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1840,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 143,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1900,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 156,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 2000,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 152,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 2100,
+			"posY": 500
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 165,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1880,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 169,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 2040,
+			"posY": 720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 172,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 1920,
+			"posY": 200
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 174,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "A3",
+			"posX": 1660,
+			"posY": 0,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 175,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "B3",
+			"posX": 1980,
+			"posY": 0,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 176,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "S0",
+			"posX": 2260,
+			"posY": 280,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 177,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "S1",
+			"posX": 2380,
+			"posY": 320,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 178,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "S2",
+			"posX": 2500,
+			"posY": 360,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 179,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "S3",
+			"value": 0,
+			"posX": 2620,
+			"posY": 400,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 180,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 20,
+			"posY": 1100
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 183,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 320,
+			"posY": 1180
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 185,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 760,
+			"posY": 1180
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 187,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 500,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 193,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 600,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 197,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 540,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 200,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 780,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 203,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 340,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 206,
+			"id": "XOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 560,
+			"posY": 1580
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 209,
+			"id": "XOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 40,
+			"posY": 1580
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 212,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "F0",
+			"posX": 60,
+			"posY": 1740,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 213,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "F1",
+			"posX": 580,
+			"posY": 1740,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 217,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"posX": 1800,
+			"posY": 1640,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 222,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 900,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 236,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"posX": 1000,
+			"posY": 1140,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 231,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"posX": 1140,
+			"posY": 1140,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 243,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1000,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 247,
+			"id": "XOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1000,
+			"posY": 1580
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 250,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1260,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 253,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 1240,
+			"posY": 1180
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 255,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "F2",
+			"posX": 1020,
+			"posY": 1740,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 256,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1360,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 279,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"rotation": 90,
+			"posX": 1460,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 274,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"rotation": 90,
+			"posX": 1600,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 268,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "5",
+			"rotation": 90,
+			"posX": 1780,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 286,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"rotation": 90,
+			"posX": 1600,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 291,
+			"id": "XOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1580,
+			"posY": 1540
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 294,
+			"id": "NOT",
+			"editType": "noEdit",
+			"rotation": 90,
+			"posX": 1880,
+			"posY": 1180
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 296,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 1900,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 299,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "F3",
+			"posX": 1260,
+			"posY": 1740,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 300,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "A=B",
+			"posX": 2060,
+			"posY": 1700,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 312,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": "5",
+			"rotation": 90,
+			"posX": 2240,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 307,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"rotation": 90,
+			"posX": 2060,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 321,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"rotation": 90,
+			"posX": 2380,
+			"posY": 1140
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 326,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 2540,
+			"posY": 1140,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 332,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"posX": 2480,
+			"posY": 1140,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 339,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "1",
+			"posX": 2560,
+			"posY": 1140,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 349,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": "4",
+			"rotation": 90,
+			"posX": 2520,
+			"posY": 1360
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 354,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"rotation": 90,
+			"posX": 2280,
+			"posY": 1540
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 357,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "(Cn+4)'",
+			"posX": 2380,
+			"posY": 1720
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 358,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "X",
+			"posX": 2040,
+			"posY": 1580
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 360,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Y",
+			"posX": 2500,
+			"posY": 1580
+		}
+	],
+	"wires": [
+		{
+			"startID": 1,
+			"endID": 25,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				500,
+				420,
+				520,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 33,
+			"endID": 8,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 34,
+			"endID": 19,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 34,
+			"endID": 0,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				700,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 1,
+			"endID": 50,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 34,
+			"endID": 6,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				700,
+				140,
+				400,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 9,
+			"endID": 46,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 7,
+			"endID": 45,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 52,
+			"endID": 44,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 26,
+			"endID": 36,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 22,
+			"endID": 35,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 75,
+			"endID": 81,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 71,
+			"endID": 82,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 77,
+			"endID": 86,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 58,
+			"endID": 85,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 61,
+			"endID": 84,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 88,
+			"endID": 76,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 89,
+			"endID": 72,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 91,
+			"endID": 59,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 91,
+			"endID": 70,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				960,
+				420,
+				980,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 89,
+			"endID": 90,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1160,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 89,
+			"endID": 57,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1160,
+				140,
+				860,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 33,
+			"endID": 23,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				380,
+				400,
+				600,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 33,
+			"endID": 21,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				380,
+				400,
+				620,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 88,
+			"endID": 68,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				840,
+				400,
+				1060,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 88,
+			"endID": 74,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				840,
+				400,
+				1080,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 108,
+			"endID": 122,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 97,
+			"endID": 121,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 100,
+			"endID": 120,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 112,
+			"endID": 125,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 116,
+			"endID": 124,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 128,
+			"endID": 98,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 128,
+			"endID": 111,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1420,
+				420,
+				1440,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 129,
+			"endID": 107,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 130,
+			"endID": 113,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 130,
+			"endID": 127,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1620,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 130,
+			"endID": 96,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1620,
+				140,
+				1320,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 129,
+			"endID": 109,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1300,
+				400,
+				1520,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 129,
+			"endID": 115,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1300,
+				400,
+				1540,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 145,
+			"endID": 165,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 139,
+			"endID": 166,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 161,
+			"endID": 167,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 155,
+			"endID": 169,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 159,
+			"endID": 170,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 173,
+			"endID": 143,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 173,
+			"endID": 158,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1880,
+				420,
+				1900,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 174,
+			"endID": 160,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 175,
+			"endID": 152,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 175,
+			"endID": 172,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2080,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 175,
+			"endID": 138,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2080,
+				140,
+				1780,
+				140
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 174,
+			"endID": 156,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1760,
+				400,
+				1980,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 174,
+			"endID": 154,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1760,
+				400,
+				2000,
+				400
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 176,
+			"endID": 5,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				440,
+				300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 176,
+			"endID": 56,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				900,
+				300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 176,
+			"endID": 95,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1360,
+				300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 176,
+			"endID": 137,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1820,
+				300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 177,
+			"endID": 51,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				460,
+				340
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 177,
+			"endID": 60,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				920,
+				340
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 177,
+			"endID": 99,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1380,
+				340
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 177,
+			"endID": 144,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1840,
+				340
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 178,
+			"endID": 24,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				560,
+				380
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 178,
+			"endID": 69,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1020,
+				380
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 178,
+			"endID": 110,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1480,
+				380
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 178,
+			"endID": 157,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1940,
+				380
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 179,
+			"endID": 153,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2040,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 179,
+			"endID": 114,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1580,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 179,
+			"endID": 73,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1120,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 179,
+			"endID": 20,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				660,
+				420
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 32,
+			"endID": 181,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 180,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				620
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 184,
+			"endID": 204,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 186,
+			"endID": 201,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 182,
+			"endID": 210,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 205,
+			"endID": 209,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				300,
+				1520
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 202,
+			"endID": 206,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				740,
+				1520
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 199,
+			"endID": 207,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 211,
+			"endID": 212,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 208,
+			"endID": 213,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 239,
+			"endID": 244,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 246,
+			"endID": 248,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 252,
+			"endID": 247,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1220,
+				1520
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 254,
+			"endID": 251,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 249,
+			"endID": 255,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 249,
+			"endID": 218,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 208,
+			"endID": 219,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				920,
+				1700,
+				920,
+				1800,
+				1320,
+				1800,
+				1320,
+				1740
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 211,
+			"endID": 220,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				480,
+				1700,
+				480,
+				1840,
+				1340,
+				1840,
+				1340,
+				1780
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 293,
+			"endID": 217,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 290,
+			"endID": 292,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 295,
+			"endID": 297,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 298,
+			"endID": 291,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 221,
+			"endID": 300,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 335,
+			"endID": 351,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 340,
+			"endID": 349,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2540,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 325,
+			"endID": 352,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2300,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 353,
+			"endID": 354,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 356,
+			"endID": 357,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2240,
+				1740
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 311,
+			"endID": 358,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 317,
+			"endID": 355,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2140,
+				1480
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 353,
+			"endID": 360,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 168,
+			"endID": 339,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1820,
+				860,
+				2540,
+				860
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 171,
+			"endID": 326,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2000,
+				880,
+				2520,
+				880
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 171,
+			"endID": 332,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2000,
+				880,
+				2460,
+				880
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 171,
+			"endID": 321,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2000,
+				880,
+				2360,
+				880
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 171,
+			"endID": 312,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2000,
+				880,
+				2220,
+				880
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 171,
+			"endID": 307,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2000,
+				880,
+				2040,
+				880
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 171,
+			"endID": 296,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2000,
+				880,
+				1880,
+				880
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 123,
+			"endID": 327,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1360,
+				900,
+				2480,
+				900
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 123,
+			"endID": 256,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1360,
+				900,
+				1340,
+				900
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 123,
+			"endID": 253,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1360,
+				900,
+				1200,
+				900
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 268,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				1760,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 274,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				1580,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 279,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				1440,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 250,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				1240,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 308,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				2000,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 313,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				2180,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 322,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				2320,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 126,
+			"endID": 333,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1540,
+				920,
+				2420,
+				920
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 231,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				1120,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 236,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				980,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 200,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				760,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 275,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				1540,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 269,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				1720,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 309,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				1960,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 314,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				2140,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 83,
+			"endID": 323,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1080,
+				940,
+				2280,
+				940
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 87,
+			"endID": 222,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				900,
+				960,
+				880,
+				960
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 87,
+			"endID": 185,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				900,
+				960,
+				720,
+				960
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 87,
+			"endID": 280,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				900,
+				960,
+				1400,
+				960
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 87,
+			"endID": 334,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				900,
+				960,
+				2380,
+				960
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 37,
+			"endID": 194,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				620,
+				980,
+				540,
+				980
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 37,
+			"endID": 203,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				620,
+				980,
+				320,
+				980
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 328,
+			"endID": 350,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				2460,
+				1260
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 258,
+			"endID": 289,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1320,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 278,
+			"endID": 287,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1520,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 273,
+			"endID": 286,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1680,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 235,
+			"endID": 243,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1060,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 224,
+			"endID": 245,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				860,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 196,
+			"endID": 197,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				540,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 189,
+			"endID": 198,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				460,
+				1300
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 37,
+			"endID": 232,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				620,
+				980,
+				1080,
+				980
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 37,
+			"endID": 270,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				620,
+				980,
+				1680,
+				980
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 37,
+			"endID": 310,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				620,
+				980,
+				1920,
+				980
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 37,
+			"endID": 315,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				620,
+				980,
+				2100,
+				980
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 47,
+			"endID": 183,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				440,
+				1000,
+				280,
+				1000
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 47,
+			"endID": 187,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				440,
+				1000,
+				480,
+				1000
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 47,
+			"endID": 237,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				440,
+				1000,
+				940,
+				1000
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 47,
+			"endID": 276,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				440,
+				1000,
+				1500,
+				1000
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 47,
+			"endID": 324,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				440,
+				1000,
+				2240,
+				1000
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 32,
+			"endID": 193,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				-40,
+				1020,
+				580,
+				1020
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 32,
+			"endID": 233,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				-40,
+				1020,
+				1040,
+				1020
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 32,
+			"endID": 271,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				-40,
+				1020,
+				1640,
+				1020
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 32,
+			"endID": 316,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				-40,
+				1020,
+				2060,
+				1020
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 31,
+			"endID": 48,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				0
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 188,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				440,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 195,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				500,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 223,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				840,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 234,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				1000,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 257,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				1300,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 281,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				1360,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 277,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				1460,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 49,
+			"endID": 272,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				0,
+				1040,
+				1600,
+				1040
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 168,
+			"endID": 294,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1820,
+				1120
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 282,
+			"endID": 288,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1500,
+				1260
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 293,
+			"endID": 299,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				1200,
+				1660
+			],
+			"isDrawing": false
+		}
+	],
+	"oscilloscope": [],
+	"editor": {
+		"x": 397.2898400917228,
+		"y": 145.1514121553675,
+		"scaleX": 0.34380274767015523,
+		"scaleY": 0.34380274767015523
+	}
+}

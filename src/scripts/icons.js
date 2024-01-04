@@ -82,7 +82,7 @@ export const icons = {
     circuit19: "images/sampleCircuits/Master-Slave-Flip-Flop.png",
     circuit20: "images/sampleCircuits/SynchronousCounter.png",
     circuit21: "images/sampleCircuits/2-Bit-Comparator.png",
-    circuit22: "images/sampleCircuits/ALU.png",
+    circuit22: "images/sampleCircuits/74181-ALU.png",
 
     // Ukážkové obvody spustitelný JSON súbor
 
@@ -107,7 +107,7 @@ export const icons = {
     EdgeTriggeredDFF: "circuits/Edge-Triggered D Flip-Flop.json",
     MSFF: "circuits/Master-Slave Flip-Flop.json",
     SyncCounter: "circuits/Synchronous Counter.json",
-    ALU: "circuits/ALU.json",
+    ALU: "circuits/74181 ALU.json",
 
         
     // Európske ikony komponentov
