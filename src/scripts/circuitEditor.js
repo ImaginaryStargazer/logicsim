@@ -304,15 +304,9 @@ export class circuitEditor {
                 this.enableEditing();
                 
                 let newPart = this.getClickedComponent();
-
-                this.mainEditor.container().style.cursor = "default";
-
                 this.newComponent = new newPart(0, 0, this.componentColor);
-
-
                 this.newComponent.render();
                 this.components.push(this.newComponent);
-
                 this.highlightComponent(this.newComponent.component)
                 this.snapToGrid(this.newComponent.component);
 
