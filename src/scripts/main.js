@@ -48,10 +48,12 @@ executeSelectedAction((selectedTool) => {
         case "Edit":
 
             currentMouseAction = CURRENT_ACTION.EDIT;
-            editor.enableEditing();
             editor.mainEditor.container().focus();
             editor.mainEditor.container().style.cursor = "default";
             editor.mainEditor.draggable(false);
+
+            if(!editor.simRunning)
+                editor.enableEditing();
 
             break;
 
@@ -67,9 +69,11 @@ executeSelectedAction((selectedTool) => {
 
         case "Remove-Wire":
 
-            //editor.enableEditing();
+            editor.mainEditor.container().style.cursor = "default";
             currentMouseAction = CURRENT_ACTION.REMOVE_WIRE;
-            //editor.disableEditing();
+
+            if(!editor.simRunning)
+                editor.enableEditing();
 
             break;
 
@@ -246,6 +250,25 @@ document.getElementById("grid").onchange = (e) => {
 
 };
 
+/* Prepínanie svoriek počas simulácie */
+
+
+document.getElementById("nodes").onchange = (e) => {
+        
+
+    if(e.target.checked === true) {
+        editor.toggleNodes = true;
+        if(editor.simRunning)
+            editor.hideNodes();
+    } else {
+        editor.toggleNodes = false;
+        editor.showNodes();
+    }
+
+
+
+};
+
 
  
 /* Označovanie komponentov v menu a nastavenie vybraného komponentu */
@@ -387,10 +410,12 @@ export class FileManager {
         
                             if (objectParsed == undefined) break;
         
+                            
 
                             editor.wireMng.addNode(nodeList[objectParsed.startID]);
+                            editor.wireMng.wire[i].points = objectParsed.points;
                             editor.wireMng.addNode(nodeList[objectParsed.endID]);
-                            
+
                             //Object.assign(editor.wireMng.wire[i], objectParsed)
                             
 
@@ -531,6 +556,7 @@ export class FileManager {
                     case "textValue":
                     case "pin":
                     case "button":
+                    case "digitalNumber":
                         return undefined;
                 }
 

@@ -7,10 +7,9 @@
 			"startNodeId": 0,
 			"id": "DFF",
 			"editType": "noEdit",
-			"lastClock": 0,
-			"posX": 800,
-			"posY": 380,
-			"rotation": 0
+			"lastClock": 1,
+			"posX": 380,
+			"posY": 200
 		},
 		{
 			"color": "white",
@@ -19,10 +18,9 @@
 			"startNodeId": 4,
 			"id": "DFF",
 			"editType": "noEdit",
-			"lastClock": 0,
-			"posX": 1040,
-			"posY": 380,
-			"rotation": 0
+			"lastClock": 1,
+			"posX": 540,
+			"posY": 200
 		},
 		{
 			"color": "white",
@@ -31,10 +29,9 @@
 			"startNodeId": 8,
 			"id": "DFF",
 			"editType": "noEdit",
-			"lastClock": 0,
-			"posX": 1280,
-			"posY": 380,
-			"rotation": 0
+			"lastClock": 1,
+			"posX": 700,
+			"posY": 200
 		},
 		{
 			"color": "white",
@@ -43,184 +40,222 @@
 			"startNodeId": 12,
 			"id": "DFF",
 			"editType": "noEdit",
-			"lastClock": 0,
-			"posX": 560,
-			"posY": 380,
-			"rotation": 0
+			"lastClock": 1,
+			"posX": 220,
+			"posY": 200
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
 			"startNodeId": 16,
-			"value": 0,
-			"id": "CLK",
-			"editType": "clockGenEdit",
-			"T": 500,
-			"lastTick": 1703980520428,
-			"posX": 200,
-			"posY": 480,
-			"rotation": 0
-		},
-		{
-			"color": "white",
-			"strokeWidth": 2,
-			"useIECgates": false,
-			"startNodeId": 17,
 			"id": "LSW",
 			"editType": "labelEdit",
 			"label": "input",
-			"posX": 200,
-			"posY": 380,
-			"rotation": 0,
-			"value": 0
+			"value": 0,
+			"posX": 40,
+			"posY": 280
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
-			"startNodeId": 47,
-			"id": "BUS",
-			"nodeCount": "11",
-			"editType": "chipEdit",
-			"posX": 340,
-			"posY": 620,
-			"rotation": 0
+			"startNodeId": 18,
+			"value": 1,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": 500,
+			"lastTick": 1704328105513,
+			"posX": 40,
+			"posY": 360
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
-			"startNodeId": 59,
+			"startNodeId": 19,
 			"id": "BLB",
 			"editType": "colorEdit",
 			"ledColor": "orange",
-			"posX": 760,
-			"posY": 200,
-			"rotation": 0
+			"posX": 380,
+			"posY": 140
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
-			"startNodeId": 60,
+			"startNodeId": 20,
 			"id": "BLB",
 			"editType": "colorEdit",
 			"ledColor": "orange",
-			"posX": 1000,
-			"posY": 200,
-			"rotation": 0
+			"posX": 540,
+			"posY": 140
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
-			"startNodeId": 61,
+			"startNodeId": 21,
 			"id": "BLB",
 			"editType": "colorEdit",
 			"ledColor": "orange",
-			"posX": 1240,
-			"posY": 200,
-			"rotation": 0
+			"posX": 700,
+			"posY": 140
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
-			"startNodeId": 62,
+			"startNodeId": 22,
 			"id": "BLB",
 			"editType": "colorEdit",
 			"ledColor": "orange",
-			"posX": 1480,
-			"posY": 200,
-			"rotation": 0
+			"posX": 860,
+			"posY": 140
 		}
 	],
 	"wires": [
 		{
-			"startID": 2,
-			"endID": 4,
-			"endX": 0,
-			"endY": 0
-		},
-		{
 			"startID": 6,
 			"endID": 8,
-			"endX": 0,
-			"endY": 0
+			"endX": 676,
+			"endY": 219,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 6
+		},
+		{
+			"startID": 2,
+			"endID": 4,
+			"endX": 459,
+			"endY": 217,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 4
 		},
 		{
 			"startID": 14,
 			"endID": 0,
-			"endX": 0,
-			"endY": 0
-		},
-		{
-			"startID": 17,
-			"endID": 12,
-			"endX": 0,
-			"endY": 0
-		},
-		{
-			"startID": 48,
-			"endID": 9,
-			"endX": 0,
-			"endY": 0
-		},
-		{
-			"startID": 51,
-			"endID": 5,
-			"endX": 0,
-			"endY": 0
-		},
-		{
-			"startID": 54,
-			"endID": 1,
-			"endX": 0,
-			"endY": 0
-		},
-		{
-			"startID": 57,
-			"endID": 13,
-			"endX": 0,
-			"endY": 0
+			"endX": 296,
+			"endY": 217,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 0
 		},
 		{
 			"startID": 16,
-			"endID": 47,
-			"endX": 0,
-			"endY": 0
+			"endID": 12,
+			"endX": 192,
+			"endY": 220,
+			"points": [
+				140,
+				220
+			],
+			"isDrawing": false,
+			"prevNodeId": 16
 		},
 		{
-			"startID": 10,
-			"endID": 62,
-			"endX": 0,
-			"endY": 0
+			"startID": 18,
+			"endID": 13,
+			"endX": 196,
+			"endY": 255,
+			"points": [
+				200,
+				380
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 18,
+			"endID": 1,
+			"endX": 354,
+			"endY": 259,
+			"points": [
+				360,
+				380
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 18,
+			"endID": 5,
+			"endX": 514,
+			"endY": 258,
+			"points": [
+				520,
+				380
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 18,
+			"endID": 9,
+			"endX": 674,
+			"endY": 263,
+			"points": [
+				680,
+				380
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
 		},
 		{
 			"startID": 6,
-			"endID": 61,
-			"endX": 0,
-			"endY": 0
+			"endID": 21,
+			"endX": 618,
+			"endY": 219,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 21
+		},
+		{
+			"startID": 10,
+			"endID": 22,
+			"endX": 775,
+			"endY": 141,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 10
 		},
 		{
 			"startID": 2,
-			"endID": 60,
-			"endX": 0,
-			"endY": 0
+			"endID": 20,
+			"endX": 456,
+			"endY": 213,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 20
 		},
 		{
 			"startID": 14,
-			"endID": 59,
-			"endX": 0,
-			"endY": 0
+			"endID": 19,
+			"endX": 301,
+			"endY": 139,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 14
 		}
 	],
-	"oscilloscope": [],
+	"oscilloscope": [
+		{
+			"value": 1,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 18
+		}
+	],
 	"editor": {
-		"x": 73.01145629389794,
-		"y": 35.602062307173696,
-		"scaleX": 0.5846792890864372,
-		"scaleY": 0.5846792890864372
+		"x": 0,
+		"y": 0,
+		"scaleX": 1,
+		"scaleY": 1
 	}
 }

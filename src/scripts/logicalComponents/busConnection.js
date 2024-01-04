@@ -27,11 +27,12 @@ export class BusConnection extends Component {
 
         let shift = 0;
 
-        this.nodes[0] = new Node(0, 0, false, false, this.color, "I0");
+        this.nodes[0] = new Node(0, 0, false, false, this.color);
         this.nodes[0].createPin(0,0, this.nodeCount * 80, 0, this.component);
 
+
         for(let i = 1; i <= this.nodeCount; i++) {
-            this.nodes[i] = new Node(this.nodeCount * 80 - shift, 0, true, false, this.color, "Q" + i);
+            this.nodes[i] = new Node(this.nodeCount * 80 - shift, 0, true, false, this.color);
             this.component.add(this.nodes[i].draw());
 
             shift += 80;

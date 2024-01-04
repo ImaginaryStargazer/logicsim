@@ -1,0 +1,176 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "NOR",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 560,
+			"posY": 240
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 3,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 400,
+			"posY": 280
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 7,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 720,
+			"posY": 280
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 11,
+			"value": 1,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": "850",
+			"lastTick": 1704328603957,
+			"posX": 140,
+			"posY": 320
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 12,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 960,
+			"posY": 280
+		}
+	],
+	"wires": [
+		{
+			"startID": 11,
+			"endID": 4,
+			"endX": 380,
+			"endY": 339,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 11
+		},
+		{
+			"startID": 11,
+			"endID": 8,
+			"endX": 615,
+			"endY": 337,
+			"points": [
+				240,
+				400,
+				600,
+				400,
+				600,
+				340
+			],
+			"isDrawing": false,
+			"prevNodeId": 11
+		},
+		{
+			"startID": 9,
+			"endID": 12,
+			"endX": 716,
+			"endY": 302,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 12
+		},
+		{
+			"startID": 2,
+			"endID": 7,
+			"endX": 700,
+			"endY": 298,
+			"points": [
+				680,
+				300
+			],
+			"isDrawing": false,
+			"prevNodeId": 2
+		},
+		{
+			"startID": 5,
+			"endID": 1,
+			"endX": 477,
+			"endY": 300,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 1
+		},
+		{
+			"startID": 9,
+			"endID": 0,
+			"endX": 492,
+			"endY": 262,
+			"points": [
+				800,
+				220,
+				500,
+				220
+			],
+			"isDrawing": false,
+			"prevNodeId": 9
+		},
+		{
+			"startID": 9,
+			"endID": 3,
+			"endX": 380,
+			"endY": 295,
+			"points": [
+				800,
+				220,
+				380,
+				220
+			],
+			"isDrawing": false,
+			"prevNodeId": 9
+		}
+	],
+	"oscilloscope": [
+		{
+			"value": 1,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 11
+		},
+		{
+			"value": true,
+			"posX": -60,
+			"posY": 20,
+			"isOutput": false,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 12
+		}
+	],
+	"editor": {
+		"x": 0,
+		"y": 0,
+		"scaleX": 1,
+		"scaleY": 1
+	}
+}

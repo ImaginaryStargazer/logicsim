@@ -565,6 +565,15 @@ class UserInterface {
                         ${this.createSampleCircuit(icons.circuit14, lang[this.language].SampleCir14, icons.FourBitCounter)}
                         ${this.createSampleCircuit(icons.circuit15, lang[this.language].SampleCir15, icons.EightBitCounter)}
                         ${this.createSampleCircuit(icons.circuit16, lang[this.language].SampleCir16, icons.ThreeGrayCode)}
+                        ${this.createSampleCircuit(icons.circuit17, lang[this.language].SampleCir17, icons.ClkSR)}
+                        ${this.createSampleCircuit(icons.circuit18, lang[this.language].SampleCir18, icons.EdgeTriggeredDFF)}
+                    </div>
+
+                    <div id="circuitsGroup4" style="display: none">
+                        ${this.createSampleCircuit(icons.circuit19, lang[this.language].SampleCir19,icons.MSFF)}
+                        ${this.createSampleCircuit(icons.circuit20, lang[this.language].SampleCir20, icons.SyncCounter)}
+                        ${this.createSampleCircuit(icons.circuit21, lang[this.language].SampleCir21, icons.TwoBitComparator)}
+                        ${this.createSampleCircuit(icons.circuit22, lang[this.language].SampleCir22, icons.ALU)}
                     </div>
                 </div>
 
@@ -641,6 +650,7 @@ class UserInterface {
                         ${this.createToggleOption(lang[this.language].partsPosition, "partsPosition")}
                         ${this.createToggleOption(lang[this.language].grid, "grid")}
                         ${this.createToggleOption(lang[this.language].showAlerts, "alerts")}
+                        ${this.createToggleOption(lang[this.language].showNodes, "nodes")}
                         
                     </div>
                 </div>
@@ -924,7 +934,7 @@ class UserInterface {
         // ďalšie obvody
         nextBtn.onclick = () => {
 
-            if (this.circuitsCounter < 2) {
+            if (this.circuitsCounter < 3) {
                 this.circuitsCounter++;
                 this.nextOrPreviousClick();
             }
@@ -954,6 +964,7 @@ class UserInterface {
         const circuits1 = document.getElementById("circuitsGroup1");
         const circuits2 = document.getElementById("circuitsGroup2");
         const circuits3 = document.getElementById("circuitsGroup3");
+        const circuits4 = document.getElementById("circuitsGroup4");
 
 
         // obnov počítadlo
@@ -964,6 +975,7 @@ class UserInterface {
             circuits1.style.display = "none";
             circuits2.style.display = "none";
             circuits3.style.display = "none";
+            circuits4.style.display = "none";
 
             if (this.circuitsCounter == 0) {
 
@@ -976,6 +988,10 @@ class UserInterface {
             } else if (this.circuitsCounter == 2) {
 
                 circuits3.style.display = "block"
+
+            } else if(this.circuitsCounter == 3) {
+
+                circuits4.style.display = "block"
             }
 
 

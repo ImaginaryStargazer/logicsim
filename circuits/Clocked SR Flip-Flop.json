@@ -1,0 +1,269 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 500,
+			"posY": 160,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 3,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 500,
+			"posY": 300,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 8,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Q'",
+			"posX": 760,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 9,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Q",
+			"posX": 760,
+			"posY": 180,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 10,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "set",
+			"posX": 40,
+			"posY": 140,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 11,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 260,
+			"posY": 140,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 14,
+			"id": "NAND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 260,
+			"posY": 320,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 17,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "reset",
+			"posX": 40,
+			"posY": 320,
+			"value": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 18,
+			"value": 0,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": "1000",
+			"lastTick": 1704324282557,
+			"posX": 40,
+			"posY": 400,
+			"rotation": 0
+		}
+	],
+	"wires": [
+		{
+			"startID": 2,
+			"endID": 3,
+			"endX": 437,
+			"endY": 321,
+			"points": [
+				620,
+				240,
+				400,
+				300,
+				400,
+				320
+			],
+			"isDrawing": false,
+			"prevNodeId": 2
+		},
+		{
+			"startID": 5,
+			"endID": 1,
+			"endX": 436,
+			"endY": 220,
+			"points": [
+				620,
+				300,
+				400,
+				240,
+				400,
+				220
+			],
+			"isDrawing": false,
+			"prevNodeId": 5
+		},
+		{
+			"startID": 5,
+			"endID": 8,
+			"endX": 618,
+			"endY": 337,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 8
+		},
+		{
+			"startID": 2,
+			"endID": 9,
+			"endX": 618,
+			"endY": 199,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 9
+		},
+		{
+			"startID": 16,
+			"endID": 4,
+			"endX": 446,
+			"endY": 359,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 16
+		},
+		{
+			"startID": 13,
+			"endID": 0,
+			"endX": 374,
+			"endY": 182,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 0
+		},
+		{
+			"startID": 10,
+			"endID": 11,
+			"endX": 198,
+			"endY": 157,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 10
+		},
+		{
+			"startID": 17,
+			"endID": 14,
+			"endX": 194,
+			"endY": 343,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 17
+		},
+		{
+			"startID": 18,
+			"endID": 15,
+			"endX": 198,
+			"endY": 380,
+			"points": [
+				140,
+				380
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 18,
+			"endID": 12,
+			"endX": 195,
+			"endY": 197,
+			"points": [
+				140,
+				200
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		}
+	],
+	"oscilloscope": [
+		{
+			"value": 0,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 10
+		},
+		{
+			"value": 0,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 17
+		},
+		{
+			"value": 0,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 18
+		}
+	],
+	"editor": {
+		"x": 121,
+		"y": 2,
+		"scaleX": 1,
+		"scaleY": 1
+	}
+}

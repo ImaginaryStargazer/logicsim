@@ -59,6 +59,7 @@ export class Node {
         delete nodeList[this.id];
     }
 
+    
 
     setID(newID) {
         
@@ -71,6 +72,7 @@ export class Node {
         }
     }
 
+
     static setCurrentId(id) {
         currentId = id;
     }
@@ -78,6 +80,11 @@ export class Node {
 
     static setNewNodelist(newNodelist) {
         nodeList = newNodelist;
+    }
+
+
+    getBrother() {
+        return this.brotherNode;
     }
 
 

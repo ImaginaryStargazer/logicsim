@@ -8,9 +8,8 @@
 			"id": "NAND",
 			"editType": "gateEdit",
 			"numOfInputs": 2,
-			"posX": 780,
-			"posY": 240,
-			"rotation": 0
+			"posX": 600,
+			"posY": 320
 		},
 		{
 			"color": "white",
@@ -20,9 +19,8 @@
 			"id": "NAND",
 			"editType": "gateEdit",
 			"numOfInputs": 2,
-			"posX": 780,
-			"posY": 520,
-			"rotation": 0
+			"posX": 600,
+			"posY": 520
 		},
 		{
 			"color": "white",
@@ -32,9 +30,8 @@
 			"id": "NAND",
 			"editType": "gateEdit",
 			"numOfInputs": 2,
-			"posX": 1000,
-			"posY": 380,
-			"rotation": 0
+			"posX": 840,
+			"posY": 420
 		},
 		{
 			"color": "white",
@@ -44,22 +41,19 @@
 			"id": "NAND",
 			"editType": "gateEdit",
 			"numOfInputs": 2,
-			"posX": 560,
-			"posY": 380,
-			"rotation": 0
+			"posX": 360,
+			"posY": 420
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
 			"startNodeId": 12,
-			"id": "LSW",
+			"id": "OUT",
 			"editType": "labelEdit",
-			"label": "",
-			"posX": 360,
-			"posY": 560,
-			"rotation": 0,
-			"value": 0
+			"label": "Y0",
+			"posX": 1100,
+			"posY": 440
 		},
 		{
 			"color": "white",
@@ -68,86 +62,121 @@
 			"startNodeId": 13,
 			"id": "LSW",
 			"editType": "labelEdit",
-			"label": "",
-			"posX": 360,
-			"posY": 240,
-			"rotation": 0,
-			"value": 0
+			"label": "I0",
+			"posX": 140,
+			"posY": 320,
+			"value": 1
 		},
 		{
 			"color": "white",
 			"strokeWidth": 2,
 			"useIECgates": false,
 			"startNodeId": 14,
-			"id": "OUT",
+			"id": "LSW",
 			"editType": "labelEdit",
-			"label": "",
-			"posX": 1320,
-			"posY": 400,
-			"rotation": 0
+			"label": "I1",
+			"value": 0,
+			"posX": 140,
+			"posY": 560
 		}
 	],
 	"wires": [
 		{
-			"startID": 11,
-			"endID": 1,
+			"startID": 8,
+			"endID": 12,
 			"endX": 0,
-			"endY": 0
-		},
-		{
-			"startID": 11,
-			"endID": 3,
-			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
 		},
 		{
 			"startID": 5,
 			"endID": 7,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [
+				720,
+				480
+			],
+			"isDrawing": false
 		},
 		{
 			"startID": 2,
 			"endID": 6,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [
+				720,
+				440
+			],
+			"isDrawing": false
 		},
 		{
-			"startID": 12,
-			"endID": 4,
+			"startID": 11,
+			"endID": 1,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [
+				480,
+				380
+			],
+			"isDrawing": false
 		},
 		{
-			"startID": 12,
-			"endID": 10,
+			"startID": 11,
+			"endID": 3,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [
+				480,
+				540
+			],
+			"isDrawing": false
 		},
 		{
 			"startID": 13,
 			"endID": 0,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 14,
+			"endID": 4,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
 		},
 		{
 			"startID": 13,
 			"endID": 9,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [
+				240,
+				440
+			],
+			"isDrawing": false
 		},
 		{
-			"startID": 8,
-			"endID": 14,
+			"startID": 14,
+			"endID": 10,
 			"endX": 0,
-			"endY": 0
+			"endY": 0,
+			"points": [
+				240,
+				480
+			],
+			"isDrawing": false
 		}
 	],
 	"oscilloscope": [],
 	"editor": {
-		"x": -169.96056608357617,
-		"y": -93.61452758881325,
-		"scaleX": 0.863837598531476,
-		"scaleY": 0.863837598531476
+		"x": -28.75328798185933,
+		"y": -139.2266439909297,
+		"scaleX": 0.9070294784580498,
+		"scaleY": 0.9070294784580498
 	}
 }

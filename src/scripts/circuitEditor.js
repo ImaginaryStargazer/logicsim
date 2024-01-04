@@ -133,11 +133,11 @@ export class circuitEditor {
         this.timer = new Timer(200, 100, 0, 0, this.time, this.timestep);
         this.graph = new Oscilloscope(this.mainEditor.width() - 200, 100, 200, 0);
         this.simRunning = false;
-        this.maxScale = 0.25;
+        this.maxScale = 0.15;
         this.minScale = 4;
         this.isIEC = useIECgates;
         this.mouseSelectedComponent = null;
-
+        this.toggleNodes = false;
 
         this.wireMng = wireMng;
     
@@ -203,6 +203,9 @@ export class circuitEditor {
         cancelAnimationFrame(this.simulation);
         this.enableEditing();
         backToEdit();
+
+        if(this.toggleNodes)
+            this.showNodes();
     }
 
 
@@ -212,6 +215,9 @@ export class circuitEditor {
         this.simRunning = true;
         startSimulation.innerHTML = icons.stopSimulation;
         this.simulate();
+        
+        if(this.toggleNodes)
+            this.hideNodes();
     }
 
 
@@ -390,8 +396,8 @@ export class circuitEditor {
         
                 if(this.simRunning) return;
 
-                let nodeObj = event.target.getAttr("Node"); 
 
+                let nodeObj = event.target.getAttr("Node"); 
 
                 if(nodeObj.inputState == INPUT_STATE.FREE || nodeObj.isOutput) {
 
@@ -658,6 +664,24 @@ export class circuitEditor {
         return this.mainEditor.find(".component");
     }
 
+
+    showNodes() {
+
+
+        this.mainEditor.find(".node").forEach(node => {
+            node.visible(true);
+        });
+  
+    }
+
+    hideNodes() {
+
+
+        this.mainEditor.find(".node").forEach(node => {
+            node.visible(false);
+        });
+  
+    }
 
     enableEditing() {
 

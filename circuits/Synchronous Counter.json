@@ -1,0 +1,387 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "DLD",
+			"editType": "decimalDisplayEdit",
+			"ledColor": "red",
+			"bits": 4,
+			"posX": 820,
+			"posY": 120,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 4,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 500,
+			"posY": 260,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 32,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": "3",
+			"posX": 700,
+			"posY": 260,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 10,
+			"id": "JKFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 160,
+			"posY": 400,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 15,
+			"id": "JKFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 320,
+			"posY": 400,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 20,
+			"id": "JKFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 480,
+			"posY": 400,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 25,
+			"id": "JKFF",
+			"editType": "noEdit",
+			"lastClock": 1,
+			"posX": 660,
+			"posY": 400,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 31,
+			"value": 1,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": 500,
+			"lastTick": 1704326687319,
+			"posX": -80,
+			"posY": 500,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 36,
+			"value": true,
+			"id": "HI",
+			"editType": "noEdit",
+			"posX": -80,
+			"posY": 400
+		}
+	],
+	"wires": [
+		{
+			"startID": 13,
+			"endID": 15,
+			"endX": 297.0070473171872,
+			"endY": 420.8763632390626,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 13
+		},
+		{
+			"startID": 28,
+			"endID": 0,
+			"endX": 768.3856889070312,
+			"endY": 133.82787701718743,
+			"points": [
+				740,
+				140
+			],
+			"isDrawing": false,
+			"prevNodeId": 28
+		},
+		{
+			"startID": 6,
+			"endID": 20,
+			"endX": 457.4164954999998,
+			"endY": 418.0621623937501,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 6
+		},
+		{
+			"startID": 6,
+			"endID": 22,
+			"endX": 456.0093950773435,
+			"endY": 458.8680746507814,
+			"points": [
+				440,
+				380,
+				440,
+				460
+			],
+			"isDrawing": false,
+			"prevNodeId": 6
+		},
+		{
+			"startID": 35,
+			"endID": 25,
+			"endX": 641.7466508679686,
+			"endY": 413.8408611257813,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 35
+		},
+		{
+			"startID": 35,
+			"endID": 27,
+			"endX": 640.3395504453124,
+			"endY": 456.0538738054689,
+			"points": [
+				620,
+				380,
+				620,
+				460
+			],
+			"isDrawing": false,
+			"prevNodeId": 35
+		},
+		{
+			"startID": 23,
+			"endID": 1,
+			"endX": 804.9702998960936,
+			"endY": 157.7485842023437,
+			"points": [
+				560,
+				160
+			],
+			"isDrawing": false,
+			"prevNodeId": 23
+		},
+		{
+			"startID": 23,
+			"endID": 34,
+			"endX": 602.3478390335936,
+			"endY": 195.7402956140625,
+			"points": [
+				560,
+				160,
+				600,
+				160
+			],
+			"isDrawing": false,
+			"prevNodeId": 23
+		},
+		{
+			"startID": 18,
+			"endID": 2,
+			"endX": 806.3774003187498,
+			"endY": 176.04088969687498,
+			"points": [
+				400,
+				180
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 18,
+			"endID": 5,
+			"endX": 439.1241900054685,
+			"endY": 198.55449645937497,
+			"points": [
+				400,
+				180,
+				440,
+				180
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 18,
+			"endID": 33,
+			"endX": 638.932450022656,
+			"endY": 192.92609476874995,
+			"points": [
+				400,
+				180,
+				640,
+				180
+			],
+			"isDrawing": false,
+			"prevNodeId": 18
+		},
+		{
+			"startID": 13,
+			"endID": 3,
+			"endX": 802.1560990507812,
+			"endY": 198.55449645937497,
+			"points": [
+				240,
+				200
+			],
+			"isDrawing": false,
+			"prevNodeId": 13
+		},
+		{
+			"startID": 13,
+			"endID": 4,
+			"endX": 486.9656043757811,
+			"endY": 197.14739603671873,
+			"points": [
+				240,
+				200
+			],
+			"isDrawing": false,
+			"prevNodeId": 13
+		},
+		{
+			"startID": 13,
+			"endID": 32,
+			"endX": 674.1099605890622,
+			"endY": 197.14739603671873,
+			"points": [
+				240,
+				200
+			],
+			"isDrawing": false,
+			"prevNodeId": 13
+		},
+		{
+			"startID": 31,
+			"endID": 11,
+			"endX": 138.00469955703085,
+			"endY": 437.7615683109376,
+			"points": [
+				140,
+				520
+			],
+			"isDrawing": false,
+			"prevNodeId": 31
+		},
+		{
+			"startID": 31,
+			"endID": 16,
+			"endX": 298.4141477398435,
+			"endY": 434.9473674656251,
+			"points": [
+				300,
+				520
+			],
+			"isDrawing": false,
+			"prevNodeId": 31
+		},
+		{
+			"startID": 31,
+			"endID": 21,
+			"endX": 453.19519423203104,
+			"endY": 434.9473674656251,
+			"points": [
+				460,
+				520
+			],
+			"isDrawing": false,
+			"prevNodeId": 31
+		},
+		{
+			"startID": 13,
+			"endID": 17,
+			"endX": 298.4141477398435,
+			"endY": 458.8680746507814,
+			"points": [
+				260,
+				420,
+				260,
+				460
+			],
+			"isDrawing": false,
+			"prevNodeId": 13
+		},
+		{
+			"startID": 31,
+			"endID": 26,
+			"endX": 638.932450022656,
+			"endY": 440.5757691562501,
+			"points": [
+				640,
+				520
+			],
+			"isDrawing": false,
+			"prevNodeId": 31
+		},
+		{
+			"startID": 36,
+			"endID": 10,
+			"endX": 136.46678027421865,
+			"endY": 415.4106874476563,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 36
+		},
+		{
+			"startID": 36,
+			"endID": 12,
+			"endX": 146.67703277421867,
+			"endY": 461.3568236976563,
+			"points": [
+				20,
+				460
+			],
+			"isDrawing": false,
+			"prevNodeId": 36
+		}
+	],
+	"oscilloscope": [
+		{
+			"value": 1,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 31
+		}
+	],
+	"editor": {
+		"x": 249.07470680144797,
+		"y": 17.514856554110764,
+		"scaleX": 0.7835261664684587,
+		"scaleY": 0.7835261664684587
+	}
+}

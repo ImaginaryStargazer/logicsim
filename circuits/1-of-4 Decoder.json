@@ -1,0 +1,291 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 680,
+			"posY": 140,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 3,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 680,
+			"posY": 240,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 6,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 680,
+			"posY": 420,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 9,
+			"id": "AND",
+			"editType": "gateEdit",
+			"numOfInputs": 2,
+			"posX": 680,
+			"posY": 0,
+			"rotation": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 12,
+			"id": "NOT",
+			"editType": "noEdit",
+			"posX": 220,
+			"posY": 120,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 14,
+			"id": "NOT",
+			"editType": "noEdit",
+			"posX": 220,
+			"posY": 360,
+			"rotation": 90
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 16,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "I0",
+			"posX": -80,
+			"posY": 0,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 17,
+			"id": "LSW",
+			"editType": "labelEdit",
+			"label": "I1",
+			"posX": -80,
+			"posY": 280,
+			"value": 0
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 18,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Y0",
+			"posX": 980,
+			"posY": 20
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 19,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Y1",
+			"posX": 980,
+			"posY": 160
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 20,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Y2",
+			"posX": 980,
+			"posY": 260
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 21,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "Y3",
+			"posX": 980,
+			"posY": 440
+		}
+	],
+	"wires": [
+		{
+			"startID": 17,
+			"endID": 14,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 16,
+			"endID": 9,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 16,
+			"endID": 0,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				480,
+				20,
+				480,
+				160
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 15,
+			"endID": 7,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 15,
+			"endID": 1,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				400,
+				480,
+				400,
+				200
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 16,
+			"endID": 12,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				180,
+				20
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 17,
+			"endID": 10,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				540,
+				300,
+				540,
+				60
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 17,
+			"endID": 4,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 13,
+			"endID": 3,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				180,
+				260
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 13,
+			"endID": 6,
+			"endX": 0,
+			"endY": 0,
+			"points": [
+				180,
+				260,
+				400,
+				260,
+				400,
+				440
+			],
+			"isDrawing": false
+		},
+		{
+			"startID": 8,
+			"endID": 21,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 5,
+			"endID": 20,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 2,
+			"endID": 19,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		},
+		{
+			"startID": 11,
+			"endID": 18,
+			"endX": 0,
+			"endY": 0,
+			"points": [],
+			"isDrawing": false
+		}
+	],
+	"oscilloscope": [],
+	"editor": {
+		"x": 232.23588921662883,
+		"y": 131.67117955580733,
+		"scaleX": 0.6139132535407591,
+		"scaleY": 0.6139132535407591
+	}
+}

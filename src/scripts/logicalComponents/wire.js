@@ -34,6 +34,10 @@ export class Wire {
 
         this.endX = 0;
         this.endY = 0;
+
+        this.points = [];
+        this.isDrawing = false;
+        this.prevNodeId = undefined;
     }
 
 
@@ -58,26 +62,52 @@ export class Wire {
             
 
             if(!this.startNode.isAlive) return false;
+            
+            this.isDrawing = true;
 
             this.updateEnd(this.calculatePositionToScale(this.mainEditor.getPointerPosition().x).xAxis, this.calculatePositionToScale(this.mainEditor.getPointerPosition().y).yAxis);
-            
+
+            window.document.oncontextmenu = () => {
+                if(this.isDrawing && this.startNode.isOutput) // zatial iba pri vystupoch je mozne
+                    this.points.push(Math.round(this.endX / 20) * 20, Math.round(this.endY / 20) * 20);
+
+            }
             
             this.wire.setAttrs({
-                points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY, this.endX, this.endY]
+                points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY, ...this.points, this.endX, this.endY]
             })
             
-
+            this.prevNodeId = this.startNode.id;
 
         } else if(this.startNode.isAlive && this.endNode.isAlive) {
 
 
             this.wire.setAttrs({
-                bezier: true,
-                points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY,
-                    this.startNode.getPosition().posX + 20 , this.startNode.getPosition().posY,
-                    this.endNode.getPosition().posX - 20, this.endNode.getPosition().posY,
-                    this.endNode.getPosition().posX, this.endNode.getPosition().posY]
+                bezier: false,
+                points: [this.startNode.getPosition().posX, this.startNode.getPosition().posY, ...this.points, this.endNode.getPosition().posX, this.endNode.getPosition().posY],
             })
+
+            /*
+            if(this.prevNodeId == this.startNode.id) {
+
+
+                console.log(1)
+            } 
+            
+            /*
+            else {
+
+                this.wire.setAttrs({
+                    bezier: false,
+                    points: [this.endNode.getPosition().posX, this.endNode.getPosition().posY, ...this.points, this.startNode.getPosition().posX, this.startNode.getPosition().posY],
+                })
+
+                console.log(2)
+                
+            }
+            */
+
+            this.isDrawing = false;
         
         } else {
 
@@ -240,7 +270,8 @@ export class WireMng {
 
             let index = this.wire.length - 1;
 
-            if (node != this.wire[index].getStartNode() && (this.wire[index].getStartNode().isOutput != node.isOutput)) {
+            if (node != this.wire[index].getStartNode() && (this.wire[index].getStartNode().isOutput != node.isOutput ||
+            node.getBrother() == this.wire[index].getStartNode())) {
 
                 this.wire[index].setEndNode(node);
 

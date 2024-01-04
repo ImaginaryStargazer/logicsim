@@ -1,0 +1,107 @@
+{
+	"components": [
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 0,
+			"id": "DFF",
+			"editType": "noEdit",
+			"lastClock": 0,
+			"posX": 500,
+			"posY": 240
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 4,
+			"id": "OUT",
+			"editType": "labelEdit",
+			"label": "",
+			"posX": 720,
+			"posY": 240
+		},
+		{
+			"color": "white",
+			"strokeWidth": 2,
+			"useIECgates": false,
+			"startNodeId": 5,
+			"value": 0,
+			"id": "CLK",
+			"editType": "clockGenEdit",
+			"T": "850",
+			"lastTick": 1704328504794,
+			"posX": 320,
+			"posY": 280
+		}
+	],
+	"wires": [
+		{
+			"startID": 3,
+			"endID": 0,
+			"endX": 475.35728536646917,
+			"endY": 257.7146815638205,
+			"points": [
+				620,
+				300,
+				620,
+				220,
+				460,
+				220,
+				460,
+				260
+			],
+			"isDrawing": false,
+			"prevNodeId": 3
+		},
+		{
+			"startID": 2,
+			"endID": 4,
+			"endX": 684.0877915703272,
+			"endY": 252.80337553549438,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 2
+		},
+		{
+			"startID": 5,
+			"endID": 1,
+			"endX": 473.5155456058469,
+			"endY": 299.4607828045921,
+			"points": [],
+			"isDrawing": false,
+			"prevNodeId": 5
+		}
+	],
+	"oscilloscope": [
+		{
+			"value": 0,
+			"posX": 100,
+			"posY": 20,
+			"isOutput": true,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 5
+		},
+		{
+			"value": true,
+			"posX": -60,
+			"posY": 20,
+			"isOutput": false,
+			"amplitude": 10,
+			"color": "white",
+			"isAlive": true,
+			"inputState": 1,
+			"id": 4
+		}
+	],
+	"editor": {
+		"x": -316.3069279329528,
+		"y": -182.79006004096664,
+		"scaleX": 1.628894626777442,
+		"scaleY": 1.628894626777442
+	}
+}

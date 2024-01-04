@@ -211,10 +211,11 @@ export class Component {
 
     validateInputFields() {
 
-        var pattern = /^(?:[1-9]\d*|0)?(?:\.\d+)?$/;
+        // môžeme zadat vsetky cisla od 0
+        let pattern = /^(?:[1-9]\d*|0)?(?:\.\d+)?$/;
 
     
-        for (var i = 0; i < arguments.length; i++) {
+        for (let i = 0; i < arguments.length; i++) {
             if (!pattern.test(arguments[i])) {
                 arguments[i] = "";
                 openAlert("error", "WrongInput");

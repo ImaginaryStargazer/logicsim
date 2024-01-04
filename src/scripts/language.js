@@ -150,6 +150,7 @@ export var lang = {
         DefinitionOutputs: "Výstupy:",
         SetLabel: "Označenie:",
         RemoveLabel: "Odstrániť Označenie:",
+        showNodes: "Prepínať svorky počas simulácie",
 
         // Obvody
 
@@ -170,8 +171,12 @@ export var lang = {
         SampleCir14: "4-Bit Počítadlo",
         SampleCir15: "8-Bit Počítadlo",
         SampleCir16: "3-Bit Grayov Kód",
-        SampleCir17: "Obvod17",
-        SampleCir18: "Obvod18",
+        SampleCir17: "Časovaný SR Preklápací Obvod",
+        SampleCir18: "D Preklápací Obvod spustený na hrane",
+        SampleCir19: "Master-Slave Preklápací Obvod",
+        SampleCir20: "Synchrónne Počítadlo",
+        SampleCir21: "2-Bit Komparátor",
+        SampleCir22: "74181-ALU",
         
         // Oznamy a texty používateľom
 
@@ -388,6 +393,7 @@ export var lang = {
         DefinitionOutputs: "Outputs:",
         SetLabel: "Label:",
         RemoveLabel: "Remove Label:",
+        showNodes: "Toggle nodes during simulation",
 
         // Obvody
 
@@ -408,8 +414,12 @@ export var lang = {
         SampleCir14: "4-Bit Counter",
         SampleCir15: "8-Bit Counter",
         SampleCir16: "3-Bit Gray Code",
-        SampleCir17: "Obvod17",
-        SampleCir18: "Obvod18",
+        SampleCir17: "Clocked SR Flip-Flop",
+        SampleCir18: "Edge Triggered D Flip-Flop",
+        SampleCir19: "Master-Slave Flip-Flop",
+        SampleCir20: "Synchronous Counter",
+        SampleCir21: "2-Bit Comparator",
+        SampleCir22: "74181-ALU",
         
         // Oznamy a texty používateľom
 
