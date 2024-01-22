@@ -616,7 +616,7 @@ class UserInterface {
                 ${this.createModalHeader(lang[this.language].About)}
                 <div class="aboutContainer">
                     <p class="projectName">${lang[this.language].projectName}: LogicSim</p>
-                    <p class="author">${lang[this.language].author}: jakubito11</p>
+                    <p class="author">${lang[this.language].author}: Jakub Šauša</p>
                     <p class="aboutProject">${lang[this.language].About}: ${lang[this.language].aboutText}</p>
                     <h4 class="mainFunctions">${lang[this.language].mainFunctions}</h4>
                     <p>${lang[this.language].circuitDesign}: ${lang[this.language].circuitDesignText}</p>
