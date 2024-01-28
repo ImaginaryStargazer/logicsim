@@ -55,7 +55,7 @@ export class FullAdder extends Component {
 
     }
 
-    draw() {
+    execute() {
 
         // S = A ⊕ B ⊕ Cin
         // C = A.B + B.Cin + A.Cin

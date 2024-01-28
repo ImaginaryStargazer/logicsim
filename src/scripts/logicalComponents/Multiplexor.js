@@ -80,7 +80,7 @@ export class Multiplexor extends Component {
     }
 
 
-    draw() {
+    execute() {
         
         let selectedValue = 0;
 

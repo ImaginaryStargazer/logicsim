@@ -744,10 +744,7 @@ class UserInterface {
 
 
     createComponent(componentName, image, part) {
-
         return `<li data-part=${part} class="component">${componentName}<img alt="Component" class="componentImage" src=${image}></li>`;
-
-
     }
 
     createTool(componentName, icon, tool, style) {

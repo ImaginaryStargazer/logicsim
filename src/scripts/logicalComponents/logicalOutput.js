@@ -72,7 +72,7 @@ export class LogicalOutput extends Component {
     }
 
 
-    draw() {
+    execute() {
         if(this.nodes[0].getValue())
             this.textValue.text("1")
         else 

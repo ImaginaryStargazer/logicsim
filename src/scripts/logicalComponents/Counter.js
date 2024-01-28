@@ -74,7 +74,7 @@ export class Counter extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         let i;
         let value = 0;

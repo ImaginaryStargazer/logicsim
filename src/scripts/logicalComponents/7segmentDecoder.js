@@ -95,7 +95,7 @@ export class SevenSegmentDecoder extends Component{
     }
 
 
-    draw() {
+    execute() {
 
         let input = 0;
         if(this.nodes[7].getValue()) input += 1;

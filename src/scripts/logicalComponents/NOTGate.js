@@ -88,7 +88,7 @@ export class NOTGate extends Component {
 
 
 
-    draw() {
+    execute() {
         this.nodes[1].setValue(this.calculateValue());
     }
 

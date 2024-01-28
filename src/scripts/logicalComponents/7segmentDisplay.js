@@ -107,7 +107,7 @@ export class SevenSegmentDisplay extends Component{
 
     }
 
-    draw() {
+    execute() {
 
         for(let i = 0; i < this.nodes.length; i++) {
             

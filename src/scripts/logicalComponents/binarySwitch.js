@@ -52,7 +52,7 @@ export class BinarySwitch extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         if(this.lastClock) {
 

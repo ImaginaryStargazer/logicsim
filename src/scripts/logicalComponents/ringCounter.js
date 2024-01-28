@@ -78,7 +78,7 @@ export class RingCounter extends Component {
     }
 
 
-    draw() {
+    execute() {
         let i;
 
         let running = true;

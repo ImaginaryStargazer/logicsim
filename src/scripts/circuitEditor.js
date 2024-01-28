@@ -51,8 +51,7 @@ export let useIECgates = false;
 
 export const componentsMap =  {
 
-    "NOT": NOTGate,
-    "AND": ANDGate,
+    "NOT": NOTGate, "AND": ANDGate,
     "OR": ORGate,
     "NOR": NORGate,
     "NAND": NANDGate,
@@ -125,7 +124,7 @@ export class circuitEditor {
         this.selectedComponents = [];
         this.components = [];
         this.componentColor = "white";
-        this.highlightColor = "yellow"; // #fcb103
+        this.highlightColor = "yellow";
         this.newComponent = null;
         this.scaleBy = 1.05;
         this.isComponentSelected = false;
@@ -137,7 +136,6 @@ export class circuitEditor {
         this.isIEC = useIECgates;
         this.mouseSelectedComponent = null;
         this.toggleNodes = false;
-
         this.wireMng = wireMng;
     
         this.transformer = new Konva.Transformer({
@@ -164,34 +162,30 @@ export class circuitEditor {
             this.timer.time += this.timestep;
             let fixed = this.timer.time.toFixed(6);
             this.timer.clock.text(`t = ${fixed} s`);
-    
+
+        
             let iter = 15;
-    
+        
             for (let i = 0; i < iter; i++) {
-
-
+    
                 for (const component of this.components)
-                    component.draw();
+                    component.execute();
                 
-
-
                 this.wireMng.update();
-
+    
             }
-
-            
+    
             nodeList.forEach((node) => {
                 node.fillValue();
             });
-            
-
+                
             if(this.graph.oscilloscope.visible())
                 this.graph.draw();
-    
+
+
+            this.simulation = requestAnimationFrame(() => this.simulate());
 
         }
-
-        this.simulation = requestAnimationFrame(() => this.simulate());
     }
     
 
@@ -220,6 +214,10 @@ export class circuitEditor {
         
         if(this.toggleNodes)
             this.hideNodes();
+    }
+
+    setSimSpeed(speed) {
+        simSpeed = speed;
     }
 
 
@@ -296,21 +294,19 @@ export class circuitEditor {
 
         
         this.mainEditor.on("mouseenter", () => {
-
-
+            
             if (this.mouseSelectedComponent != null) {
-
                 this.enableEditing();
-                
                 let newPart = this.getClickedComponent();
+<<<<<<< Updated upstream
+=======
+                this.mainEditor.container().style.cursor = "default";
+>>>>>>> Stashed changes
                 this.newComponent = new newPart(0, 0, this.componentColor);
                 this.newComponent.render();
                 this.components.push(this.newComponent);
                 this.highlightComponent(this.newComponent.component)
                 this.snapToGrid(this.newComponent.component);
-
-                //this.convertToIECorANSI();
-        
             } 
         });
 

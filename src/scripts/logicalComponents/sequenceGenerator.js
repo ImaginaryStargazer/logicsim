@@ -94,7 +94,7 @@ export class SequenceGenerator extends Component {
 		}
     }
 
-    draw() {
+    execute() {
 
         if(this.nodes[1].value) {
             this.bitPosition = 0;

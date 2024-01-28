@@ -111,7 +111,7 @@ export class ANDGate extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         this.nodes[this.numOfInputs].setValue(this.calculateValue());
     }

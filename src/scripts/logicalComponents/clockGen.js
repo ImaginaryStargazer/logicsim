@@ -5,14 +5,17 @@ export class ClockGen extends Component{
     constructor(x, y, color, rotation) {
         super(x, y, color, rotation);
 
-        
+        setInterval(() => {
+            console.log(this)
+        },1500)
+
         this.value = false;
 
         this.id = "CLK";
         this.editType = "clockGenEdit";
 
         // perioda a duty cycle 
-        this.T = 500;
+        this.T = 500 * parseInt(simSpeed, 10);
         this.lastTick = new Date().getTime();
     }
 
@@ -22,8 +25,9 @@ export class ClockGen extends Component{
 
         if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
-        this.T = inputValue;
+        this.T = parseInt(inputValue, 10) * parseInt(simSpeed, 10);
     }
+    
 
     setupNodes() {
 
@@ -60,12 +64,12 @@ export class ClockGen extends Component{
         this.layer.add(this.component)
     }
 
-    draw() {
+    execute() {
         const currTick = new Date().getTime();
 
         const period = this.value ? (this.T * 50) / 100 : (this.T * 50) / 100;
         
-        if (currTick - this.lastTick > period) {
+        if (currTick - this.lastTick > (period)) {
             this.toggle();
             this.lastTick = currTick;
         }

@@ -78,7 +78,7 @@ export class Latch extends Component {
     }
 
 
-    draw() {
+    execute() {
         
         if (this.nodes[this.bits].getValue() && !this.lastLoad)
             for (let i = 0; i != this.bits; i++)

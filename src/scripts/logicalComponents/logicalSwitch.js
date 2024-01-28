@@ -78,7 +78,7 @@ export class LogicalSwitch extends Component {
         this.layer.add(this.component);
     }
 
-    draw() {
+    execute() {
 
     }
 

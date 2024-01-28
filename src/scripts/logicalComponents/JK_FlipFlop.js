@@ -62,7 +62,7 @@ export class JK_FlipFlop extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         let transition;
 

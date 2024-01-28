@@ -49,7 +49,7 @@ export class LowInput extends Component{
         this.layer.add(this.component);
     }
 
-    draw() {
+    execute() {
         
     }
 

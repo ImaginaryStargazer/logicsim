@@ -119,7 +119,7 @@ export class NANDGate extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         this.nodes[this.numOfInputs].setValue(this.calculateValue());
     }

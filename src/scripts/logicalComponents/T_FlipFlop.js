@@ -58,7 +58,7 @@ export class T_FlipFlop extends Component {
 
     }
 
-    draw() {
+    execute() {
 
         if(this.nodes[1].getValue() && !this.lastClock) {
             

@@ -232,6 +232,16 @@ document.getElementById("IEC").addEventListener("change", (e) => {
 
 });
 
+/* Zmena rýchlosti simulácie */
+
+/*
+var speedRange = document.getElementById("speedRange");
+
+speedRange.oninput = () => {
+    editor.setSimSpeed(speedRange.value);
+    console.log(simSpeed);
+}
+
 
 /* Zmena štvorcovej mriežky zapínanie a vypínanie */
 
@@ -299,7 +309,6 @@ document.querySelectorAll(".component").forEach((component) => {
 
     })
 
-    
 
 })
 
@@ -558,7 +567,9 @@ export class FileManager {
                     case "button":
                     case "digitalNumber":
                     case "wgroup":
-                    case "dotgroup": 
+                    case "dotgroup":
+                    case "endX":
+                    case "endY":
                         return undefined;
                 }
 

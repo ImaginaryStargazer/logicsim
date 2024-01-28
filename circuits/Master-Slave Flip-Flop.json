@@ -79,7 +79,7 @@
 			"value": 1,
 			"id": "CLK",
 			"editType": "clockGenEdit",
-			"T": "1000",
+			"T": 1000,
 			"lastTick": 1704324594049,
 			"posX": 100,
 			"posY": 420

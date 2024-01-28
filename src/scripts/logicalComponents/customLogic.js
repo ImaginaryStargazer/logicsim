@@ -154,7 +154,7 @@ export class CustomLogic extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         let input = 0;
 

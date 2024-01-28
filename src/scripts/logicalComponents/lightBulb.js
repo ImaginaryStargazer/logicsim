@@ -62,7 +62,7 @@ export class LightBulb extends Component {
         this.layer.add(this.component);
     }
 
-    draw() {
+    execute() {
         if(this.nodes[0].getValue()) {
             this.bulb.fill(this.ledColor)
         } else {

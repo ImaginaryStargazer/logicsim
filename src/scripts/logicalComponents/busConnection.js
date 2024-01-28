@@ -51,7 +51,7 @@ export class BusConnection extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         for(let i = 1; i <= this.nodeCount; i++)
             this.nodes[i].setValue(this.nodes[0].value);

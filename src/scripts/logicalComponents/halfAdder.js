@@ -53,7 +53,7 @@ export class HalfAdder extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         // S = A ⊕ B
         // C = A.B

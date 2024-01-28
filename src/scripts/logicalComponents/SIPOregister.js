@@ -71,7 +71,7 @@ export class SIPOregister extends Component {
     }
 
 
-    draw() {
+    execute() {
 
         if (this.nodes[1].value != this.lastClock) {
 			this.lastClock = this.nodes[1].value;

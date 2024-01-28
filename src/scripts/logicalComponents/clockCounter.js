@@ -69,7 +69,7 @@ export class ClockCounter extends Component{
     }
 
 
-    draw() {
+    execute() {
 
         let running = true;
 

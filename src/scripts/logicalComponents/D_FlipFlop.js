@@ -61,7 +61,7 @@ export class D_FlipFlop extends Component {
 
     }
 
-    draw() {
+    execute() {
 
         if(this.nodes[1].getValue() && !this.lastClock) {
             this.nodes[2].setValue(this.nodes[0].getValue())

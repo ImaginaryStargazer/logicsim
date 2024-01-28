@@ -108,7 +108,7 @@ export class ORGate extends Component {
 
 
 
-    draw() {
+    execute() {
 
         this.nodes[this.numOfInputs].setValue(this.calculateValue());
     }

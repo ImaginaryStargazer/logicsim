@@ -126,7 +126,7 @@ export class LEDarray extends Component {
 
     // pls dont judge me for this
 
-    draw() {
+    execute() {
         
         for (let i = 0; i < this.numOfRows; i++) {
             
@@ -159,12 +159,12 @@ export class LEDarray extends Component {
 
 
 class LED{
-    constructor(x, y) {
+    constructor(x, y, color) {
 
         this.LED = new Konva.Circle({
             x: x,
             y: y,
-            fill: "red",
+            fill: color,
             radius: 8,
             strokeEnabled: false,
             opacity: 0.1,

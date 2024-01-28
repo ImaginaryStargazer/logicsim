@@ -92,7 +92,7 @@ export class DecimalDisplay extends Component{
     }
 
 
-    draw() {
+    execute() {
         let input = 0;
 
         for (let i = 0; i != this.bits; i++)

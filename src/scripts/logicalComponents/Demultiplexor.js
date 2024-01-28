@@ -78,7 +78,7 @@ export class Demultiplexor extends Component {
     }
 
 
-    draw() {
+    execute() {
         
         let selectedValue = 0;
 

@@ -51,7 +51,7 @@ export class HighInput extends Component {
     }
     
 
-    draw() {
+    execute() {
         
     }
 
