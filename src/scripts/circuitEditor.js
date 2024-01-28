@@ -298,10 +298,7 @@ export class circuitEditor {
             if (this.mouseSelectedComponent != null) {
                 this.enableEditing();
                 let newPart = this.getClickedComponent();
-<<<<<<< Updated upstream
-=======
                 this.mainEditor.container().style.cursor = "default";
->>>>>>> Stashed changes
                 this.newComponent = new newPart(0, 0, this.componentColor);
                 this.newComponent.render();
                 this.components.push(this.newComponent);
