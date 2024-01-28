@@ -15,7 +15,7 @@ export class ClockGen extends Component{
         this.editType = "clockGenEdit";
 
         // perioda a duty cycle 
-        this.T = 500 * parseInt(simSpeed, 10);
+        this.T = 500;
         this.lastTick = new Date().getTime();
     }
 
