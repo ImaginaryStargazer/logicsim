@@ -5,10 +5,6 @@ export class ClockGen extends Component{
     constructor(x, y, color, rotation) {
         super(x, y, color, rotation);
 
-        setInterval(() => {
-            console.log(this)
-        },1500)
-
         this.value = false;
 
         this.id = "CLK";
@@ -25,7 +21,7 @@ export class ClockGen extends Component{
 
         if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
-        this.T = parseInt(inputValue, 10) * parseInt(simSpeed, 10);
+        this.T = parseInt(inputValue, 10);
     }
     
 
