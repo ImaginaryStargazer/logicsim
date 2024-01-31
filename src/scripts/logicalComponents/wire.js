@@ -315,8 +315,7 @@ export class WireMng {
 
             let index = this.wire.length - 1;
 
-            if (node != this.wire[index].getStartNode() && (this.wire[index].getStartNode().isOutput != node.isOutput ||
-            node.getBrother() == this.wire[index].getStartNode())) {
+            if (node != this.wire[index].getStartNode() && (this.wire[index].getStartNode().isOutput != node.isOutput)) {
 
                 this.wire[index].setEndNode(node);
 
