@@ -21,7 +21,7 @@ export class ClockGen extends Component{
 
         if (!this.validateInputFields(inputValue) || inputValue == "") return;
 
-        this.T = parseInt(inputValue, 10);
+        this.T = Number(inputValue);
     }
     
 
