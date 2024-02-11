@@ -159,20 +159,14 @@ export class circuitEditor {
         
         if (this.simRunning) {
 
-            this.timer.time += this.timestep;
-            let fixed = this.timer.time.toFixed(6);
-            this.timer.clock.text(`t = ${fixed} s`);
-
-        
+            this.updateTimer();
+            
             let iter = 15;
         
             for (let i = 0; i < iter; i++) {
-    
                 for (const component of this.components)
                     component.execute();
-                
                 this.wireMng.update();
-    
             }
     
             nodeList.forEach((node) => {
@@ -182,9 +176,7 @@ export class circuitEditor {
             if(this.graph.oscilloscope.visible())
                 this.graph.draw();
 
-
             this.simulation = requestAnimationFrame(() => this.simulate());
-
         }
     }
     
@@ -218,6 +210,12 @@ export class circuitEditor {
 
     setSimSpeed(speed) {
         simSpeed = speed;
+    }
+
+    updateTimer() {
+        this.timer.time += this.timestep;
+        let fixed = this.timer.time.toFixed(6);
+        this.timer.clock.text(`t = ${fixed} s`);
     }
 
 
