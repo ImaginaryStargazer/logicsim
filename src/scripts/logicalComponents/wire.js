@@ -156,7 +156,7 @@ export class Wire {
             x: posX,
             y: posY,
             radius: 4,
-            fill: "white",
+            fill: "grey",
             listening: false,
         })
 
