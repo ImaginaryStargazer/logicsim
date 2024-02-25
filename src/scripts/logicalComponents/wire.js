@@ -165,6 +165,16 @@ export class Wire {
     }
 
 
+    fillWires(color) {
+        this.dotgroup.children.forEach(dot => {
+            dot.fill(color);
+        })
+
+        this.wire.stroke(color);
+    }
+
+
+
     updateWiresBetweenNodes() {
 
         this.generateNodeValue();
@@ -172,12 +182,10 @@ export class Wire {
         // ak je hodnota pravdivá medzi dvoma svorkami
 
         if (this.startNode.getValue() && this.endNode.getValue()) {
-
-            this.wire.stroke("green")
-            
+            this.fillWires("green");
+                        
         } else {
-
-            this.wire.stroke("grey");
+            this.fillWires("grey");
         }
     }
 
